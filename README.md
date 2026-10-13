@@ -23,7 +23,7 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 3. En **Authentication > URL Configuration**:
    - *Site URL*: la URL donde va a vivir la app (por ahora `http://localhost:3000`; después la de Vercel).
    - *Redirect URLs*: agregá `http://localhost:3000/auth/confirm` y, más adelante, `https://TU-APP.vercel.app/auth/confirm`.
-4. En **Project Settings > API** copiá la *Project URL* y la clave *anon public*.
+4. En **Project Settings > API** copiá la *Project URL* y la clave *publishable* (o *anon public* en proyectos viejos).
 
 Para probar rápido sin confirmar emails: **Authentication > Sign In / Providers > Email**, desactivá *Confirm email*. Volvé a activarlo antes de dar acceso a clientes reales.
 
