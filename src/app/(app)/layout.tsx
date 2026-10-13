@@ -1,0 +1,29 @@
+import Link from "next/link";
+import { contexto } from "@/lib/contexto";
+import { Navegacion } from "@/components/Navegacion";
+import { Logo } from "@/components/Logo";
+import { salir } from "@/app/login/actions";
+
+export default async function AppLayout({ children }: { children: React.ReactNode }) {
+  const { supabase, orgIds, nombreUsuario, proveedorPropio } = await contexto();
+  const hoy = new Date(Date.now() - 3 * 3600e3).toISOString().slice(0, 10);
+  const [{ count: vencidos }, { count: abiertas }] = await Promise.all([
+    supabase.from("planes_preventivo").select("id", { count: "exact", head: true }).in("org_id", orgIds).lt("proxima", hoy),
+    supabase.from("ordenes").select("id", { count: "exact", head: true }).in("org_id", orgIds).neq("estado", "Cerrada"),
+  ]);
+  return (
+    <div className="app">
+      <nav className="side" aria-label="Módulos">
+        <Link href="/" className="brand"><Logo />Monitor</Link>
+        <Navegacion contadores={{ "/preventivos": vencidos ?? 0, "/ordenes": abiertas ?? 0 }} />
+        <div className="foot">
+          {proveedorPropio && <Link href="/clientes" className="btn sm">Clientes de {proveedorPropio.nombre}</Link>}
+          <span>{nombreUsuario}</span>
+          <form action={salir}><button className="btn sm">Salir</button></form>
+        </div>
+      </nav>
+      <main>{children}</main>
+      <nav className="mobnav" aria-label="Módulos"><Navegacion movil /></nav>
+    </div>
+  );
+}
