@@ -44,10 +44,10 @@ Abrí `http://localhost:3000`, creá una cuenta y elegí "Cargar equipos de ejem
 
 1. Subí el proyecto a un repositorio privado de GitHub.
 2. En [vercel.com](https://vercel.com), *Add New > Project*, importá el repositorio.
-3. En *Environment Variables* cargá las tres variables de `.env.example`. `NEXT_PUBLIC_SITE_URL` es la URL final de Vercel (por ejemplo `https://monitor-xxx.vercel.app`): es la que va dentro de los QR.
+3. En *Environment Variables* cargá `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` como tipo *Config*. La URL de los QR se toma sola del dominio de producción de Vercel.
 4. *Deploy*. Después actualizá *Site URL* y *Redirect URLs* en Supabase con esa misma URL.
 
-Importante: los QR impresos llevan la URL de `NEXT_PUBLIC_SITE_URL`. Definí el dominio definitivo antes de imprimir etiquetas para clientes.
+Importante: los QR impresos llevan el dominio de producción. Si después usás un dominio propio, cargalo en la variable `SITE_URL` antes de imprimir etiquetas para clientes.
 
 ## Cómo está organizada la seguridad
 
