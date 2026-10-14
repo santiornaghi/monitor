@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import QRCode from "qrcode";
-import { Logo } from "@/components/Logo";
+import { Cabecera, MenuCelular, Pie } from "@/components/sitio/Cabecera";
 import { MARCA, WHATSAPP } from "@/lib/marca";
 import { baseURL } from "@/lib/qr";
-import "./presentacion.css";
+import "../sitio.css";
 
 export const metadata: Metadata = {
   title: { absolute: `${MARCA}: gestión de equipos médicos para bioingeniería y servicio técnico` },
@@ -63,7 +63,7 @@ const PLANES = [
 
 const PREGUNTAS = [
   { q: "¿Hay que instalar algo?", a: "No. Funciona desde el navegador de la computadora y del celular. La cámara del celular lee el QR sin ninguna aplicación." },
-  { q: "¿Sirve para equipos de cualquier marca?", a: "Sí. Monitor no pertenece a ningún fabricante ni distribuidor de equipos, así que tu inventario no le sirve a nadie para venderte." },
+  { q: "¿Sirve para equipos de cualquier marca?", a: "Sí, para todas las marcas, no solo las que comercializamos. Tu inventario es tuyo: no usamos los datos que cargás para ofrecerte equipos." },
   { q: "¿Guarda datos de pacientes?", a: "No. Registra equipos, mantenimientos y a las personas que los gestionan. No pide ni guarda información de salud." },
   { q: "¿Cuánto tarda la puesta en marcha?", a: "Si ya tenés el inventario en una planilla, lo importás en minutos e imprimís las etiquetas el mismo día. Si preferís, la carga inicial y el pegado de etiquetas se hacen como servicio aparte." },
   { q: "¿Puedo llevarme mis datos?", a: "Sí. El inventario completo se exporta a Excel cuando quieras y cada hoja de vida se imprime como PDF." },
@@ -76,19 +76,11 @@ export default async function Presentacion() {
 
   return (
     <div className="lp">
-      <header className="lp-ancho lp-top">
-        <a className="lp-logo" href="/presentacion"><Logo size={28} />{MARCA}</a>
-        <nav className="lp-nav" aria-label="Secciones">
-          <a href="#como-funciona">Cómo funciona</a>
-          <a href="#funciones">Funciones</a>
-          <a href="#servicio-tecnico">Para servicio técnico</a>
-          <a href="#precios">Precios</a>
-        </nav>
-        <div className="lp-acceso">
-          <a className="lp-boton chico" href="/login">Ingresar</a>
-          <a className="lp-boton chico lleno" href="/login?modo=registro">Crear cuenta</a>
-        </div>
-      </header>
+      <Cabecera actual="monitor" acciones={<>
+        <a className="lp-boton chico" href="/login">Ingresar</a>
+        <a className="lp-boton chico lleno" href="/login?modo=registro">Crear cuenta</a>
+      </>} />
+      <MenuCelular />
 
       <main>
         <section className="lp-ancho lp-hero">
@@ -220,10 +212,7 @@ export default async function Presentacion() {
         </section>
       </main>
 
-      <footer className="lp-ancho lp-pie">
-        <span>{MARCA}. Gestión de equipos médicos para bioingeniería y servicio técnico.</span>
-        <a href="/login">Ingresar</a>
-      </footer>
+      <Pie />
     </div>
   );
 }

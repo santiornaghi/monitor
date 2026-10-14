@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { SUPABASE_URL, SUPABASE_KEY } from "./clave";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PUBLICAS = ["/login", "/auth", "/q/", "/invitacion/", "/api/cron/", "/presentacion"];
+const PUBLICAS = ["/login", "/auth", "/q/", "/invitacion/", "/api/cron/", "/presentacion", "/inicio", "/catalogo", "/turnero", "/contacto", "/img/"];
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -32,7 +32,7 @@ export async function updateSession(request: NextRequest) {
   // Quien llega sin sesión a la dirección principal ve la presentación comercial
   if (!data.user && path === "/") {
     const url = request.nextUrl.clone();
-    url.pathname = "/presentacion";
+    url.pathname = "/inicio";
     url.search = "";
     return NextResponse.redirect(url);
   }

@@ -1,5 +1,11 @@
-// Nombre comercial en un solo lugar, para cambiarlo cuando esté definido.
-export const MARCA = "Monitor";
+// Nombres comerciales en un solo lugar.
+export const MARCA = "Monitor"; // software de mantenimiento
+export const GRUPO = process.env.NEXT_PUBLIC_MARCA_GRUPO || "Ornaghi Tecnología Médica"; // marca paraguas (provisoria)
+export const TURNERO = "Turnero"; // nombre del producto de turnos (provisorio)
 
-// Contacto comercial opcional (cargar en Vercel). Si no está, la página ofrece crear una cuenta.
+// Contacto comercial (cargar en Vercel).
 export const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP ?? ""; // solo dígitos, con código de país: 5493584123456
+
+export function enlaceWhatsApp(texto: string) {
+  return WHATSAPP ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}` : "";
+}

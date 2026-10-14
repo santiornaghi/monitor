@@ -1,0 +1,2048 @@
+[
+ {
+  "codigo": "CM160",
+  "nombre": "CM 160",
+  "subcategoria": "CM Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cm-160",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cm-160.webp"
+ },
+ {
+  "codigo": "CM260",
+  "nombre": "CM 260",
+  "subcategoria": "CM Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cm-260",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cm260.webp"
+ },
+ {
+  "codigo": "CM260i",
+  "nombre": "CM 260i",
+  "subcategoria": "CM Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cm-260i",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cm260i.webp"
+ },
+ {
+  "codigo": "CM320i",
+  "nombre": "CM 320i",
+  "subcategoria": "CM Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cm-320i",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cm320i.webp"
+ },
+ {
+  "codigo": "CM250",
+  "nombre": "CM 250",
+  "subcategoria": "CM Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cm-250",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cm250.webp"
+ },
+ {
+  "codigo": "METROLAB1600DR",
+  "nombre": "Metrolab 1600 DR",
+  "subcategoria": "CM Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-metrolab-1600-dr",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-m1600.webp"
+ },
+ {
+  "codigo": "CB350i",
+  "nombre": "CB 350i",
+  "subcategoria": "CB Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cb-350i",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cb-300.webp"
+ },
+ {
+  "codigo": "CB400i",
+  "nombre": "CB 400i",
+  "subcategoria": "CB Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cb-400i",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cb-400.webp"
+ },
+ {
+  "codigo": "CMD600ix1",
+  "nombre": "CMD 600i x1",
+  "subcategoria": "CMD 600 Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cmd-600i-x1",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cmd-600i-x1.webp"
+ },
+ {
+  "codigo": "CMD800i",
+  "nombre": "CMD 800i",
+  "subcategoria": "CMD 800 Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cmd-800i",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cmd-800i.webp"
+ },
+ {
+  "codigo": "CMD800iX1",
+  "nombre": "CMD 800i X1",
+  "subcategoria": "CMD 800 Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cmd-800i-x1",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cmd-800i-x1.webp"
+ },
+ {
+  "codigo": "CMD800iX2",
+  "nombre": "CMD 800i X2",
+  "subcategoria": "CMD 800 Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cmd-800i-x2",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cmd-800i-x2.webp"
+ },
+ {
+  "codigo": "CMD1000ix1",
+  "nombre": "CMD 1000i x1",
+  "subcategoria": "CMD 1000 Series",
+  "categoria": "Química Clínica",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cmd-1000i-x1",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cmd-1000i-x1.webp"
+ },
+ {
+  "codigo": "CLIA900",
+  "nombre": "CLIA 900",
+  "subcategoria": "CLIA Series",
+  "categoria": "Quimioluminiscencia",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-clia-900",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-clia900.webp"
+ },
+ {
+  "codigo": "CLIA1000",
+  "nombre": "CLIA 1000",
+  "subcategoria": "CLIA Series",
+  "categoria": "Quimioluminiscencia",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-clia-1000",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-clia1000.webp"
+ },
+ {
+  "codigo": "CLIA2000",
+  "nombre": "CLIA 2000",
+  "subcategoria": "CLIA Series",
+  "categoria": "Quimioluminiscencia",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-clia-2000",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-clia2000.webp"
+ },
+ {
+  "codigo": "CLIA2600",
+  "nombre": "CLIA 2600",
+  "subcategoria": "CLIA Series",
+  "categoria": "Quimioluminiscencia",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-clia-2600",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-clia-2600.webp"
+ },
+ {
+  "codigo": "SL6000",
+  "nombre": "SL 6000",
+  "subcategoria": "SL Series",
+  "categoria": "Sistemas Integrados",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-sl-6000",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-sl6000.webp"
+ },
+ {
+  "codigo": "SL980",
+  "nombre": "SL 980",
+  "subcategoria": "SL Series",
+  "categoria": "Sistemas Integrados",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-sl-980",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-sl980.webp"
+ },
+ {
+  "codigo": "SL680",
+  "nombre": "SL 680",
+  "subcategoria": "SL Series",
+  "categoria": "Sistemas Integrados",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-sl-680",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-sl-680.webp"
+ },
+ {
+  "codigo": "COR50",
+  "nombre": "COR 50",
+  "subcategoria": "COR Series",
+  "categoria": "Hemostasia",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-cor-50",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-cor50.webp"
+ },
+ {
+  "codigo": "CoL1",
+  "nombre": "CoL 1",
+  "subcategoria": "CoL Series",
+  "categoria": "Hemostasia",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-col-1",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-col1.webp"
+ },
+ {
+  "codigo": "CoL2",
+  "nombre": "CoL 2",
+  "subcategoria": "CoL Series",
+  "categoria": "Hemostasia",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-col-2",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-col2.webp"
+ },
+ {
+  "codigo": "CoL4",
+  "nombre": "CoL 4",
+  "subcategoria": "CoL Series",
+  "categoria": "Hemostasia",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-col-4",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-col4.webp"
+ },
+ {
+  "codigo": "COUNTER31AL",
+  "nombre": "Counter 31 AL",
+  "subcategoria": "Counter Series",
+  "categoria": "Hematología",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-counter-31-al",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-counter-31al.webp"
+ },
+ {
+  "codigo": "COUNTERS30",
+  "nombre": "Counter S30",
+  "subcategoria": "Counter Series",
+  "categoria": "Hematología",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-counter-s30",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-counter-s30.webp"
+ },
+ {
+  "codigo": "COUNTERXS20",
+  "nombre": "Counter XS 20",
+  "subcategoria": "Counter Series",
+  "categoria": "Hematología",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-counter-xs-20",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-counter-xs20.webp"
+ },
+ {
+  "codigo": "COUNTER19",
+  "nombre": "Counter 19",
+  "subcategoria": "Counter Series",
+  "categoria": "Hematología",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-counter-19",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-counter-19.webp"
+ },
+ {
+  "codigo": "COUNTER29",
+  "nombre": "Counter 29",
+  "subcategoria": "Counter Series",
+  "categoria": "Hematología",
+  "marca": "Wiener Lab",
+  "slug": "wiener-lab-counter-29",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipowiener-counter-29.webp"
+ },
+ {
+  "codigo": "SN-1500H",
+  "nombre": "Bomba de Infusión Volumétrica SN-1500H",
+  "subcategoria": "Bombas Volumétricas",
+  "categoria": "Bombas de Infusión",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-bomba-de-infusion-volumetrica-sn-1500h",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-bomba-de-infusion-modelo-sn-1500h-sino-mdt-ltd.webp"
+ },
+ {
+  "codigo": "SN-1800V",
+  "nombre": "Bomba de Infusión Volumétrica SN-1800V",
+  "subcategoria": "Bombas Volumétricas",
+  "categoria": "Bombas de Infusión",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-bomba-de-infusion-volumetrica-sn-1800v",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-21049-bomba-de-infusion-modelo-sn-1800v-sino-mdt-ltd.webp"
+ },
+ {
+  "codigo": "SN-50T66",
+  "nombre": "Bomba de Infusión de Jeringa SN-50T66",
+  "subcategoria": "Bombas de Jeringa",
+  "categoria": "Bombas de Infusión",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-bomba-de-infusion-de-jeringa-sn-50t66",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-18625-bomba-de-infusion-a-jeringa-modelo-sn-50t66-tres-canales-soport.webp"
+ },
+ {
+  "codigo": "SN-50C66T",
+  "nombre": "Bomba de Infusión de Jeringa SN-50C66T",
+  "subcategoria": "Bombas de Jeringa",
+  "categoria": "Bombas de Infusión",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-bomba-de-infusion-de-jeringa-sn-50c66t",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-18619-bomba-de-infusion-a-jeringa-modelo-sn-50c66t-sino-mdt-ltd-un-ca.webp"
+ },
+ {
+  "codigo": "SN-600N",
+  "nombre": "Bomba de Nutrición Enteral SN-600N",
+  "subcategoria": "Bombas de Nutrición",
+  "categoria": "Bombas de Infusión",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-bomba-de-nutricion-enteral-sn-600n",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-bomba-de-nutricion-enteral-modelo-sn-600n-sino-mdt-ltd.webp"
+ },
+ {
+  "codigo": "3850B-BIF",
+  "nombre": "Monitor Desfibrilador 3850B Bifásico",
+  "subcategoria": "Desfibriladores",
+  "categoria": "Equipamiento de Emergencia",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-monitor-desfibrilador-3850b-bifasico",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "3850B-MONO",
+  "nombre": "Monitor Desfibrilador 3850B Monofásico",
+  "subcategoria": "Desfibriladores",
+  "categoria": "Equipamiento de Emergencia",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-monitor-desfibrilador-3850b-monofasico",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-monitor-desfibrilador-3850b-monofasico-feas-electronica-argentina-adu.webp"
+ },
+ {
+  "codigo": "NT-381C",
+  "nombre": "DEA Heart+ResQ NT-381.C",
+  "subcategoria": "Desfibriladores",
+  "categoria": "Equipamiento de Emergencia",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-dea-heart-resq-nt-381-c",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-desfibrilador-externo-automatico-dea-feas-electronica-modelo-heart-re.webp"
+ },
+ {
+  "codigo": "PACE-203",
+  "nombre": "Marcapasos Osypka PACE-203",
+  "subcategoria": "Marcapasos",
+  "categoria": "Equipamiento de Emergencia",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-marcapasos-osypka-pace-203",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-18714-marcapasos-externo-temporal-bicameral-osypka-modelo-pace-203.webp"
+ },
+ {
+  "codigo": "PACE-101",
+  "nombre": "Marcapasos Osypka PACE-101",
+  "subcategoria": "Marcapasos",
+  "categoria": "Equipamiento de Emergencia",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-marcapasos-osypka-pace-101",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-18713-marcapasos-externo-temporal-unicameral-osypka-modelo-pace-101.webp"
+ },
+ {
+  "codigo": "PM9000",
+  "nombre": "Monitor de Paciente PM9000",
+  "subcategoria": "Monitores Multiparamétricos",
+  "categoria": "Monitoreo de Pacientes",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-monitor-de-paciente-pm9000",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-monitor-de-paciente-modelo-pm9000.webp"
+ },
+ {
+  "codigo": "MULTIPAR-LCD",
+  "nombre": "Monitor Multiparamétrico LCD",
+  "subcategoria": "Monitores Multiparamétricos",
+  "categoria": "Monitoreo de Pacientes",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-monitor-multiparametrico-lcd",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-15422-monitor-multiparametrico-lcd.webp"
+ },
+ {
+  "codigo": "C50",
+  "nombre": "Monitor de Paciente Comen C50",
+  "subcategoria": "Monitores Multiparamétricos",
+  "categoria": "Monitoreo de Pacientes",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-monitor-de-paciente-comen-c50",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-21087-monitor-de-paciente-multiparametrico-de-10-4-comen-con-bateria-.webp"
+ },
+ {
+  "codigo": "5032C",
+  "nombre": "Central de Monitoreo 5032C",
+  "subcategoria": "Centrales de Monitoreo",
+  "categoria": "Monitoreo de Pacientes",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-central-de-monitoreo-5032c",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-central-de-monitoreo-5032c-feas-electronica-argentina-4-pacientes-no.webp"
+ },
+ {
+  "codigo": "1405",
+  "nombre": "Polígrafo Modelo 1405",
+  "subcategoria": "Polígrafos",
+  "categoria": "Equipamiento Especializado",
+  "marca": "Feas Electrónica",
+  "slug": "feas-electronica-poligrafo-modelo-1405",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipofeas-poligrafo-para-estudios-de-hemodinamia-modelo-1405-feas-electronica-a.webp"
+ },
+ {
+  "codigo": "V4R",
+  "nombre": "V4r",
+  "subcategoria": "V4 Series",
+  "categoria": "Electrolitos",
+  "marca": "Diestro",
+  "slug": "diestro-v4r",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-v4r.webp"
+ },
+ {
+  "codigo": "V4RAUTOSAMPLER",
+  "nombre": "V4r + Autosampler",
+  "subcategoria": "V4 Series",
+  "categoria": "Electrolitos",
+  "marca": "Diestro",
+  "slug": "diestro-v4r-autosampler",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-v4r-autosampler.webp"
+ },
+ {
+  "codigo": "103APV4S",
+  "nombre": "103AP V4 S",
+  "subcategoria": "103AP V4 Series",
+  "categoria": "Electrolitos",
+  "marca": "Diestro",
+  "slug": "diestro-103ap-v4-s",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-103ap-v4-s.webp"
+ },
+ {
+  "codigo": "103APV4SPLUS",
+  "nombre": "103AP V4 S+",
+  "subcategoria": "103AP V4 Series",
+  "categoria": "Electrolitos",
+  "marca": "Diestro",
+  "slug": "diestro-103ap-v4-s-2",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-103ap-v4-s.webp"
+ },
+ {
+  "codigo": "103APV4A",
+  "nombre": "103AP V4 A",
+  "subcategoria": "103AP V4 Series",
+  "categoria": "Electrolitos",
+  "marca": "Diestro",
+  "slug": "diestro-103ap-v4-a",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-103ap-v4-a.webp"
+ },
+ {
+  "codigo": "103APV4AAUTOSAMPLER",
+  "nombre": "103AP V4 A + Autosampler",
+  "subcategoria": "103AP V4 Series",
+  "categoria": "Electrolitos",
+  "marca": "Diestro",
+  "slug": "diestro-103ap-v4-a-autosampler",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-103ap-v4-a-autosampler.webp"
+ },
+ {
+  "codigo": "103APV4VET",
+  "nombre": "103AP V4 VET",
+  "subcategoria": "103AP V4 Series",
+  "categoria": "Veterinaria",
+  "marca": "Diestro",
+  "slug": "diestro-103ap-v4-vet",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-103ap-v4-vet.webp"
+ },
+ {
+  "codigo": "103APV3",
+  "nombre": "103AP V3",
+  "subcategoria": "103AP V3 Series",
+  "categoria": "Electrolitos",
+  "marca": "Diestro",
+  "slug": "diestro-103ap-v3",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-103ap-v3.webp"
+ },
+ {
+  "codigo": "103APV3AUTOSAMPLER",
+  "nombre": "103AP V3 + Autosampler",
+  "subcategoria": "103AP V3 Series",
+  "categoria": "Electrolitos",
+  "marca": "Diestro",
+  "slug": "diestro-103ap-v3-autosampler",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipojs-103ap-v3-autosampler.webp"
+ },
+ {
+  "codigo": "µGASES",
+  "nombre": "µGASES",
+  "subcategoria": "Analizadores de Gases",
+  "categoria": "Análisis de Sangre",
+  "marca": "AADEE",
+  "slug": "aadee-gases",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipoaadee-ugases.webp"
+ },
+ {
+  "codigo": "uISE",
+  "nombre": "uISE",
+  "subcategoria": "Analizadores de Electrolitos",
+  "categoria": "Electrolitos",
+  "marca": "AADEE",
+  "slug": "aadee-uise",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL17C",
+  "nombre": "Estufa de Cultivo SL17C",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl17c",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL20C",
+  "nombre": "Estufa de Cultivo SL20C",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl20c",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL30C",
+  "nombre": "Estufa de Cultivo SL30C",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl30c",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL60C",
+  "nombre": "Estufa de Cultivo SL60C",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl60c",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL70C",
+  "nombre": "Estufa de Cultivo SL70C",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl70c",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL17CDB",
+  "nombre": "Estufa de Cultivo SL17CDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl17cdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL20CDB",
+  "nombre": "Estufa de Cultivo SL20CDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl20cdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL30CDB",
+  "nombre": "Estufa de Cultivo SL30CDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl30cdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL60CDB",
+  "nombre": "Estufa de Cultivo SL60CDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl60cdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL70CDB",
+  "nombre": "Estufa de Cultivo SL70CDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl70cdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL17CADB",
+  "nombre": "Estufa de Cultivo SL17CADB",
+  "subcategoria": "Automática Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl17cadb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL20CADB",
+  "nombre": "Estufa de Cultivo SL20CADB",
+  "subcategoria": "Automática Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl20cadb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL30CADB",
+  "nombre": "Estufa de Cultivo SL30CADB",
+  "subcategoria": "Automática Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl30cadb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL60CADB",
+  "nombre": "Estufa de Cultivo SL60CADB",
+  "subcategoria": "Automática Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl60cadb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL70CADB",
+  "nombre": "Estufa de Cultivo SL70CADB",
+  "subcategoria": "Automática Digital BLAST",
+  "categoria": "Estufas de Cultivo",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-cultivo-sl70cadb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL30S",
+  "nombre": "Estufa de Secado SL30S",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl30s",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL50S",
+  "nombre": "Estufa de Secado SL50S",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl50s",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL60S",
+  "nombre": "Estufa de Secado SL60S",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl60s",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL70S",
+  "nombre": "Estufa de Secado SL70S",
+  "subcategoria": "Analógicas",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl70s",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL30SDB",
+  "nombre": "Estufa de Secado SL30SDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl30sdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL50SDB",
+  "nombre": "Estufa de Secado SL50SDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl50sdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL60SDB",
+  "nombre": "Estufa de Secado SL60SDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl60sdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL70SDB",
+  "nombre": "Estufa de Secado SL70SDB",
+  "subcategoria": "Digital BLAST",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl70sdb",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL40ADF",
+  "nombre": "Estufa de Secado SL40ADF",
+  "subcategoria": "Automática Digital Circulación Forzada",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl40adf",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL40ADTF",
+  "nombre": "Estufa de Secado SL40ADTF",
+  "subcategoria": "Automática Digital Circulación Forzada",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl40adtf",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL40ADTPF",
+  "nombre": "Estufa de Secado SL40ADTPF",
+  "subcategoria": "Automática Digital Circulación Forzada",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl40adtpf",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL40ADBF",
+  "nombre": "Estufa de Secado SL40ADBF",
+  "subcategoria": "Automática Digital Circulación Forzada",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl40adbf",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "SL40ADBTF",
+  "nombre": "Estufa de Secado SL40ADBTF",
+  "subcategoria": "Automática Digital Circulación Forzada",
+  "categoria": "Estufas de Secado",
+  "marca": "Sanjor",
+  "slug": "sanjor-estufa-de-secado-sl40adbtf",
+  "tipo": "equipo",
+  "imagen": ""
+ },
+ {
+  "codigo": "BRINA",
+  "nombre": "BRINA",
+  "subcategoria": "Ventiladores Mecánicos",
+  "categoria": "Ventilación",
+  "descripcion": "Ventilador mecánico de última generación con pantalla táctil de 18,5\" y tecnología avanzada de monitoreo.",
+  "beneficios": [
+   "Interfaz intuitiva y clara para facilitar decisiones críticas",
+   "Adaptabilidad a diferentes entornos clínicos",
+   "Mayor cantidad de parámetros monitorizados de pacientes",
+   "Visualización avanzada con \"Pulmón Activo\" que representa gráficamente la distensibilidad pulmonar y la resistencia de la vía aérea",
+   "Visualizaciones adaptadas para contextos clínicos y visitas familiares",
+   "Hasta 3 baterías extraíbles hot swap con autonomía de hasta 6 horas"
+  ],
+  "aplicaciones": [
+   "Terapia respiratoria en pacientes adultos, pediátricos y neonatales",
+   "Situaciones clínicas que requieren ventilación invasiva y no invasiva",
+   "Evaluación previa al destete con ensayo de respiración espontánea",
+   "Transporte intrahospitalario",
+   "Monitoreo continuo y completo en ambientes críticos"
+  ],
+  "caracteristicas": [
+   "Pantalla táctil de 18,5\" de alta resolución, desmontable y rotativa",
+   "Diseño modular adaptado a diferentes necesidades",
+   "Monitoreo integral con SpO₂, frecuencia cardíaca y capnografía volumétrica",
+   "Medición de presión transpulmonar mediante manometría esofágica",
+   "Nebulizador neumático y Aerogen® incorporados",
+   "Amplia variedad de modos y herramientas ventilatorias, incluyendo AVA y prueba de respiración espontánea",
+   "Integración de sensor paramagnético de oxígeno para funcionamiento continuo sin necesidad de reemplazos periódicos"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-brina",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-brina-brinaneo.webp"
+ },
+ {
+  "codigo": "BRINANEO",
+  "nombre": "BRINA NEO",
+  "subcategoria": "Ventiladores Neonatales",
+  "categoria": "Ventilación",
+  "descripcion": "Ventilador especializado para pacientes neonatales y pediátricos con terapia de oxígeno de alto flujo.",
+  "beneficios": [
+   "Adaptable a diferentes necesidades y entornos clínicos",
+   "Expande el uso del ventilador a etapas pre y post ventilación mecánica mediante terapia de oxígeno de alto flujo",
+   "Proporciona asistencia no invasiva a la oxigenación"
+  ],
+  "aplicaciones": [
+   "Ventilación invasiva y no invasiva en pacientes neonatales y pediátricos",
+   "Asistencia respiratoria no invasiva en etapas pre y post ventilación"
+  ],
+  "caracteristicas": [
+   "Volumen Garantizado (VG)",
+   "Sensor de flujo proximal: optimiza el monitoreo del flujo y volumen",
+   "Puerto de presión auxiliar para medir presión media (solo disponible en categoría PED)",
+   "Pulmón Activo: visualización gráfica de la distensibilidad y resistencia pulmonar (solo disponible en categoría PED)",
+   "Modo AVA",
+   "Prueba de respiración espontánea monitorizada en tiempo real (solo en categoría PED)"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-brina-neo",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-brina-brinaneo.webp"
+ },
+ {
+  "codigo": "NEUMOVENTADVANCE",
+  "nombre": "Neumovent ADVANCE",
+  "subcategoria": "Ventiladores Mecánicos",
+  "categoria": "Ventilación",
+  "descripcion": "Ventilador mecánico completamente adaptable a pacientes adultos, pediátricos y neonatales.",
+  "beneficios": [
+   "Completamente adaptable a pacientes adultos, pediátricos y neonatales",
+   "Disponible para ventilación invasiva y no invasiva",
+   "Bajo consumo de mezclas respiratorias",
+   "Transporte intrahospitalario con autonomía de hasta 2,5 horas",
+   "Opción de batería de respaldo por 72 horas"
+  ],
+  "aplicaciones": [
+   "Terapia respiratoria en pacientes adultos, pediátricos y neonatales",
+   "Situaciones clínicas que requieren ventilación invasiva y no invasiva",
+   "Evaluación previa al destete con ensayo de respiración espontánea",
+   "Transporte intrahospitalario",
+   "Monitoreo continuo y completo en ambientes críticos"
+  ],
+  "caracteristicas": [
+   "Capnografía volumétrica: curvas en el tiempo y mediciones de espacio muerto fisiológico",
+   "Oxigenoterapia de alto flujo: uso extendido en fases pre y post ventilación",
+   "Modo AVA (Asistencia Ventilatoria Adaptativa): garantiza ventilación minuto óptima con el menor trabajo respiratorio",
+   "Completa monitorización: seguimiento de parámetros clave como PV Flex, P0.1 y Pimax",
+   "Ensayo de respiración espontánea (SBT): herramienta segura y con alarmas dedicadas",
+   "Compensación automática de fugas",
+   "Transductor intraesofágico para presión transpulmonar"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-neumovent-advance",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-neumovent.webp"
+ },
+ {
+  "codigo": "NEUMOVENTNEO",
+  "nombre": "Neumovent NEO",
+  "subcategoria": "Ventiladores Neonatales",
+  "categoria": "Ventilación",
+  "descripcion": "Ventilador especializado para neonatos e infantiles con oxigenoterapia de alto flujo.",
+  "beneficios": [
+   "Oxigenoterapia de alto flujo: permite asistencia no invasiva a la oxigenación",
+   "Completa monitorización: medición de parámetros ventilatorios para tomar decisiones clínicas basadas en información",
+   "Nuevos modos ventilatorios: ventilación sincronizada con control de volumen y presión",
+   "Sensor de flujo proximal"
+  ],
+  "aplicaciones": [
+   "Destinado a pacientes neonatos e infantiles",
+   "Uso en ventilación mecánica invasiva y no invasiva",
+   "Asistencia respiratoria con oxigenoterapia de alto flujo",
+   "CPAP continuo no invasivo para neonatos"
+  ],
+  "caracteristicas": [
+   "Ventilación para neonatos",
+   "Disponible para ventilación invasiva y ventilación no invasiva",
+   "Oxigenoterapia de alto flujo",
+   "Sensor de flujo proximal",
+   "CPAP flujo continuo con prongs nasales y compensación automática de fugas",
+   "Menú de mecánica respiratoria",
+   "Suministro preciso de volumen tidal desde 2 mL",
+   "Transporte intrahospitalario",
+   "Almacenamiento de tendencias por 72 hs",
+   "Bajo costo de mantenimiento",
+   "Batería incorporada con autonomía mayor a 2.5 horas",
+   "Pantalla numérica",
+   "2 años de garantía"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-neumovent-neo",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-neumovent.webp"
+ },
+ {
+  "codigo": "NEUMOVENTTS",
+  "nombre": "Neumovent TS",
+  "subcategoria": "Ventiladores Mecánicos",
+  "categoria": "Ventilación",
+  "descripcion": "Ventilador con completa monitorización y seguimiento de parámetros avanzados.",
+  "beneficios": [
+   "Completa monitorización",
+   "Seguimiento de parámetros PV Flex",
+   "Seguimiento de parámetros P0.1",
+   "Seguimiento de parámetros Pimax"
+  ],
+  "aplicaciones": [
+   "Ventilación invasiva y no invasiva en pacientes adultos, pediátricos y neonatales (opcional)",
+   "Terapia pre y post ventilación mecánica con oxigenoterapia de alto flujo",
+   "Evaluación previa al destete con ensayo de respiración espontánea",
+   "Ventilación avanzada con modos adaptativos y por volumen/presión"
+  ],
+  "caracteristicas": [
+   "PRVC (control de volumen regulado por presión)",
+   "VCV (volumen controlado)",
+   "SIMV (presión)",
+   "VSV (volumen de soporte)",
+   "Oxigenoterapia de Alto Flujo: uso extendido en fases pre y post ventilación. Módulo opcional",
+   "Ensayo de Respiración Espontánea: herramienta segura y en tiempo real con alarmas. Módulo opcional",
+   "AVA Asistencia Ventilatoria Adaptativa: garantiza ventilación minuto óptima con el menor trabajo respiratorio. Módulo opcional",
+   "Categoría Neonatal: permite ventilar pacientes desde los 2 ml de volumen tidal. Módulo opcional",
+   "PRVC Control de volumen regulado por presión"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-neumovent-ts",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-neumovent.webp"
+ },
+ {
+  "codigo": "MONITORIXI12",
+  "nombre": "Monitor multiparamétrico iX12",
+  "subcategoria": "Monitores Multiparamétricos",
+  "categoria": "Monitoreo",
+  "descripcion": "Monitor multiparamétrico con pantalla HD de 13.3\" y conexión directa con ventiladores Tecme.",
+  "beneficios": [
+   "Conexión directa con ventiladores Tecme, lo que posibilita la visualización en tiempo real de parámetros y curvas de ventilación desde el monitor",
+   "Reducción del tiempo de medición de NIBP gracias al algoritmo iFAST, generando extra-comodidad para el paciente sin inflado excesivo",
+   "Seguridad en la toma de decisiones clínicas",
+   "Diagnóstico confiable de ECG validado por bases de datos CSE, MIT y AHA",
+   "Alta sensibilidad en la detección de ondas T y 32 tipos de arritmias diferentes",
+   "Estabilidad del SpO₂ en condiciones de bajo flujo y movimiento",
+   "Evaluación con estándares internacionales del estado paciente con el uso de sistemas de alerta temprana EWS y GCS",
+   "Vinculando el monitor con la central de monitoreo Tecme se tendrá acceso permanente a la información desde múltiples dispositivos"
+  ],
+  "aplicaciones": [
+   "Terapias intensivas, postoperatorios y emergencias prehospitalarias",
+   "Salas de emergencia",
+   "Salas de recuperación",
+   "Salas generales",
+   "Óptimo para centrales de UCI o quirófanos"
+  ],
+  "caracteristicas": [
+   "Pantalla HD antirreflejo de 13.3\" con ajuste de brillo automático",
+   "Ángulo de observación ultra amplio (170º)",
+   "Navegación por gestos e interfaz intuitiva",
+   "Botones capacitivos y teclas touch de acceso directo personalizables",
+   "Diseño sin ventilador, impermeable y fácil de desinfectar",
+   "Parámetros estándar: ECG, SpO₂, NIBP con algoritmo iFAST, Temperatura, Respiración, CNBP",
+   "Parámetros opcionales: ECG 12 derivaciones, SpO2 Nellcor, SpO2 dual, Presión invasiva 2-4 canales, Gasto cardiaco, Capnografía"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-monitor-multiparametrico-ix12",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-serieix.webp"
+ },
+ {
+  "codigo": "MONITORIXI15",
+  "nombre": "Monitor multiparamétrico iX15",
+  "subcategoria": "Monitores Multiparamétricos",
+  "categoria": "Monitoreo",
+  "descripcion": "Monitor multiparamétrico con pantalla HD de 15.6\" y conexión directa con ventiladores Tecme.",
+  "beneficios": [
+   "Conexión directa con ventiladores Tecme, lo que posibilita la visualización en tiempo real de parámetros y curvas de ventilación desde el monitor",
+   "Reducción del tiempo de medición de NIBP gracias al algoritmo iFAST, generando extra-comodidad para el paciente sin inflado excesivo",
+   "Seguridad en la toma de decisiones clínicas",
+   "Diagnóstico confiable de ECG validado por bases de datos CSE, MIT y AHA",
+   "Alta sensibilidad en la detección de ondas T y 32 tipos de arritmias diferentes",
+   "Estabilidad del SpO₂ en condiciones de bajo flujo y movimiento",
+   "Evaluación con estándares internacionales del estado paciente con el uso de sistemas de alerta temprana EWS y GCS",
+   "Vinculando el monitor con la central de monitoreo Tecme se tendrá acceso permanente a la información desde múltiples dispositivos"
+  ],
+  "aplicaciones": [
+   "Terapias intensivas, postoperatorios y emergencias prehospitalarias",
+   "Salas de emergencia",
+   "Salas de recuperación",
+   "Salas generales",
+   "Óptimo para centrales de UCI o quirófanos donde la visualización ampliada mejora el flujo de trabajo"
+  ],
+  "caracteristicas": [
+   "Pantalla HD antirreflejo de 15.6\" con ajuste de brillo automático",
+   "Ángulo de observación ultra amplio (170º)",
+   "Navegación por gestos e interfaz intuitiva",
+   "Botones capacitivos y teclas touch de acceso directo personalizables",
+   "Diseño sin ventilador, impermeable y fácil de desinfectar",
+   "Parámetros estándar: ECG, SpO₂, NIBP con algoritmo iFAST, Temperatura, Respiración, CNBP",
+   "Parámetros opcionales: ECG 12 derivaciones, SpO2 Nellcor, SpO2 dual, Presión invasiva 2-4 canales, Gasto cardiaco, Capnografía"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-monitor-multiparametrico-ix15",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-serieix.webp"
+ },
+ {
+  "codigo": "CENTRALCMS",
+  "nombre": "Central de monitoreo CMS",
+  "subcategoria": "Centrales de Monitoreo",
+  "categoria": "Monitoreo",
+  "descripcion": "Central de monitoreo para vigilancia multipunto de hasta 128 pacientes.",
+  "beneficios": [
+   "Visualización directa de los parámetros de ventilación gracias a la conexión de los monitores multiparamétricos y los ventiladores Tecme",
+   "Gestión de historiales médicos digitales orientada al paciente, liberando al personal de enfermería de la carga administrativa manual",
+   "Permite visualización simultánea de datos fisiológicos de múltiples dispositivos",
+   "Monitoreo remoto desde navegadores sin necesidad de software adicional de hasta 128 pacientes"
+  ],
+  "aplicaciones": [
+   "Hospitalización",
+   "Unidades de cuidados intensivos",
+   "Quirófanos",
+   "Oficinas de guardia"
+  ],
+  "caracteristicas": [
+   "Permite monitorizar 32 pacientes por sector y hasta 128 pacientes en total",
+   "Capacidad de almacenamiento de todos los parámetros monitorizados por paciente hasta 30 días (720 hs.)",
+   "Revisión de datos, alarmas, formas de onda, ARR, NIBP y tendencias",
+   "Digitalización de la hoja de registro de enfermería y temperatura",
+   "Interconexión entre servidores para visualización simultánea de alarmas"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-central-de-monitoreo-cms",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-cms.webp"
+ },
+ {
+  "codigo": "HUMIDOFLO",
+  "nombre": "HUMIDOFLO",
+  "subcategoria": "Terapia Respiratoria",
+  "categoria": "Accesorios",
+  "descripcion": "Sistema de alto flujo con humidificación y control de FiO₂.",
+  "beneficios": [
+   "Efecto CPAP",
+   "Lavado de CO₂",
+   "Mejor clearence mucociliar",
+   "Elevada humedad",
+   "FiO₂ controlada y predecible"
+  ],
+  "aplicaciones": [
+   "Manejo en períodos pre y post extubación",
+   "Insuficiencia respiratoria hipoxémica e hipercápnica",
+   "Insuficiencia cardíaca",
+   "Apnea del sueño",
+   "Alternativa a ventilación no invasiva (VNI)"
+  ],
+  "caracteristicas": [
+   "Rango de flujo: 2–60 L/min",
+   "Monitorización de oximetría de pulso",
+   "Puede incorporar oxígeno para generar una mezcla uniforme"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-humidoflo",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-humidoflo.webp"
+ },
+ {
+  "codigo": "PN3000",
+  "nombre": "Compresor PN3000",
+  "subcategoria": "Compresores",
+  "categoria": "Accesorios",
+  "descripcion": "Compresor de aire medicinal compatible con ventiladores TECME.",
+  "beneficios": [
+   "Compatible con todos los respiradores Brina, Brina Neo y Neumovent: Advance, Neo y TS",
+   "Bajo nivel de ruido",
+   "Sistema de compresión libre de aceite",
+   "Sistema de filtrado de agua",
+   "Funcionamiento continuo adecuado gracias al ventilador de refrigeración de alta calidad"
+  ],
+  "aplicaciones": [
+   "Suministro de aire comprimido en entornos médicos"
+  ],
+  "caracteristicas": [
+   "Voltaje/Frecuencia: 220 V/50 Hz - 110 V/50-60 Hz",
+   "Flujo de salida: 40 l/min a 0.4 MPa",
+   "Flujo pico: 160 l/min",
+   "Capacidad del tanque de aire: 1.4 l",
+   "Modo de funcionamiento: Continuo",
+   "Nivel sonoro: 49-52 dB [A]",
+   "Filtración de agua condensada: Automática",
+   "Presión de salida: 0.3 MPa - 0.5 MPa (3 bar - 5 bar)",
+   "Presión de operación de la válvula de seguridad: 6.5 bar",
+   "Dimensiones: 595 x 575 x 485 mm (sin pedestal)"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-compresor-pn3000",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-pn300.webp"
+ },
+ {
+  "codigo": "NAC",
+  "nombre": "Compresor NAC",
+  "subcategoria": "Compresores",
+  "categoria": "Accesorios",
+  "descripcion": "Compresor de aire comprimido limpio y seco para aplicaciones médicas.",
+  "beneficios": [
+   "Compatible con todos los respiradores Brina, Brina Neo y Neumovent: Advance, Neo y TS",
+   "Aire comprimido limpio y seco",
+   "Uso como fuente principal o respaldo automático",
+   "Sistema completo e integrado con pedestal disponible",
+   "Diseño pequeño, compacto y avanzado",
+   "Bajo nivel de ruido (50 dB [A])"
+  ],
+  "aplicaciones": [
+   "Fuente de aire comprimido en instituciones médicas",
+   "Fuente primaria o de respaldo para sistemas de ventilación médica"
+  ],
+  "caracteristicas": [
+   "Voltaje y frecuencia: 230 V/50 Hz – 115 V/60 Hz",
+   "Eficiencia del compresor: 50 l/min–1 / 3,5 bares",
+   "Flujo máximo: 200 l/min",
+   "Capacidad del tanque de aire: 2 l",
+   "Depresión del punto de rocío a 3 bares, 20 °C: 5 °C (sin secador), 10 °C (con secador de membrana)",
+   "Conexión de salida: DISS 1160-A (3/4\"-16 UNF)",
+   "Modo de funcionamiento: Continuo – S1",
+   "Clasificación: Clase II.b conforme a MDD 93/42/EEC y 2007/47/EC",
+   "Nivel de ruido: 50 dB [A]",
+   "Dimensiones: 445 x 355 x 440 mm",
+   "Peso: 34 kg (sin pedestal)"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-compresor-nac",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-nac.webp"
+ },
+ {
+  "codigo": "DK50DSSMART",
+  "nombre": "Compresor DK50 DS SMART",
+  "subcategoria": "Compresores",
+  "categoria": "Accesorios",
+  "descripcion": "Compresor inteligente con sistema de respaldo automático.",
+  "beneficios": [
+   "Compatible con todos los respiradores Brina, Brina Neo y Neumovent: Advance, Neo y TS",
+   "Aire comprimido limpio y seco",
+   "Funciona como fuente principal o de respaldo automático",
+   "Sistema completo e integrado con pedestal disponible",
+   "Diseño pequeño, compacto y avanzado",
+   "Bajo nivel de ruido (50 dB [A])"
+  ],
+  "aplicaciones": [
+   "Fuente de aire comprimido en instituciones médicas",
+   "Sistema de respaldo automático ante fallas de la fuente principal"
+  ],
+  "caracteristicas": [
+   "Voltaje y frecuencia: 230 V/50 Hz – 115 V/60 Hz",
+   "Eficiencia del compresor: 50 l/min–1 / 3,5 bares",
+   "Flujo máximo: 200 l/min",
+   "Capacidad del tanque de aire: 2 l",
+   "Filtración de aire: 5 µm",
+   "Depresión del punto de rocío a 3 bares, 20 °C: 5 °C sin secador, 10 °C con secador de membrana",
+   "Conexión de salida: DISS 1160-A (3/4\"-16 UNF)",
+   "Modo de funcionamiento: Continuo – S1",
+   "Clasificación: Clase II.b conforme a MDD 93/42/EEC, 2007/47/EC",
+   "Nivel de ruido: 50 dB [A]",
+   "Dimensiones: 445 x 355 x 440 mm",
+   "Peso: 34 kg (sin pedestal)"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-compresor-dk50-ds-smart",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-dk50-ds-smart.webp"
+ },
+ {
+  "codigo": "VH2100",
+  "nombre": "Humidificador VH 2100",
+  "subcategoria": "Humidificadores",
+  "categoria": "Accesorios",
+  "descripcion": "Humidificador con control de temperatura y humedad ajustable.",
+  "beneficios": [
+   "Diseñado para entregar un nivel confortable de humedad y temperatura",
+   "Permite ajustar hasta nueve niveles de temperatura y humedad"
+  ],
+  "aplicaciones": [
+   "Ventilación mecánica invasiva (con tubo endotraqueal o de traqueotomía)",
+   "Ventilación no invasiva (con máscara facial)"
+  ],
+  "caracteristicas": [
+   "Perilla de ajuste con escala del 1 al 9",
+   "Dimensiones: 135 mm x 160 mm x 170 mm",
+   "Peso: 1,3 kg (sin cámara)",
+   "Voltajes disponibles: AC 115 V ±12 V o AC 230 V ±23 V",
+   "Corriente máxima: 1,3 A (115 V) / 0,7 A (230 V)",
+   "Frecuencia: 50/60 Hz",
+   "Potencia del plato calefactor: 150 W",
+   "Protección de sobrecorriente: 115V/3A o 230V/1.5A (tipo rápido)",
+   "Protección de sobrecalentamiento: 115 °C ±3 °C mediante termostato"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-humidificador-vh-2100",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-vh-2100.webp"
+ },
+ {
+  "codigo": "VH2600A",
+  "nombre": "Humidificador VH 2600a",
+  "subcategoria": "Humidificadores",
+  "categoria": "Accesorios",
+  "descripcion": "Humidificador con control automático de temperatura y monitorización avanzada.",
+  "beneficios": [
+   "Control automático de temperatura",
+   "Pantalla de monitorización de temperatura",
+   "Indicadores luminosos y sonoros de alarmas",
+   "Indicador de modo operativo",
+   "Botones de operación intuitivos"
+  ],
+  "aplicaciones": [
+   "Ventilación mecánica invasiva (con tubo endotraqueal o de traqueotomía)",
+   "Ventilación no invasiva (con interfaz de VNI)"
+  ],
+  "caracteristicas": [
+   "Compatible con ventilación invasiva y no invasiva",
+   "Pantalla LED de 4 dígitos, 14 segmentos",
+   "Rango de control de temperatura - Cámara: 31–40 °C",
+   "Rango de control de temperatura - Vía aérea: 31–40 °C",
+   "Exactitud: ±0,3 °C en rango de 25 a 45 °C",
+   "Performance de humidificación invasivo: ≥33 mg/L",
+   "Performance de humidificación no invasivo: ≥10 mg/L",
+   "Tiempo de calentamiento: <30 minutos",
+   "Rango de flujo invasivo: hasta 60 L/min",
+   "Rango de flujo no invasivo: hasta 120 L/min",
+   "Protección de sobrecalentamiento: 115 °C ±3 °C",
+   "Alimentación: AC 115 V o AC 230 V, 50/60 Hz",
+   "Potencia del plato calefactor: 150 W",
+   "Dimensiones: 135 x 170 x 156 mm",
+   "Peso: 2,9 kg (sin cámara)"
+  ],
+  "marca": "TECME",
+  "slug": "tecme-humidificador-vh-2600a",
+  "tipo": "equipo",
+  "imagen": "/img/catalogo/equipotecme-vh-2600a.webp"
+ },
+ {
+  "codigo": "G20/50/100",
+  "nombre": "TT-IgG",
+  "descripcion": "Turbidimetría IgG",
+  "rango": "20-5000",
+  "testKit": "20/50/100",
+  "categoria": "Inmunoglobulinas",
+  "slug": "tt-igg",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "A20/50/100",
+  "nombre": "TT IgA",
+  "descripcion": "Turbidimetría IgA",
+  "rango": "10-900",
+  "testKit": "20/50/100",
+  "categoria": "Inmunoglobulinas",
+  "slug": "tt-iga",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "M20/50/100",
+  "nombre": "TT IgM",
+  "descripcion": "Turbidimetría IgM",
+  "rango": "5-500",
+  "testKit": "20/50/100",
+  "categoria": "Inmunoglobulinas",
+  "slug": "tt-igm",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "C320/350/4100",
+  "nombre": "TT C-3",
+  "descripcion": "Turbidimetría Complemento C3",
+  "rango": "5-500",
+  "testKit": "20/50/100",
+  "categoria": "Complemento",
+  "slug": "tt-c-3",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "C420/450/4100",
+  "nombre": "TT C-4",
+  "descripcion": "Turbidimetría Complemento C4",
+  "rango": "2-200",
+  "testKit": "20/50/100",
+  "categoria": "Complemento",
+  "slug": "tt-c-4",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "GLL",
+  "nombre": "TT IgG-LL",
+  "descripcion": "Turbidimetría IgG Líquido Lumbar",
+  "rango": "0.5-150",
+  "testKit": "20",
+  "categoria": "Inmunoglobulinas",
+  "slug": "tt-igg-ll",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "ALL",
+  "nombre": "TT IgA-LL",
+  "descripcion": "Turbidimetría IgA Líquido Lumbar",
+  "rango": "0.5-50",
+  "testKit": "20",
+  "categoria": "Inmunoglobulinas",
+  "slug": "tt-iga-ll",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "MLL",
+  "nombre": "TT IgM-LL",
+  "descripcion": "Turbidimetría IgM Líquido Lumbar",
+  "rango": "0.5-80",
+  "testKit": "20",
+  "categoria": "Inmunoglobulinas",
+  "slug": "tt-igm-ll",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "COMB",
+  "nombre": "TT Kit Combinado",
+  "descripcion": "Kit combinado de proteínas",
+  "rango": "Ver proteínas específicas",
+  "testKit": "20 c/u",
+  "categoria": "Kits Combinados",
+  "slug": "tt-kit-combinado",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "Tr20/50",
+  "nombre": "TT Transferrina",
+  "descripcion": "Turbidimetría Transferrina",
+  "rango": "10-450",
+  "testKit": "20/50",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-transferrina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "ALB",
+  "nombre": "TT Albumina LL",
+  "descripcion": "Turbidimetría Albúmina Líquido Lumbar",
+  "rango": "0.5-50",
+  "testKit": "20",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-albumina-ll",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "AT",
+  "nombre": "TT Alfa 1 Antitripsina",
+  "descripcion": "Turbidimetría Alfa 1 Antitripsina",
+  "rango": "20-300",
+  "testKit": "20",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-alfa-1-antitripsina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "A2M",
+  "nombre": "TT Alfa 2 Macroglobulina",
+  "descripcion": "Turbidimetría Alfa 2 Macroglobulina",
+  "rango": "30-600",
+  "testKit": "20",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-alfa-2-macroglobulina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "ATIII",
+  "nombre": "TT Antitrombina III",
+  "descripcion": "Turbidimetría Antitrombina III",
+  "rango": "5-50",
+  "testKit": "20",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-antitrombina-iii",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "CP",
+  "nombre": "TT Ceruloplasmina",
+  "descripcion": "Turbidimetría Ceruloplasmina",
+  "rango": "10-120",
+  "testKit": "20",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-ceruloplasmina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "CRP20/50",
+  "nombre": "TT CRP",
+  "descripcion": "Turbidimetría Proteína C Reactiva",
+  "rango": "0.5-30",
+  "testKit": "20/50",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-crp",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "HAP20/50",
+  "nombre": "TT Haptoglobina",
+  "descripcion": "Turbidimetría Haptoglobina",
+  "rango": "5-80",
+  "testKit": "20/50",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-haptoglobina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "APOA",
+  "nombre": "TT Apolipoproteina A1",
+  "descripcion": "Turbidimetría Apolipoproteína A1",
+  "rango": "20-300",
+  "testKit": "20",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-apolipoproteina-a1",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "APOB",
+  "nombre": "TT Apolipoproteina B1",
+  "descripcion": "Turbidimetría Apolipoproteína B1",
+  "rango": "10-250",
+  "testKit": "20",
+  "categoria": "Proteínas Específicas",
+  "slug": "tt-apolipoproteina-b1",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "PG-1003",
+  "nombre": "Tiras Acetato de Celulosa 2.5×17cm",
+  "descripcion": "Tiras de Acetato de Celulosa",
+  "unidades": "10 tiras",
+  "cm": "2.5×17 cm",
+  "categoria": "Electroforesis",
+  "slug": "tiras-acetato-de-celulosa-2-517cm",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "PG-1004",
+  "nombre": "Tiras Acetato de Celulosa 2.5×17cm",
+  "descripcion": "Tiras de Acetato de Celulosa",
+  "unidades": "25 tiras",
+  "cm": "2.5×17 cm",
+  "categoria": "Electroforesis",
+  "slug": "tiras-acetato-de-celulosa-2-517cm-2",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "PG-1009",
+  "nombre": "Tiras Acetato de Celulosa 5.7×14cm",
+  "descripcion": "Tiras de Acetato de Celulosa",
+  "unidades": "10 tiras",
+  "cm": "5.7×14 cm",
+  "categoria": "Electroforesis",
+  "slug": "tiras-acetato-de-celulosa-5-714cm",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "PG-1010",
+  "nombre": "Tiras Acetato de Celulosa 5.7×14cm",
+  "descripcion": "Tiras de Acetato de Celulosa",
+  "unidades": "25 tiras",
+  "cm": "5.7×14 cm",
+  "categoria": "Electroforesis",
+  "slug": "tiras-acetato-de-celulosa-5-714cm-2",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "BG-1010",
+  "nombre": "Buffer Barbitál Veronal",
+  "descripcion": "Buffer para Electroforesis",
+  "unidades": "1 litro",
+  "categoria": "Electroforesis",
+  "slug": "buffer-barbital-veronal",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "CP-1000",
+  "nombre": "Colorante Amido Black",
+  "descripcion": "Colorante para Electroforesis",
+  "unidades": "1 litro",
+  "categoria": "Electroforesis",
+  "slug": "colorante-amido-black",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "DE-1010",
+  "nombre": "Decolorante Progel",
+  "descripcion": "Decolorante para Electroforesis",
+  "unidades": "1 litro",
+  "categoria": "Electroforesis",
+  "slug": "decolorante-progel",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1020-3P",
+  "nombre": "Diluente isotónico 3 partes",
+  "descripcion": "Diluente isotónico para analizadores de 3 partes",
+  "unidades": "20 litros",
+  "categoria": "Hematología 3 partes",
+  "slug": "diluente-isotonico-3-partes",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1030-3P",
+  "nombre": "Lisante 3 partes 1L",
+  "descripcion": "Lisante para analizadores de 3 partes",
+  "unidades": "1 litro",
+  "categoria": "Hematología 3 partes",
+  "slug": "lisante-3-partes-1l",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1050-3P",
+  "nombre": "Lisante 3 partes 5L",
+  "descripcion": "Lisante para analizadores de 3 partes",
+  "unidades": "5 litros",
+  "categoria": "Hematología 3 partes",
+  "slug": "lisante-3-partes-5l",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1070-3P",
+  "nombre": "Detergente 3 partes 1L",
+  "descripcion": "Detergente para analizadores de 3 partes",
+  "unidades": "1 litro",
+  "categoria": "Hematología 3 partes",
+  "slug": "detergente-3-partes-1l",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1080-3P",
+  "nombre": "Detergente 3 partes 5L",
+  "descripcion": "Detergente para analizadores de 3 partes",
+  "unidades": "5 litros",
+  "categoria": "Hematología 3 partes",
+  "slug": "detergente-3-partes-5l",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "LP-1001-3P",
+  "nombre": "Scatter pack Beckman Coulter 3P",
+  "descripcion": "Scatter pack para Beckman Coulter",
+  "unidades": "1 litro",
+  "categoria": "Hematología 3 partes",
+  "slug": "scatter-pack-beckman-coulter-3p",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1020-5P",
+  "nombre": "Diluente isotónico 5 partes",
+  "descripcion": "Diluente isotónico para analizadores de 5 partes",
+  "unidades": "20 litros",
+  "categoria": "Hematología 5 partes",
+  "slug": "diluente-isotonico-5-partes",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1030-5P",
+  "nombre": "Lisante 5 partes 1L",
+  "descripcion": "Lisante para analizadores de 5 partes",
+  "unidades": "1 litro",
+  "categoria": "Hematología 5 partes",
+  "slug": "lisante-5-partes-1l",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1050-5P",
+  "nombre": "Lisante 5 partes 5L",
+  "descripcion": "Lisante para analizadores de 5 partes",
+  "unidades": "5 litros",
+  "categoria": "Hematología 5 partes",
+  "slug": "lisante-5-partes-5l",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1070-5P",
+  "nombre": "Detergente 5 partes 1L",
+  "descripcion": "Detergente para analizadores de 5 partes",
+  "unidades": "1 litro",
+  "categoria": "Hematología 5 partes",
+  "slug": "detergente-5-partes-1l",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IS-1080-5P",
+  "nombre": "Detergente 5 partes 5L",
+  "descripcion": "Detergente para analizadores de 5 partes",
+  "unidades": "5 litros",
+  "categoria": "Hematología 5 partes",
+  "slug": "detergente-5-partes-5l",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "LP-1001-5P",
+  "nombre": "Scatter pack Beckman Coulter 5P",
+  "descripcion": "Scatter pack para Beckman Coulter",
+  "unidades": "1 litro",
+  "categoria": "Hematología 5 partes",
+  "slug": "scatter-pack-beckman-coulter-5p",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "DR-1001",
+  "nombre": "DROP TEST PCR Latex 50",
+  "descripcion": "Látex PCR directo",
+  "testKit": "50",
+  "categoria": "Drop Test",
+  "slug": "drop-test-pcr-latex-50",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "DR-1002",
+  "nombre": "DROP TEST PCR Latex 100",
+  "descripcion": "Látex PCR directo",
+  "testKit": "100",
+  "categoria": "Drop Test",
+  "slug": "drop-test-pcr-latex-100",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "DR-1003",
+  "nombre": "DROP TEST ASO Latex 50",
+  "descripcion": "Látex ASO directo",
+  "testKit": "50",
+  "categoria": "Drop Test",
+  "slug": "drop-test-aso-latex-50",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "DR-1004",
+  "nombre": "DROP TEST ASO Latex 100",
+  "descripcion": "Látex ASO directo",
+  "testKit": "100",
+  "categoria": "Drop Test",
+  "slug": "drop-test-aso-latex-100",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "DR-1005",
+  "nombre": "DROP TEST FR Latex 50",
+  "descripcion": "Látex FR directo",
+  "testKit": "50",
+  "categoria": "Drop Test",
+  "slug": "drop-test-fr-latex-50",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "DR-1006",
+  "nombre": "DROP TEST FR Latex 100",
+  "descripcion": "Látex FR directo",
+  "testKit": "100",
+  "categoria": "Drop Test",
+  "slug": "drop-test-fr-latex-100",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1001",
+  "nombre": "RID PLATE IgG",
+  "descripcion": "Placa de inmunodifusión radial IgG",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-igg",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1002",
+  "nombre": "RID PLATE IgA",
+  "descripcion": "Placa de inmunodifusión radial IgA",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-iga",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1003",
+  "nombre": "RID PLATE IgM",
+  "descripcion": "Placa de inmunodifusión radial IgM",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-igm",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1004",
+  "nombre": "RID PLATE IgG-IgA-IgM",
+  "descripcion": "Placa de inmunodifusión radial combinada",
+  "testKit": "5-5-5",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-igg-iga-igm",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1005",
+  "nombre": "RID PLATE C3",
+  "descripcion": "Placa de inmunodifusión radial C3",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-c3",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1006",
+  "nombre": "RID PLATE C4",
+  "descripcion": "Placa de inmunodifusión radial C4",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-c4",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1007",
+  "nombre": "RID PLATE IgG-BC",
+  "descripcion": "Placa de inmunodifusión radial IgG bajo costo",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-igg-bc",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1008",
+  "nombre": "RID PLATE IgA-BC",
+  "descripcion": "Placa de inmunodifusión radial IgA bajo costo",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-iga-bc",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1009",
+  "nombre": "RID PLATE IgM-BC",
+  "descripcion": "Placa de inmunodifusión radial IgM bajo costo",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-igm-bc",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1010",
+  "nombre": "RID PLATE Transferrina",
+  "descripcion": "Placa de inmunodifusión radial Transferrina",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-transferrina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1011",
+  "nombre": "RID PLATE Apolipoproteina A1",
+  "descripcion": "Placa de inmunodifusión radial Apo A1",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-apolipoproteina-a1",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1012",
+  "nombre": "RID PLATE Apolipoproteina B",
+  "descripcion": "Placa de inmunodifusión radial Apo B",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-apolipoproteina-b",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1013",
+  "nombre": "RID PLATE Ceruloplasmina",
+  "descripcion": "Placa de inmunodifusión radial Ceruloplasmina",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-ceruloplasmina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1014",
+  "nombre": "RID PLATE Haptoglobina",
+  "descripcion": "Placa de inmunodifusión radial Haptoglobina",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-haptoglobina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1015",
+  "nombre": "RID PLATE Alfa 1 Antitripsina",
+  "descripcion": "Placa de inmunodifusión radial Alfa 1 Antitripsina",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-alfa-1-antitripsina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1016",
+  "nombre": "RID PLATE Alfa 2 Macroglobulina",
+  "descripcion": "Placa de inmunodifusión radial Alfa 2 Macroglobulina",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-alfa-2-macroglobulina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1017",
+  "nombre": "RID PLATE Alfa 1 Glicoproteina",
+  "descripcion": "Placa de inmunodifusión radial Alfa 1 Glicoproteína",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-alfa-1-glicoproteina",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1018",
+  "nombre": "RID PLATE Fibrinogeno",
+  "descripcion": "Placa de inmunodifusión radial Fibrinógeno",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-fibrinogeno",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "IR-1020",
+  "nombre": "RID PLATE Antitrombina III",
+  "descripcion": "Placa de inmunodifusión radial Antitrombina III",
+  "testKit": "15",
+  "categoria": "RID Plates",
+  "slug": "rid-plate-antitrombina-iii",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "SC-1001",
+  "nombre": "Suero Control Humano",
+  "descripcion": "Suero Control Humano Estabilizado",
+  "unidades": "1 x 1 ml",
+  "categoria": "Controles",
+  "slug": "suero-control-humano",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ },
+ {
+  "codigo": "SC-1002",
+  "nombre": "Suero Control Humano 3 Niveles",
+  "descripcion": "Suero Control Humano Estabilizado Bajo-Medio-Alto",
+  "unidades": "3 x 1 ml",
+  "categoria": "Controles",
+  "slug": "suero-control-humano-3-niveles",
+  "tipo": "reactivo",
+  "marca": "",
+  "imagen": ""
+ }
+]
