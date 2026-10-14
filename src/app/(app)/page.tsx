@@ -1,26 +1,28 @@
 import Link from "next/link";
 import { contexto, nombreOrg } from "@/lib/contexto";
 import { Encabezado, Pill } from "@/components/Encabezado";
-import { estadoPreventivo, hoyISO, sumarDias, numeroOT } from "@/lib/formato";
+import { estadoPlan, cuandoVence, numeroOT } from "@/lib/formato";
 import { uno } from "@/lib/eventos";
 
 export const metadata = { title: "Panel" };
 
-type Eq = { id: string; org_id: string; tipo: string; marca: string; modelo: string; servicio: string; estado: string };
+type Eq = { id: string; org_id: string; tipo: string; marca: string; modelo: string; servicio: string; estado: string; horas_uso?: number | null };
 
 export default async function Panel() {
   const { supabase, orgIds, orgs, instituciones, alcance } = await contexto();
-  const hoy = hoyISO();
   const [{ data: eqData }, { data: prevData }, { data: otData }] = await Promise.all([
     supabase.from("equipos").select("id,org_id,tipo,marca,modelo,servicio,estado").in("org_id", orgIds).neq("estado", "baja"),
-    supabase.from("planes_preventivo").select("id,proxima,equipo_id,equipos(id,org_id,tipo,marca,modelo,servicio,estado)").in("org_id", orgIds).lte("proxima", sumarDias(hoy, 30)).order("proxima"),
+    supabase.from("planes_preventivo").select("id,proxima,frecuencia_horas,proximas_horas,equipo_id,equipos(id,org_id,tipo,marca,modelo,servicio,estado,horas_uso)").in("org_id", orgIds).order("proxima"),
     supabase.from("ordenes").select("id,numero,prioridad,estado,descripcion,equipos(id,org_id,tipo,marca,modelo,servicio,estado)").in("org_id", orgIds).neq("estado", "Cerrada").order("abierta_en"),
   ]);
   const E = (eqData ?? []) as Eq[];
   const op = E.filter((e) => e.estado === "operativo").length;
   const pct = E.length ? Math.round((op / E.length) * 100) : 0;
-  const prevs = (prevData ?? []).map((p: any) => ({ ...p, eq: uno<Eq>(p.equipos) })).filter((p) => p.eq && p.eq.estado !== "baja");
-  const venc = prevs.filter((p) => estadoPreventivo(p.proxima).dias < 0);
+  const prevs = (prevData ?? []).map((p: any) => ({ ...p, eq: uno<Eq>(p.equipos) }))
+    .filter((p) => p.eq && p.eq.estado !== "baja")
+    .map((p) => ({ ...p, st: estadoPlan(p, p.eq!.horas_uso) }));
+  const venc = prevs.filter((p) => p.st.clase === "p-crit");
+  const proximos = prevs.filter((p) => p.st.clase === "p-warn");
   const ots = (otData ?? []).map((o: any) => ({ ...o, eq: uno<Eq>(o.equipos) })).filter((o) => o.eq);
   const fuera = E.filter((e) => e.estado === "fuera");
 
@@ -38,7 +40,7 @@ export default async function Panel() {
   const varias = alcance === "todas" && instituciones.length > 1;
 
   const accion = [
-    ...venc.map((p) => ({ eq: p.eq!, texto: `Preventivo vencido hace ${-estadoPreventivo(p.proxima).dias} días`, clase: "p-crit", tag: "Vencido" })),
+    ...venc.map((p) => ({ eq: p.eq!, texto: `Preventivo vencido (${cuandoVence(p.st)})`, clase: "p-crit", tag: "Vencido" })),
     ...ots.filter((o) => o.prioridad === "Alta").map((o) => ({ eq: o.eq!, texto: `${numeroOT(o.numero)} · ${o.descripcion}`, clase: "p-warn", tag: o.estado })),
     ...fuera.map((e) => ({ eq: e, texto: "Fuera de servicio", clase: "p-crit", tag: "Fuera" })),
   ];
@@ -56,7 +58,7 @@ export default async function Panel() {
         <>
           <div className="kpis">
             <div className={`kpi ${pct >= 90 ? "ok" : pct >= 75 ? "warn" : "crit"}`}><div className="l">Parque operativo</div><div className="v">{pct}%</div><div className="s">{op} de {E.length} equipos</div></div>
-            <div className={`kpi ${venc.length ? "crit" : "ok"}`}><div className="l">Preventivos vencidos</div><div className="v">{venc.length}</div><div className="s">{prevs.length - venc.length} vencen en 30 días</div></div>
+            <div className={`kpi ${venc.length ? "crit" : "ok"}`}><div className="l">Preventivos vencidos</div><div className="v">{venc.length}</div><div className="s">{proximos.length} próximos a vencer</div></div>
             <div className={`kpi ${ots.length ? "warn" : "ok"}`}><div className="l">Órdenes abiertas</div><div className="v">{ots.length}</div><div className="s">{ots.filter((o) => o.prioridad === "Alta").length} de prioridad alta</div></div>
             <div className={`kpi ${fuera.length ? "crit" : "ok"}`}><div className="l">Fuera de servicio</div><div className="v">{fuera.length}</div><div className="s">{E.filter((e) => e.estado === "reparacion").length} más en reparación</div></div>
           </div>

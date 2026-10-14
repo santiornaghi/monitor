@@ -2,10 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { contexto, nombreOrg } from "@/lib/contexto";
 import { Pill } from "@/components/Encabezado";
-import { ESTADOS, estadoPreventivo, fecha, pesos } from "@/lib/formato";
+import { ESTADOS, estadoPlan, cuandoVence, fecha, horas, pesos } from "@/lib/formato";
 import { svgQR, urlQR } from "@/lib/qr";
 import { uno } from "@/lib/eventos";
-import { cambiarEstado, agregarNota } from "../actions";
+import { cambiarEstado, agregarNota, registrarHoras } from "../actions";
 import { EnviarAlCambiar } from "@/components/EnviarAlCambiar";
 import { Imprimir } from "@/components/Imprimir";
 import { SubirDocumento } from "@/components/SubirDocumento";
@@ -20,7 +20,7 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
   const { id } = await params;
   const sp = await searchParams;
   const { supabase, orgs } = await contexto();
-  const { data: e } = await supabase.from("equipos").select("*,proveedores(nombre,telefono),planes_preventivo(id,proxima,frecuencia_dias,ultima)").eq("id", id).maybeSingle();
+  const { data: e } = await supabase.from("equipos").select("*,proveedores(nombre,telefono),planes_preventivo(id,proxima,frecuencia_dias,ultima,frecuencia_horas,proximas_horas,ultimas_horas)").eq("id", id).maybeSingle();
   if (!e) notFound();
   const camposDoc = "id,tipo,nombre,path,url,publico,vence,equipo_id,created_at";
   const [{ data: evs }, { data: ots }, { data: docsEquipo }, { data: docsModelo }] = await Promise.all([
@@ -34,7 +34,7 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
     .sort((a, b) => orden.indexOf(a.tipo) - orden.indexOf(b.tipo) || b.created_at.localeCompare(a.created_at)));
   const plan = uno<any>(e.planes_preventivo);
   const prov = uno<any>(e.proveedores);
-  const ps = plan && estadoPreventivo(plan.proxima);
+  const ps = plan && estadoPlan(plan, e.horas_uso);
   const costo = (ots ?? []).reduce((s, o) => s + Number(o.costo || 0), 0);
   const qr = await svgQR(e.qr_token);
 
@@ -56,9 +56,14 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
           {e.umdns && <><dt>UMDNS</dt><dd className="mono">{e.umdns}</dd></>}
           <dt>Alta</dt><dd className="mono">{fecha(e.fecha_alta)}</dd>
           {e.garantia_hasta && <><dt>Garantía</dt><dd className="mono">hasta {fecha(e.garantia_hasta)}</dd></>}
-          {e.horas_uso != null && <><dt>Horas de uso</dt><dd className="mono">{Number(e.horas_uso).toLocaleString("es-AR")} h</dd></>}
+          {(e.horas_uso != null || plan?.frecuencia_horas) && <><dt>Horas de uso</dt><dd className="mono">{horas(e.horas_uso)}</dd></>}
           <dt>Proveedor</dt><dd>{prov ? `${prov.nombre}${prov.telefono ? ` · ${prov.telefono}` : ""}` : "Sin asignar"}</dd>
-          <dt>Preventivo</dt><dd>{plan ? <><span className="mono">{fecha(plan.proxima)}</span> <Pill texto={ps!.label} clase={ps!.clase} /> <span className="sub">cada {plan.frecuencia_dias} días</span></> : "Sin plan"}</dd>
+          <dt>Preventivo</dt><dd>{plan ? <>
+            <span className="mono">{fecha(plan.proxima)}</span>
+            {plan.proximas_horas != null && <span className="mono"> o a las {horas(plan.proximas_horas)}</span>}
+            {" "}<Pill texto={ps!.label} clase={ps!.clase} />
+            <div className="sub">{cuandoVence(ps!)} · cada {plan.frecuencia_dias} días{plan.frecuencia_horas ? ` o ${horas(plan.frecuencia_horas)}, lo que ocurra primero` : ""}</div>
+          </> : "Sin plan"}</dd>
           <dt>Costo de mantenimiento</dt><dd className="mono">{pesos(costo)}</dd>
         </dl>
         <div className="qr">
@@ -71,6 +76,11 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
         {plan && <Link className="btn" href={`/preventivos/${plan.id}`}>Realizar preventivo</Link>}
         <Link className="btn" href={`/equipos/etiquetas?ids=${e.id}`}>Imprimir etiqueta</Link>
         <Imprimir texto="Imprimir hoja de vida" primario={false} />
+        <form action={registrarHoras} className="actions">
+          <input type="hidden" name="id" value={e.id} />
+          <input id="horas" name="horas" type="number" min="0" step="1" required placeholder="Horas del contador" aria-label="Horas del contador" style={{ width: 170 }} />
+          <button className="btn">Registrar horas</button>
+        </form>
         <form action={cambiarEstado}>
           <input type="hidden" name="id" value={e.id} />
           <EnviarAlCambiar name="estado" valor={e.estado} etiqueta="Cambiar estado" opciones={Object.entries(ESTADOS).map(([k, v]) => [k, v.label])} />

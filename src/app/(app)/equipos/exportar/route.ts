@@ -1,5 +1,5 @@
 import { contexto, nombreOrg } from "@/lib/contexto";
-import { ESTADOS, estadoPreventivo, fecha } from "@/lib/formato";
+import { ESTADOS, estadoPlan, fecha } from "@/lib/formato";
 import { uno } from "@/lib/eventos";
 
 // CSV pensado para Excel en español: separador punto y coma y BOM para que respete los acentos.
@@ -12,17 +12,17 @@ export async function GET() {
   const { supabase, orgIds, orgs } = await contexto();
   const { data } = await supabase
     .from("equipos")
-    .select("org_id,tipo,marca,modelo,serial,nro_inventario,umdns,sede,servicio,estado,fecha_alta,garantia_hasta,horas_uso,proveedores(nombre),planes_preventivo(proxima,ultima,frecuencia_dias)")
+    .select("org_id,tipo,marca,modelo,serial,nro_inventario,umdns,sede,servicio,estado,fecha_alta,garantia_hasta,horas_uso,proveedores(nombre),planes_preventivo(proxima,ultima,frecuencia_dias,frecuencia_horas,proximas_horas)")
     .in("org_id", orgIds)
     .order("tipo");
   const filas = [
-    ["Institución", "Tipo", "Marca", "Modelo", "Serial", "N.º inventario", "UMDNS", "Sede", "Servicio", "Estado", "Alta", "Garantía hasta", "Horas de uso", "Proveedor", "Frecuencia preventivo (días)", "Último preventivo", "Próximo preventivo", "Situación preventivo"],
+    ["Institución", "Tipo", "Marca", "Modelo", "Serial", "N.º inventario", "UMDNS", "Sede", "Servicio", "Estado", "Alta", "Garantía hasta", "Horas de uso", "Proveedor", "Frecuencia preventivo (días)", "Frecuencia preventivo (horas)", "Último preventivo", "Próximo preventivo", "Próximo preventivo (horas)", "Situación preventivo"],
     ...(data ?? []).map((e: any) => {
       const p = uno<any>(e.planes_preventivo), pv = uno<any>(e.proveedores);
       return [
         nombreOrg(orgs, e.org_id), e.tipo, e.marca, e.modelo, e.serial, e.nro_inventario, e.umdns, e.sede, e.servicio,
         ESTADOS[e.estado]?.label ?? e.estado, fecha(e.fecha_alta), e.garantia_hasta ? fecha(e.garantia_hasta) : "", e.horas_uso ?? "",
-        pv?.nombre ?? "", p?.frecuencia_dias ?? "", p?.ultima ? fecha(p.ultima) : "", p ? fecha(p.proxima) : "", p ? estadoPreventivo(p.proxima).label : "",
+        pv?.nombre ?? "", p?.frecuencia_dias ?? "", p?.frecuencia_horas ?? "", p?.ultima ? fecha(p.ultima) : "", p ? fecha(p.proxima) : "", p?.proximas_horas ?? "", p ? estadoPlan(p, e.horas_uso).label : "",
       ];
     }),
   ];

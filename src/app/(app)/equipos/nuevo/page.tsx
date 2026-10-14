@@ -35,6 +35,7 @@ export default async function NuevoEquipo({ searchParams }: { searchParams: Prom
         <label>Horas de uso (si tiene contador)<input id="horas_uso" name="horas_uso" type="number" min="0" /></label>
         <label>Frecuencia de preventivo (días)<input id="frecuencia" name="frecuencia" type="number" min="1" placeholder="Según tipo" /></label>
         <label>Próximo preventivo<input id="proxima" name="proxima" type="date" defaultValue={sumarDias(hoyISO(), 30)} /></label>
+        <label>Preventivo también cada (horas de uso)<input id="frecuencia_horas" name="frecuencia_horas" type="number" min="1" placeholder="Opcional, según fabricante" /></label>
         <div className="full actions end"><Link className="btn" href="/equipos">Cancelar</Link><button className="btn primary">Agregar equipo</button></div>
       </form>
     </>

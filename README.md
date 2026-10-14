@@ -9,7 +9,7 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 - **Panel**: porcentaje operativo, preventivos vencidos, órdenes abiertas, equipos fuera de servicio, operatividad por servicio y por institución.
 - **Equipos**: alta manual, importación desde CSV, búsqueda y filtros, hoja de vida con historial inmutable, cambio de estado, novedades.
 - **QR**: cada equipo tiene un código único. Escaneado por alguien sin cuenta abre un formulario de reporte de falla que crea la orden sola; escaneado por un usuario del sistema abre la hoja de vida. Hoja de etiquetas lista para imprimir.
-- **Preventivos**: plan por equipo con frecuencia, estados (al día, próximo, vencido) y protocolo por tipo de equipo con mediciones y rangos. Una medición fuera de rango abre una orden correctiva y pasa el equipo a reparación.
+- **Preventivos**: plan por equipo con frecuencia en días y, opcionalmente, en horas de uso (vence lo que ocurra primero); registro de lecturas del contador; estados (al día, próximo, vencido) y protocolo por tipo de equipo con mediciones y rangos. Una medición fuera de rango abre una orden correctiva y pasa el equipo a reparación.
 - **Órdenes de trabajo**: correctivo, calibración, instalación; seguimiento de estado, asignación a proveedor, cierre con trabajo realizado y costo.
 - **Proveedores** por institución.
 - **Documentos**: manuales de usuario y de servicio, certificados de calibración con vencimiento y fotos, como archivo (PDF o imagen, hasta 50 MB) o enlace. Se cargan para un equipo o para todos los de la misma marca y modelo. Los marcados como visibles en el QR (por defecto, el manual de usuario) aparecen al escanear la etiqueta, sin cuenta.
@@ -22,7 +22,7 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 ### 1. Crear el proyecto en Supabase
 
 1. Entrá a [supabase.com](https://supabase.com), creá una cuenta y un proyecto nuevo. Región sugerida: São Paulo (sa-east-1), la más cercana a Argentina.
-2. En **SQL Editor**, ejecutá en orden cada archivo de `supabase/migrations/` (`0001_esquema.sql`, `0002_invitaciones.sql`, `0003_documentos.sql`, …): abrí una consulta nueva, pegá el contenido completo y tocá *Run*. Cada archivo se corre una sola vez; si te equivocás y corrés `0002` dos veces no pasa nada.
+2. En **SQL Editor**, ejecutá en orden cada archivo de `supabase/migrations/` (`0001_esquema.sql`, `0002_invitaciones.sql`, `0003_documentos.sql`, `0004_preventivo_horas.sql`, …): abrí una consulta nueva, pegá el contenido completo y tocá *Run*. Cada archivo se corre una sola vez; si te equivocás y corrés `0002` dos veces no pasa nada.
 3. En **Authentication > URL Configuration**:
    - *Site URL*: la URL donde va a vivir la app (por ahora `http://localhost:3000`; después la de Vercel).
    - *Redirect URLs*: agregá `http://localhost:3000/**` y, más adelante, `https://TU-APP.vercel.app/**`.
@@ -74,5 +74,5 @@ src/app/q/[token]                      Página pública del QR (manual de usuari
 ## Pendientes conocidos
 
 - Avisos por email de vencimientos.
-- Repuestos y preventivo por horas de uso.
+- Repuestos.
 - Ocultar botones de edición al rol dirección (hoy la base de datos ya rechaza sus cambios).

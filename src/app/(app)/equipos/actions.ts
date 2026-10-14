@@ -14,6 +14,8 @@ export async function crearEquipo(formData: FormData) {
   const org_id = txt(formData, "org_id");
   const tipo = txt(formData, "tipo");
   const frecuencia = Number(formData.get("frecuencia")) || FRECUENCIA_DEFECTO[tipo] || 365;
+  const frecuenciaHoras = Number(formData.get("frecuencia_horas")) || null;
+  const horasIniciales = formData.get("horas_uso") ? Number(formData.get("horas_uso")) : null;
   const { data, error } = await supabase.from("equipos").insert({
     org_id, tipo,
     marca: txt(formData, "marca"), modelo: txt(formData, "modelo"), serial: txt(formData, "serial"),
@@ -21,7 +23,7 @@ export async function crearEquipo(formData: FormData) {
     sede: txt(formData, "sede") || null, servicio: txt(formData, "servicio") || "Sin asignar",
     proveedor_id: txt(formData, "proveedor_id") || null,
     garantia_hasta: txt(formData, "garantia_hasta") || null,
-    horas_uso: formData.get("horas_uso") ? Number(formData.get("horas_uso")) : null,
+    horas_uso: horasIniciales,
   }).select("id").single();
   if (error) {
     const msg = error.code === "23505" ? "Ya existe un equipo con ese serial en la institución." : error.message;
@@ -29,6 +31,7 @@ export async function crearEquipo(formData: FormData) {
   }
   await supabase.from("planes_preventivo").insert({
     org_id, equipo_id: data.id, frecuencia_dias: frecuencia, proxima: txt(formData, "proxima") || sumarDias(hoyISO(), 30),
+    ...(frecuenciaHoras ? { frecuencia_horas: frecuenciaHoras, proximas_horas: (horasIniciales ?? 0) + frecuenciaHoras } : {}),
   });
   await registrarEvento(supabase, { org_id, equipo_id: data.id, tipo: "Alta", texto: `Alta en inventario — ${txt(formData, "servicio") || "Sin asignar"}` }, { id: user.id, nombre: nombreUsuario });
   revalidatePath("/", "layout");
@@ -114,4 +117,22 @@ export async function agregarNota(formData: FormData) {
   if (!eq) return;
   await registrarEvento(supabase, { org_id: eq.org_id, equipo_id: id, tipo: "Novedad", texto: nota }, { id: user.id, nombre: nombreUsuario });
   revalidatePath(`/equipos/${id}`);
+}
+
+export async function registrarHoras(formData: FormData) {
+  const { supabase, user, nombreUsuario } = await contexto();
+  const id = txt(formData, "id");
+  const lectura = Math.round(Number(formData.get("horas")));
+  if (!Number.isFinite(lectura) || lectura < 0) redirect(`/equipos/${id}?error=` + encodeURIComponent("Ingresá las horas del contador."));
+  const { data: eq } = await supabase.from("equipos").select("org_id,horas_uso").eq("id", id).single();
+  if (!eq) return;
+  const { error } = await supabase.from("equipos").update({ horas_uso: lectura }).eq("id", id);
+  if (error) redirect(`/equipos/${id}?error=` + encodeURIComponent("No tenés permiso para cambiar este equipo."));
+  const menor = eq.horas_uso != null && lectura < eq.horas_uso;
+  await registrarEvento(supabase, {
+    org_id: eq.org_id, equipo_id: id, tipo: "Horas",
+    texto: `Lectura de horas: ${lectura.toLocaleString("es-AR")} h${eq.horas_uso != null ? ` (antes ${Number(eq.horas_uso).toLocaleString("es-AR")} h)` : ""}${menor ? ". Menor que la anterior: ¿se reemplazó el contador?" : ""}`,
+  }, { id: user.id, nombre: nombreUsuario });
+  revalidatePath("/", "layout");
+  redirect(`/equipos/${id}?aviso=` + encodeURIComponent(menor ? "Horas registradas. Ojo: la lectura es menor que la anterior." : "Horas registradas."));
 }
