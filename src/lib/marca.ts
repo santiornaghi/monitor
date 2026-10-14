@@ -4,7 +4,7 @@ export const GRUPO = process.env.NEXT_PUBLIC_MARCA_GRUPO || "Ornaghi Tecnología
 export const TURNERO = "Turnero"; // nombre del producto de turnos (provisorio)
 
 // Contacto comercial (cargar en Vercel).
-export const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP ?? ""; // solo dígitos, con código de país: 5493584123456
+export const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP || "5493584390961"; // solo dígitos: 54 + 9 + característica + número
 
 export function enlaceWhatsApp(texto: string) {
   return WHATSAPP ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}` : "";

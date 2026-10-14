@@ -19,7 +19,7 @@ export async function enviarConsulta(formData: FormData) {
     mensaje: txt(formData, "mensaje", 3000),
   };
   if (!d.nombre || (!d.email && !d.telefono)) redirect("/contacto?error=" + encodeURIComponent("Dejanos tu nombre y un email o teléfono para responderte."));
-  const destino = process.env.CONTACTO_EMAIL;
+  const destino = process.env.CONTACTO_EMAIL || "santiornaghi@gmail.com";
   if (!destino) redirect("/contacto?error=" + encodeURIComponent("El formulario todavía no está configurado. Escribinos por WhatsApp."));
   const filas = Object.entries({
     Nombre: d.nombre, Institución: d.institucion, Ciudad: d.ciudad, Email: d.email, Teléfono: d.telefono,
