@@ -12,6 +12,7 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 - **Preventivos**: plan por equipo con frecuencia, estados (al día, próximo, vencido) y protocolo por tipo de equipo con mediciones y rangos. Una medición fuera de rango abre una orden correctiva y pasa el equipo a reparación.
 - **Órdenes de trabajo**: correctivo, calibración, instalación; seguimiento de estado, asignación a proveedor, cierre con trabajo realizado y costo.
 - **Proveedores** por institución.
+- **Documentos**: manuales de usuario y de servicio, certificados de calibración con vencimiento y fotos, como archivo (PDF o imagen, hasta 50 MB) o enlace. Se cargan para un equipo o para todos los de la misma marca y modelo. Los marcados como visibles en el QR (por defecto, el manual de usuario) aparecen al escanear la etiqueta, sin cuenta.
 - **Usuarios**: el administrador invita por enlace (técnico, administrador o dirección de solo lectura), cambia roles y quita accesos.
 - **Exportación**: inventario completo a CSV para Excel; hoja de vida imprimible o guardable como PDF desde el navegador.
 - **Modo proveedor de servicio**: una empresa de service crea sus clientes y ve el parque de todos desde una cuenta.
@@ -21,7 +22,7 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 ### 1. Crear el proyecto en Supabase
 
 1. Entrá a [supabase.com](https://supabase.com), creá una cuenta y un proyecto nuevo. Región sugerida: São Paulo (sa-east-1), la más cercana a Argentina.
-2. En **SQL Editor**, ejecutá en orden cada archivo de `supabase/migrations/` (`0001_esquema.sql`, `0002_invitaciones.sql`, …): abrí una consulta nueva, pegá el contenido completo y tocá *Run*. Cada archivo se corre una sola vez; si te equivocás y corrés `0002` dos veces no pasa nada.
+2. En **SQL Editor**, ejecutá en orden cada archivo de `supabase/migrations/` (`0001_esquema.sql`, `0002_invitaciones.sql`, `0003_documentos.sql`, …): abrí una consulta nueva, pegá el contenido completo y tocá *Run*. Cada archivo se corre una sola vez; si te equivocás y corrés `0002` dos veces no pasa nada.
 3. En **Authentication > URL Configuration**:
    - *Site URL*: la URL donde va a vivir la app (por ahora `http://localhost:3000`; después la de Vercel).
    - *Redirect URLs*: agregá `http://localhost:3000/**` y, más adelante, `https://TU-APP.vercel.app/**`.
@@ -67,12 +68,11 @@ src/middleware.ts                      Sesión y protección de rutas
 src/lib/                               Supabase, protocolos, formato, QR
 src/app/login, bienvenida              Acceso y alta de la organización
 src/app/(app)/                         Panel, equipos, preventivos, órdenes, proveedores, clientes
-src/app/q/[token]                      Página pública del QR
+src/app/q/[token]                      Página pública del QR (manual de usuario y reporte de falla)
 ```
 
 ## Pendientes conocidos
 
 - Avisos por email de vencimientos.
-- Adjuntar fotos y certificados de calibración.
 - Repuestos y preventivo por horas de uso.
 - Ocultar botones de edición al rol dirección (hoy la base de datos ya rechaza sus cambios).

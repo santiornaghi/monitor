@@ -19,7 +19,7 @@ export default async function Etiquetas({ searchParams }: { searchParams: Promis
         <h1>Etiquetas QR</h1><span className="sp" />
         <Imprimir />
       </div>
-      <p className="muted no-print">{E.length} etiquetas. Imprimí en papel autoadhesivo y pegá cada una en su equipo; al escanearla se abre la ficha o el reporte de falla.</p>
+      <p className="muted no-print">{E.length} etiquetas. Imprimí en papel autoadhesivo y pegá cada una en su equipo; al escanearla se abre el manual de usuario y el reporte de falla, o la ficha completa si quien escanea tiene cuenta.</p>
       <div className="etiquetas">
         {E.map((e, i) => (
           <div className="etiqueta" key={e.id}>
@@ -27,7 +27,7 @@ export default async function Etiquetas({ searchParams }: { searchParams: Promis
             <strong style={{ fontSize: 12.5 }}>{e.tipo}</strong>
             <span style={{ fontSize: 12 }}>{e.marca} {e.modelo}</span>
             <span className="mono">S/N {e.serial}{e.nro_inventario ? ` · ${e.nro_inventario}` : ""}</span>
-            <span style={{ fontSize: 11 }}>Escaneá para reportar una falla</span>
+            <span style={{ fontSize: 11 }}>Escaneá para ver el manual o reportar una falla</span>
           </div>
         ))}
       </div>

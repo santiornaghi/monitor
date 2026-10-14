@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { Logo } from "@/components/Logo";
 import { numeroOT } from "@/lib/formato";
 import { reportar } from "./actions";
+import { TIPOS_DOC, enlaces, type Doc } from "@/lib/documentos";
 
 export const metadata = { title: "Reportar falla", robots: { index: false } };
 
@@ -18,13 +19,27 @@ export default async function QR({ params, searchParams }: { params: Promise<{ t
     if (eq) redirect(`/equipos/${eq.id}`);
   }
 
-  const { data } = await supabase.rpc("qr_equipo", { p_token: token });
+  const [{ data }, { data: docsData }] = await Promise.all([
+    supabase.rpc("qr_equipo", { p_token: token }),
+    supabase.rpc("qr_documentos", { p_token: token }),
+  ]);
   const e = Array.isArray(data) ? data[0] : null;
+  const docs = (await enlaces(supabase, (Array.isArray(docsData) ? docsData : []) as Doc[])).filter((d) => d.href);
+  const documentos = docs.length > 0 && (
+    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+      <span className="eyebrow">Documentación</span>
+      {docs.map((d, i) => (
+        <a key={i} className={i === 0 && d.tipo === "manual_usuario" ? "btn primary" : "btn"} style={{ justifyContent: "center" }} href={d.href!} target="_blank" rel="noopener noreferrer">
+          {d.nombre !== TIPOS_DOC[d.tipo] ? d.nombre : `Ver ${TIPOS_DOC[d.tipo].toLowerCase()}`}
+        </a>
+      ))}
+    </div>
+  );
 
   return (
     <div className="auth">
       <div className="card">
-        <div className="actions"><Logo size={24} /><span className="eyebrow">Reporte de falla</span></div>
+        <div className="actions"><Logo size={24} /><span className="eyebrow">{e ? "Equipo" : "Reporte de falla"}</span></div>
         {!e ? (
           <p>Este código no corresponde a un equipo activo.</p>
         ) : sp.ok ? (
@@ -32,6 +47,7 @@ export default async function QR({ params, searchParams }: { params: Promise<{ t
             <h1 style={{ fontSize: 20 }}>Falla reportada</h1>
             <div className="notice">Se abrió la orden {numeroOT(Number(sp.ok))}. El equipo de mantenimiento ya la ve en su lista.</div>
             <p className="muted" style={{ margin: 0 }}>{e.tipo} · {e.marca} {e.modelo} · {e.servicio}</p>
+            {documentos}
           </>
         ) : (
           <form action={reportar} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -40,7 +56,9 @@ export default async function QR({ params, searchParams }: { params: Promise<{ t
               <h1 style={{ fontSize: 20 }}>{e.tipo}</h1>
               <div className="muted">{e.marca} {e.modelo} · {e.servicio} · {e.institucion}</div>
             </div>
+            {documentos}
             {sp.error && <div className="error">{sp.error}</div>}
+            <span className="eyebrow" style={{ marginTop: 4 }}>Reportar una falla</span>
             <label className="muted" style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 12.5 }}>
               Qué pasa con el equipo
               <textarea id="descripcion" name="descripcion" rows={4} required minLength={5} maxLength={1000} placeholder="Ej.: suena una alarma de batería aunque está enchufado" />
