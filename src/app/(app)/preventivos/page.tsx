@@ -32,7 +32,7 @@ export default async function Preventivos() {
                   <td><span className="mono">{fecha(p.proxima)}</span>{p.proximas_horas != null && <span className="mono"> · {horas(p.proximas_horas)}</span>}<div className="sub">{cuandoVence(s)}</div></td>
                   <td className="hide-sm">cada {p.frecuencia_dias} días{p.frecuencia_horas ? ` o ${horas(p.frecuencia_horas)}` : ""}</td>
                   <td className="mono hide-sm">{fecha(p.ultima)}</td>
-                  <td><Link className="btn sm" href={`/preventivos/${p.id}`}>Realizar</Link></td>
+                  <td><Link className="btn sm editar" href={`/preventivos/${p.id}`}>Realizar</Link></td>
                 </tr>
               );
             })}

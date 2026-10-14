@@ -6,6 +6,8 @@ import { contexto } from "@/lib/contexto";
 import { registrarEvento } from "@/lib/eventos";
 import { PROTOCOLOS, fueraDeRango } from "@/lib/protocolos";
 import { hoyISO, sumarDias, numeroOT } from "@/lib/formato";
+import { after } from "next/server";
+import { avisarNuevaOT } from "@/lib/avisos";
 
 export async function realizarPreventivo(formData: FormData) {
   const { supabase, user, nombreUsuario } = await contexto();
@@ -58,7 +60,8 @@ export async function realizarPreventivo(formData: FormData) {
       org_id: plan.org_id, equipo_id: plan.equipo_id, tipo: "Correctivo", prioridad: "Alta",
       descripcion: `Preventivo con mediciones fuera de rango: ${fallas.map((f) => f.paso.split(" (")[0]).join(", ")}`,
       reporta: "Protocolo de preventivo", proveedor_id: eq.proveedor_id, created_by: user.id,
-    }).select("numero").single();
+    }).select("id,numero").single();
+    if (ot) after(() => avisarNuevaOT(ot.id, { excluirUsuario: user.id }));
     await supabase.from("equipos").update({ estado: "reparacion" }).eq("id", plan.equipo_id);
     await registrarEvento(supabase, { org_id: plan.org_id, equipo_id: plan.equipo_id, tipo: "OT", texto: `${numeroOT(ot?.numero ?? 0)} abierta automáticamente por medición fuera de rango; equipo en reparación` }, usuario);
     aviso = `Preventivo registrado con mediciones fuera de rango. Se abrió ${numeroOT(ot?.numero ?? 0)} y el equipo pasó a reparación.`;

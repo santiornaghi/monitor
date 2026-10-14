@@ -4,7 +4,7 @@ import { baseURL } from "@/lib/qr";
 import { fecha } from "@/lib/formato";
 import { Copiar } from "@/components/Copiar";
 import { EnviarAlCambiar } from "@/components/EnviarAlCambiar";
-import { crearInvitacion, anularInvitacion, cambiarRol, quitarMiembro } from "./actions";
+import { crearInvitacion, anularInvitacion, cambiarRol, quitarMiembro, cambiarAvisos, probarAvisos } from "./actions";
 
 export const metadata = { title: "Usuarios" };
 
@@ -17,7 +17,7 @@ export default async function Usuarios({ searchParams }: { searchParams: Promise
   if (!mias.length) redirect("/");
   const ids = mias.map((o) => o.id);
   const [{ data: miembros }, { data: invs }] = await Promise.all([
-    supabase.from("miembros").select("org_id,user_id,rol,nombre,email,created_at").in("org_id", ids).order("created_at"),
+    supabase.from("miembros").select("org_id,user_id,rol,nombre,email,created_at,recibe_avisos").in("org_id", ids).order("created_at"),
     supabase.from("invitaciones").select("id,org_id,rol,token,nota,expira_en").in("org_id", ids).is("usada_por", null).gt("expira_en", new Date().toISOString()).order("creada_en", { ascending: false }),
   ]);
   const base = baseURL();
@@ -36,7 +36,7 @@ export default async function Usuarios({ searchParams }: { searchParams: Promise
             <h2>{o.nombre}{o.tipo === "proveedor" ? " · acceso a todos sus clientes" : ""}</h2>
             <div className="tablewrap" style={{ marginBottom: 12 }}>
               <table>
-                <thead><tr><th>Nombre</th><th className="hide-sm">Email</th><th>Rol</th><th></th></tr></thead>
+                <thead><tr><th>Nombre</th><th className="hide-sm">Email</th><th>Rol</th><th>Avisos por email</th><th></th></tr></thead>
                 <tbody>
                   {ms.map((m) => (
                     <tr key={m.user_id}>
@@ -50,6 +50,13 @@ export default async function Usuarios({ searchParams }: { searchParams: Promise
                             <EnviarAlCambiar name="rol" valor={m.rol} etiqueta="Rol" opciones={ROLES} />
                           </form>
                         )}
+                      </td>
+                      <td>
+                        <form action={cambiarAvisos}>
+                          <input type="hidden" name="org_id" value={o.id} />
+                          <input type="hidden" name="user_id" value={m.user_id} />
+                          <EnviarAlCambiar name="valor" valor={m.recibe_avisos === false ? "no" : "si"} etiqueta="Avisos por email" opciones={[["si", "Recibe"], ["no", "No recibe"]]} />
+                        </form>
                       </td>
                       <td>
                         {m.user_id !== user.id && (
@@ -102,6 +109,14 @@ export default async function Usuarios({ searchParams }: { searchParams: Promise
           </section>
         );
       })}
+      <section className="panel" style={{ marginBottom: 16 }}>
+        <h2>Avisos por email</h2>
+        <p className="sub" style={{ marginTop: 0 }}>
+          Cuando se abre una orden (desde la app o desde un QR), se avisa a administradores y técnicos. De lunes a viernes a las 8 se envía un resumen
+          con preventivos vencidos o de la semana, órdenes de prioridad alta, certificados por vencer y repuestos bajo mínimo. Solo se manda si hay algo que avisar.
+        </p>
+        <form action={probarAvisos}><button className="btn">Enviarme un email de prueba</button></form>
+      </section>
       <p className="sub">Cada enlace sirve para una sola persona y vence a los 7 días. Quien lo abre crea su cuenta (o ingresa) y queda con el rol elegido.</p>
     </>
   );

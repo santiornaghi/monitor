@@ -29,6 +29,9 @@ export default async function NuevaOrden({ searchParams }: { searchParams: Promi
         <label className="full" style={{ flexDirection: "row", alignItems: "center", gap: 8, color: "var(--fg)" }}>
           <input id="fuera" name="fuera" type="checkbox" style={{ width: "auto" }} /> El equipo no se puede usar (pasa a fuera de servicio)
         </label>
+        <label className="full" style={{ flexDirection: "row", alignItems: "center", gap: 8, color: "var(--fg)" }}>
+          <input id="avisar_proveedor" name="avisar_proveedor" type="checkbox" style={{ width: "auto" }} /> Mandar el pedido por email al proveedor asignado (si tiene email cargado)
+        </label>
         <div className="full actions end"><Link className="btn" href="/ordenes">Cancelar</Link><button className="btn primary">Abrir orden</button></div>
       </form>
     </>

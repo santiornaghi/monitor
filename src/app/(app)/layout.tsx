@@ -7,13 +7,15 @@ import { salir } from "@/app/login/actions";
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const { supabase, orgIds, nombreUsuario, proveedorPropio, membresias } = await contexto();
   const esAdmin = membresias.some((m) => m.rol === "admin");
+  // Dirección: solo lectura. La base de datos ya rechaza sus cambios; acá se ocultan los controles.
+  const soloLectura = membresias.length > 0 && membresias.every((m) => m.rol === "direccion");
   const hoy = new Date(Date.now() - 3 * 3600e3).toISOString().slice(0, 10);
   const [{ data: vencidos }, { count: abiertas }] = await Promise.all([
     supabase.rpc("preventivos_vencidos", { p_orgs: orgIds, p_hoy: hoy }),
     supabase.from("ordenes").select("id", { count: "exact", head: true }).in("org_id", orgIds).neq("estado", "Cerrada"),
   ]);
   return (
-    <div className="app">
+    <div className={soloLectura ? "app solo-lectura" : "app"}>
       <nav className="side" aria-label="Módulos">
         <Link href="/" className="brand"><Logo />Monitor</Link>
         <Navegacion contadores={{ "/preventivos": Number(vencidos ?? 0), "/ordenes": abiertas ?? 0 }} />

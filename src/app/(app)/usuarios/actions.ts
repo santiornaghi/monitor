@@ -39,3 +39,29 @@ export async function quitarMiembro(formData: FormData) {
   await supabase.from("miembros").delete().eq("org_id", org_id).eq("user_id", user_id);
   revalidatePath("/usuarios");
 }
+
+export async function cambiarAvisos(formData: FormData) {
+  const { supabase } = await contexto();
+  await supabase.from("miembros")
+    .update({ recibe_avisos: txt(formData, "valor") === "si" })
+    .eq("org_id", txt(formData, "org_id")).eq("user_id", txt(formData, "user_id"));
+  revalidatePath("/usuarios");
+}
+
+export async function probarAvisos() {
+  const { user } = await contexto();
+  const { enviarEmail, plantilla, emailConfigurado } = await import("@/lib/email");
+  const { enviarResumenes } = await import("@/lib/resumen");
+  if (!emailConfigurado()) redirect("/usuarios?error=" + encodeURIComponent("Falta configurar RESEND_API_KEY en Vercel."));
+  const r = await enviarEmail({
+    to: [user.email!],
+    subject: "Monitor: prueba de avisos",
+    html: plantilla("Los avisos por email funcionan", "<p>Si recibiste este mensaje, Monitor puede enviarte avisos de órdenes nuevas y el resumen diario de vencimientos.</p>"),
+  });
+  if (!r.ok) redirect("/usuarios?error=" + encodeURIComponent(`No se pudo enviar: ${r.motivo}`));
+  const res = await enviarResumenes(user.email!);
+  redirect("/usuarios?aviso=" + encodeURIComponent(
+    `Te mandamos un email de prueba a ${user.email}.` +
+    (res.error ? ` El resumen diario no se pudo armar: ${res.error}.` : res.enviados ? " También te llegó el resumen de hoy." : " Hoy no hay vencimientos para resumir."),
+  ));
+}

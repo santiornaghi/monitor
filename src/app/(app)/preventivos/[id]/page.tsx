@@ -29,7 +29,7 @@ export default async function Realizar({ params, searchParams }: { params: Promi
       </div>
       {sp.error && <div className="error" style={{ marginBottom: 12 }}>{sp.error}</div>}
       {sp.aviso && <div className="notice" style={{ marginBottom: 12 }}>{sp.aviso}</div>}
-      <form className="card" action={realizarPreventivo} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+      <form className="card editar" action={realizarPreventivo} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <input type="hidden" name="plan_id" value={plan.id} />
         {(plan.frecuencia_horas || eq.horas_uso != null) && (
           <label className="row" style={{ display: "flex", gap: 10, alignItems: "center", background: "var(--accent-soft)", padding: "10px 12px", borderRadius: 6, flexWrap: "wrap" }}>
@@ -54,7 +54,7 @@ export default async function Realizar({ params, searchParams }: { params: Promi
         <div className="actions end"><Link className="btn" href="/preventivos">Cancelar</Link><button className="btn primary">Firmar y registrar</button></div>
       </form>
       <h2 style={{ marginTop: 24 }}>Plan</h2>
-      <form className="card form" action={reprogramar}>
+      <form className="card form editar" action={reprogramar}>
         <input type="hidden" name="plan_id" value={plan.id} />
         <label>Frecuencia (días)<input id="frecuencia" name="frecuencia" type="number" min="1" defaultValue={plan.frecuencia_dias} required /></label>
         <label>Próxima fecha<input id="proxima" name="proxima" type="date" defaultValue={plan.proxima} required /></label>

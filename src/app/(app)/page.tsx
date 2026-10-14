@@ -10,10 +10,11 @@ type Eq = { id: string; org_id: string; tipo: string; marca: string; modelo: str
 
 export default async function Panel() {
   const { supabase, orgIds, orgs, instituciones, alcance } = await contexto();
-  const [{ data: eqData }, { data: prevData }, { data: otData }] = await Promise.all([
+  const [{ data: eqData }, { data: prevData }, { data: otData }, { data: repData }] = await Promise.all([
     supabase.from("equipos").select("id,org_id,tipo,marca,modelo,servicio,estado").in("org_id", orgIds).neq("estado", "baja"),
     supabase.from("planes_preventivo").select("id,proxima,frecuencia_horas,proximas_horas,equipo_id,equipos(id,org_id,tipo,marca,modelo,servicio,estado,horas_uso)").in("org_id", orgIds).order("proxima"),
     supabase.from("ordenes").select("id,numero,prioridad,estado,descripcion,equipos(id,org_id,tipo,marca,modelo,servicio,estado)").in("org_id", orgIds).neq("estado", "Cerrada").order("abierta_en"),
+    supabase.from("repuestos").select("id,descripcion,codigo,stock,stock_minimo").in("org_id", orgIds).gt("stock_minimo", 0),
   ]);
   const E = (eqData ?? []) as Eq[];
   const op = E.filter((e) => e.estado === "operativo").length;
@@ -25,6 +26,7 @@ export default async function Panel() {
   const proximos = prevs.filter((p) => p.st.clase === "p-warn");
   const ots = (otData ?? []).map((o: any) => ({ ...o, eq: uno<Eq>(o.equipos) })).filter((o) => o.eq);
   const fuera = E.filter((e) => e.estado === "fuera");
+  const stockBajo = (repData ?? []).filter((r) => r.stock <= r.stock_minimo).sort((a, b) => a.stock - b.stock);
 
   const porServicio = new Map<string, [number, number]>();
   E.forEach((e) => {
@@ -52,7 +54,7 @@ export default async function Panel() {
         <div className="card">
           <h2>Todavía no hay equipos cargados</h2>
           <p className="muted">Cargá el primero a mano o importá tu planilla.</p>
-          <div className="actions"><Link className="btn primary" href="/equipos/nuevo">Nuevo equipo</Link><Link className="btn" href="/equipos/importar">Importar CSV</Link></div>
+          <div className="actions editar"><Link className="btn primary" href="/equipos/nuevo">Nuevo equipo</Link><Link className="btn" href="/equipos/importar">Importar CSV</Link></div>
         </div>
       ) : (
         <>
@@ -77,6 +79,20 @@ export default async function Panel() {
                 )) : <div className="empty">Nada pendiente.</div>}
               </div>
             </section>
+            {stockBajo.length > 0 && (
+              <section className="panel">
+                <h2>Repuestos bajo mínimo</h2>
+                <div className="list">
+                  {stockBajo.slice(0, 8).map((r) => (
+                    <Link key={r.id} className="li" href={`/repuestos/${r.id}`}>
+                      <div style={{ minWidth: 0 }}><div className="t">{r.descripcion}</div><div className="sub">{r.codigo ? `${r.codigo} · ` : ""}stock {r.stock}, mínimo {r.stock_minimo}</div></div>
+                      <div className="r"><Pill texto={r.stock === 0 ? "Sin stock" : "Bajo mínimo"} clase={r.stock === 0 ? "p-crit" : "p-warn"} /></div>
+                    </Link>
+                  ))}
+                </div>
+                {stockBajo.length > 8 && <Link className="btn sm" href="/repuestos?bajo=1" style={{ marginTop: 8 }}>Ver los {stockBajo.length}</Link>}
+              </section>
+            )}
             <section className="panel">
               <h2>Operatividad por servicio</h2>
               <div className="bars">

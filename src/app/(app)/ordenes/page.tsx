@@ -17,7 +17,7 @@ export default async function Ordenes({ searchParams }: { searchParams: Promise<
   return (
     <>
       <Encabezado titulo="Órdenes de trabajo" instituciones={instituciones} alcance={alcance}>
-        <Link className="btn primary" href="/ordenes/nueva">Nueva orden</Link>
+        <Link className="btn primary editar" href="/ordenes/nueva">Nueva orden</Link>
       </Encabezado>
       <div className="actions" style={{ marginBottom: 12 }}>
         <Link className="btn sm" href="/ordenes" aria-current={!cerradas ? "page" : undefined} style={!cerradas ? { borderColor: "var(--accent)" } : undefined}>Abiertas</Link>

@@ -142,3 +142,6 @@ td a.row-link:hover .t { text-decoration: underline; }
   .ficha { grid-template-columns: 1fr; }
   .hide-sm { display: none; }
 }
+
+/* Rol dirección: se ocultan los controles de edición */
+.solo-lectura .editar { display: none !important; }

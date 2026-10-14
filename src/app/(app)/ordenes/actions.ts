@@ -5,6 +5,8 @@ import { revalidatePath } from "next/cache";
 import { contexto } from "@/lib/contexto";
 import { registrarEvento } from "@/lib/eventos";
 import { ESTADOS, numeroOT } from "@/lib/formato";
+import { after } from "next/server";
+import { avisarNuevaOT } from "@/lib/avisos";
 
 const txt = (f: FormData, k: string) => String(f.get(k) ?? "").trim();
 
@@ -22,6 +24,8 @@ export async function crearOrden(formData: FormData) {
   if (error) redirect("/ordenes/nueva?error=" + encodeURIComponent(error.message));
   const usuario = { id: user.id, nombre: nombreUsuario };
   await registrarEvento(supabase, { org_id: eq.org_id, equipo_id, tipo: "OT", texto: `${numeroOT(ot.numero)} abierta: ${descripcion}` }, usuario);
+  const avisarProveedor = formData.get("avisar_proveedor") === "on";
+  after(() => avisarNuevaOT(ot.id, { excluirUsuario: user.id, avisarProveedor }));
   if (formData.get("fuera") === "on" && eq.estado !== "fuera") {
     await supabase.from("equipos").update({ estado: "fuera" }).eq("id", equipo_id);
     await registrarEvento(supabase, { org_id: eq.org_id, equipo_id, tipo: "Estado", texto: `Estado: ${ESTADOS[eq.estado].label} → Fuera de servicio` }, usuario);

@@ -34,8 +34,8 @@ export default async function Proveedores({ searchParams }: { searchParams: Prom
           </tbody>
         </table>
       </div>
-      <h2>Agregar proveedor</h2>
-      <form className="card form" action={crearProveedor}>
+      <h2 className="editar">Agregar proveedor</h2>
+      <form className="card form editar" action={crearProveedor}>
         {sp.error && <div className="error full">{sp.error}</div>}
         <label className="full">Institución<select id="org_id" name="org_id" required defaultValue={alcance !== "todas" ? alcance : undefined}>{instituciones.map((o) => <option key={o.id} value={o.id}>{o.nombre}</option>)}</select></label>
         <label className="full">Empresa<input id="nombre" name="nombre" required /></label>

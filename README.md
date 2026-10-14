@@ -13,6 +13,8 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 - **Órdenes de trabajo**: correctivo, calibración, instalación; seguimiento de estado, asignación a proveedor, cierre con trabajo realizado y costo.
 - **Proveedores** por institución.
 - **Documentos**: manuales de usuario y de servicio, certificados de calibración con vencimiento y fotos, como archivo (PDF o imagen, hasta 50 MB) o enlace. Se cargan para un equipo o para todos los de la misma marca y modelo. Los marcados como visibles en el QR (por defecto, el manual de usuario) aparecen al escanear la etiqueta, sin cuenta.
+- **Repuestos y stock**: inventario de repuestos con mínimo, ingresos y ajustes con registro; los repuestos usados en una orden descuentan stock, suman al costo y quedan en la hoja de vida.
+- **Avisos por email**: aviso inmediato de cada orden nueva (también las del QR) y resumen de lunes a viernes con preventivos vencidos o de la semana, órdenes de prioridad alta, certificados por vencer y repuestos bajo mínimo. Opcional: mandar el pedido de servicio al proveedor.
 - **Usuarios**: el administrador invita por enlace (técnico, administrador o dirección de solo lectura), cambia roles y quita accesos.
 - **Exportación**: inventario completo a CSV para Excel; hoja de vida imprimible o guardable como PDF desde el navegador.
 - **Modo proveedor de servicio**: una empresa de service crea sus clientes y ve el parque de todos desde una cuenta.
@@ -22,7 +24,7 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 ### 1. Crear el proyecto en Supabase
 
 1. Entrá a [supabase.com](https://supabase.com), creá una cuenta y un proyecto nuevo. Región sugerida: São Paulo (sa-east-1), la más cercana a Argentina.
-2. En **SQL Editor**, ejecutá en orden cada archivo de `supabase/migrations/` (`0001_esquema.sql`, `0002_invitaciones.sql`, `0003_documentos.sql`, `0004_preventivo_horas.sql`, …): abrí una consulta nueva, pegá el contenido completo y tocá *Run*. Cada archivo se corre una sola vez; si te equivocás y corrés `0002` dos veces no pasa nada.
+2. En **SQL Editor**, ejecutá en orden cada archivo de `supabase/migrations/` (`0001_esquema.sql`, `0002_invitaciones.sql`, `0003_documentos.sql`, `0004_preventivo_horas.sql`, `0005_repuestos_avisos.sql`, …): abrí una consulta nueva, pegá el contenido completo y tocá *Run*. Cada archivo se corre una sola vez; si te equivocás y corrés `0002` dos veces no pasa nada.
 3. En **Authentication > URL Configuration**:
    - *Site URL*: la URL donde va a vivir la app (por ahora `http://localhost:3000`; después la de Vercel).
    - *Redirect URLs*: agregá `http://localhost:3000/**` y, más adelante, `https://TU-APP.vercel.app/**`.
@@ -43,7 +45,19 @@ npm run dev
 
 Abrí `http://localhost:3000`, creá una cuenta y elegí "Cargar equipos de ejemplo" para ver la app con datos.
 
-### 3. Publicar en internet (Vercel)
+### 3. Avisos por email (opcional)
+
+1. Creá una cuenta gratis en [resend.com](https://resend.com) y una *API Key* con permiso de envío.
+2. En Vercel → *Settings → Environment Variables* agregá, como **Secret**:
+   - `RESEND_API_KEY`: la clave de Resend.
+   - `SUPABASE_SECRET_KEY`: la *secret key* de Supabase (*Project Settings → API Keys*). Nunca la compartas ni la pongas con prefijo `NEXT_PUBLIC_`.
+   - `CRON_SECRET`: cualquier texto largo al azar; protege el envío del resumen diario.
+   - `EMAIL_FROM` (cuando tengas dominio verificado en Resend): por ejemplo `Monitor <avisos@tudominio.com>`.
+3. *Redeploy*. Probalo desde *Usuarios → Enviarme un email de prueba*.
+
+Sin dominio verificado, Resend solo entrega a la dirección con la que creaste la cuenta de Resend. Para avisar a otros usuarios, verificá un dominio propio en Resend.
+
+### 4. Publicar en internet (Vercel)
 
 1. Subí el proyecto a un repositorio privado de GitHub.
 2. En [vercel.com](https://vercel.com), *Add New > Project*, importá el repositorio.
@@ -73,6 +87,4 @@ src/app/q/[token]                      Página pública del QR (manual de usuari
 
 ## Pendientes conocidos
 
-- Avisos por email de vencimientos.
-- Repuestos.
-- Ocultar botones de edición al rol dirección (hoy la base de datos ya rechaza sus cambios).
+

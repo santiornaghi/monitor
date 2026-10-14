@@ -25,7 +25,7 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
   const camposDoc = "id,tipo,nombre,path,url,publico,vence,equipo_id,created_at";
   const [{ data: evs }, { data: ots }, { data: docsEquipo }, { data: docsModelo }] = await Promise.all([
     supabase.from("eventos").select("id,fecha,tipo,texto,usuario_nombre").eq("equipo_id", id).order("fecha", { ascending: false }),
-    supabase.from("ordenes").select("costo").eq("equipo_id", id),
+    supabase.from("ordenes").select("costo,ordenes_repuestos(cantidad,costo_unitario)").eq("equipo_id", id),
     supabase.from("documentos").select(camposDoc).eq("equipo_id", id),
     supabase.from("documentos").select(camposDoc).is("equipo_id", null).eq("org_id", e.org_id).ilike("marca", literal(e.marca)).ilike("modelo", literal(e.modelo)),
   ]);
@@ -35,7 +35,8 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
   const plan = uno<any>(e.planes_preventivo);
   const prov = uno<any>(e.proveedores);
   const ps = plan && estadoPlan(plan, e.horas_uso);
-  const costo = (ots ?? []).reduce((s, o) => s + Number(o.costo || 0), 0);
+  const costo = (ots ?? []).reduce((s, o: any) => s + Number(o.costo || 0)
+    + (o.ordenes_repuestos ?? []).reduce((t: number, l: any) => t + l.cantidad * Number(l.costo_unitario), 0), 0);
   const qr = await svgQR(e.qr_token);
 
   return (
@@ -72,16 +73,16 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
         </div>
       </div>
       <div className="actions no-print" style={{ marginBottom: 20 }}>
-        <Link className="btn primary" href={`/ordenes/nueva?equipo=${e.id}`}>Abrir orden de trabajo</Link>
-        {plan && <Link className="btn" href={`/preventivos/${plan.id}`}>Realizar preventivo</Link>}
+        <Link className="btn primary editar" href={`/ordenes/nueva?equipo=${e.id}`}>Abrir orden de trabajo</Link>
+        {plan && <Link className="btn editar" href={`/preventivos/${plan.id}`}>Realizar preventivo</Link>}
         <Link className="btn" href={`/equipos/etiquetas?ids=${e.id}`}>Imprimir etiqueta</Link>
         <Imprimir texto="Imprimir hoja de vida" primario={false} />
-        <form action={registrarHoras} className="actions">
+        <form action={registrarHoras} className="actions editar">
           <input type="hidden" name="id" value={e.id} />
           <input id="horas" name="horas" type="number" min="0" step="1" required placeholder="Horas del contador" aria-label="Horas del contador" style={{ width: 170 }} />
           <button className="btn">Registrar horas</button>
         </form>
-        <form action={cambiarEstado}>
+        <form action={cambiarEstado} className="editar">
           <input type="hidden" name="id" value={e.id} />
           <EnviarAlCambiar name="estado" valor={e.estado} etiqueta="Cambiar estado" opciones={Object.entries(ESTADOS).map(([k, v]) => [k, v.label])} />
         </form>
@@ -103,7 +104,7 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
                   </td>
                   <td className="hide-sm">{TIPOS_DOC[d.tipo]}</td>
                   <td className="hide-sm">{d.equipo_id ? "Este equipo" : `Todos los ${e.marca} ${e.modelo}`}</td>
-                  <td className="no-print">
+                  <td className="no-print editar">
                     <form action={borrarDocumento}>
                       <input type="hidden" name="id" value={d.id} />
                       <input type="hidden" name="equipo_id" value={e.id} />
@@ -118,12 +119,12 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
       ) : (
         <p className="sub">Todavía no hay documentos. Cargá el manual de usuario para que aparezca al escanear el QR.</p>
       )}
-      <div className="no-print" style={{ marginBottom: 24 }}>
+      <div className="no-print editar" style={{ marginBottom: 24 }}>
         <SubirDocumento equipoId={e.id} orgId={e.org_id} marca={e.marca} modelo={e.modelo} />
       </div>
       <h2>Historial</h2>
       <p className="sub" style={{ marginTop: -8 }}>Impreso el {fecha(new Date().toISOString())} · {(evs ?? []).length} registros. Los registros no se editan ni se borran; las correcciones se agregan como novedad.</p>
-      <form action={agregarNota} className="actions no-print" style={{ marginBottom: 12 }}>
+      <form action={agregarNota} className="actions no-print editar" style={{ marginBottom: 12 }}>
         <input type="hidden" name="id" value={e.id} />
         <input id="nota" name="nota" placeholder="Agregar una novedad (traslado, calibración externa, observación)" style={{ flex: "1 1 260px" }} />
         <button className="btn">Agregar</button>

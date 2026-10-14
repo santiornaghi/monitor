@@ -26,8 +26,8 @@ export default async function Equipos({ searchParams }: { searchParams: Promise<
       <Encabezado titulo="Equipos" instituciones={instituciones} alcance={alcance}>
         <a className="btn" href="/equipos/exportar">Exportar a Excel</a>
         <Link className="btn" href="/equipos/etiquetas">Etiquetas QR</Link>
-        <Link className="btn" href="/equipos/importar">Importar CSV</Link>
-        <Link className="btn primary" href="/equipos/nuevo">Nuevo equipo</Link>
+        <Link className="btn editar" href="/equipos/importar">Importar CSV</Link>
+        <Link className="btn primary editar" href="/equipos/nuevo">Nuevo equipo</Link>
       </Encabezado>
       {sp.aviso && <div className="notice" style={{ marginBottom: 12 }}>{sp.aviso}</div>}
       <form className="filters">

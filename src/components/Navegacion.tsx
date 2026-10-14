@@ -7,6 +7,7 @@ const ITEMS: [string, string, string][] = [
   ["/equipos", "Equipos", "M4 5h16v11H4zM8 20h8M12 16v4"],
   ["/preventivos", "Preventivos", "M7 3v3M17 3v3M4 8h16M5 5h14v15H5zM9 14l2 2 4-4"],
   ["/ordenes", "Órdenes", "M6 3h12v18H6zM9 8h6M9 12h6M9 16h3"],
+  ["/repuestos", "Repuestos", "M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"],
   ["/proveedores", "Proveedores", "M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"],
 ];
 
