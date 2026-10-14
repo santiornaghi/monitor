@@ -46,7 +46,7 @@ export default function Inicio() {
             <article className="lp-linea">
               <span className="quien">Para consultorios y clínicas</span>
               <h2>{TURNERO}</h2>
-              <p>Gestión de turnos de pacientes para ordenar la agenda y la sala de espera.</p>
+              <p>Agenda por profesional y sede, turnos online, recordatorios por WhatsApp, sala de espera e historia clínica.</p>
               <a className="lp-boton" href="/turnero">Conocer {TURNERO}</a>
             </article>
           </div>
