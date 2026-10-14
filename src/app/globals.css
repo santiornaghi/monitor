@@ -124,6 +124,11 @@ td a.row-link:hover .t { text-decoration: underline; }
   main { padding: 0; }
   body { background: #fff; }
   .etiqueta { border-color: #999; }
+  /* Hoja de vida en papel: tinta negra sobre blanco, sin cortar registros entre páginas */
+  :root { --bg: #fff; --surface: #fff; --sunk: #f2f2f2; --line: #bbb; --fg: #000; --muted: #444; }
+  .ficha, .timeline { border-color: #999; }
+  .ev, tr { break-inside: avoid; }
+  .pill { border: 1px solid currentColor; }
 }
 
 .mobnav { display: none; }

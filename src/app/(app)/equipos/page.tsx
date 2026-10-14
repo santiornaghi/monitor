@@ -24,6 +24,7 @@ export default async function Equipos({ searchParams }: { searchParams: Promise<
   return (
     <>
       <Encabezado titulo="Equipos" instituciones={instituciones} alcance={alcance}>
+        <a className="btn" href="/equipos/exportar">Exportar a Excel</a>
         <Link className="btn" href="/equipos/etiquetas">Etiquetas QR</Link>
         <Link className="btn" href="/equipos/importar">Importar CSV</Link>
         <Link className="btn primary" href="/equipos/nuevo">Nuevo equipo</Link>

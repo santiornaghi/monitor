@@ -5,7 +5,8 @@ import { Logo } from "@/components/Logo";
 import { salir } from "@/app/login/actions";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
-  const { supabase, orgIds, nombreUsuario, proveedorPropio } = await contexto();
+  const { supabase, orgIds, nombreUsuario, proveedorPropio, membresias } = await contexto();
+  const esAdmin = membresias.some((m) => m.rol === "admin");
   const hoy = new Date(Date.now() - 3 * 3600e3).toISOString().slice(0, 10);
   const [{ count: vencidos }, { count: abiertas }] = await Promise.all([
     supabase.from("planes_preventivo").select("id", { count: "exact", head: true }).in("org_id", orgIds).lt("proxima", hoy),
@@ -18,6 +19,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         <Navegacion contadores={{ "/preventivos": vencidos ?? 0, "/ordenes": abiertas ?? 0 }} />
         <div className="foot">
           {proveedorPropio && <Link href="/clientes" className="btn sm">Clientes de {proveedorPropio.nombre}</Link>}
+          {esAdmin && <Link href="/usuarios" className="btn sm">Usuarios</Link>}
           <span>{nombreUsuario}</span>
           <form action={salir}><button className="btn sm">Salir</button></form>
         </div>

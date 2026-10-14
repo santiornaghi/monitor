@@ -12,6 +12,8 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 - **Preventivos**: plan por equipo con frecuencia, estados (al día, próximo, vencido) y protocolo por tipo de equipo con mediciones y rangos. Una medición fuera de rango abre una orden correctiva y pasa el equipo a reparación.
 - **Órdenes de trabajo**: correctivo, calibración, instalación; seguimiento de estado, asignación a proveedor, cierre con trabajo realizado y costo.
 - **Proveedores** por institución.
+- **Usuarios**: el administrador invita por enlace (técnico, administrador o dirección de solo lectura), cambia roles y quita accesos.
+- **Exportación**: inventario completo a CSV para Excel; hoja de vida imprimible o guardable como PDF desde el navegador.
 - **Modo proveedor de servicio**: una empresa de service crea sus clientes y ve el parque de todos desde una cuenta.
 
 ## Puesta en marcha
@@ -19,10 +21,10 @@ Stack: Next.js 15 (App Router, TypeScript) + Supabase (Postgres con Row Level Se
 ### 1. Crear el proyecto en Supabase
 
 1. Entrá a [supabase.com](https://supabase.com), creá una cuenta y un proyecto nuevo. Región sugerida: São Paulo (sa-east-1), la más cercana a Argentina.
-2. En **SQL Editor**, abrí una consulta nueva, pegá todo el contenido de `supabase/migrations/0001_esquema.sql` y ejecutalo.
+2. En **SQL Editor**, ejecutá en orden cada archivo de `supabase/migrations/` (`0001_esquema.sql`, `0002_invitaciones.sql`, …): abrí una consulta nueva, pegá el contenido completo y tocá *Run*. Cada archivo se corre una sola vez; si te equivocás y corrés `0002` dos veces no pasa nada.
 3. En **Authentication > URL Configuration**:
    - *Site URL*: la URL donde va a vivir la app (por ahora `http://localhost:3000`; después la de Vercel).
-   - *Redirect URLs*: agregá `http://localhost:3000/auth/confirm` y, más adelante, `https://TU-APP.vercel.app/auth/confirm`.
+   - *Redirect URLs*: agregá `http://localhost:3000/**` y, más adelante, `https://TU-APP.vercel.app/**`.
 4. En **Project Settings > API** copiá la *Project URL* y la clave *publishable* (o *anon public* en proyectos viejos).
 
 Para probar rápido sin confirmar emails: **Authentication > Sign In / Providers > Email**, desactivá *Confirm email*. Volvé a activarlo antes de dar acceso a clientes reales.
@@ -70,7 +72,7 @@ src/app/q/[token]                      Página pública del QR
 
 ## Pendientes conocidos
 
-- Invitar usuarios a una organización (hoy cada cuenta crea la suya; se puede agregar miembros desde Supabase en la tabla `miembros`).
 - Avisos por email de vencimientos.
 - Adjuntar fotos y certificados de calibración.
-- Repuestos, horas de uso con preventivo por horas, exportación a Excel y PDF de hoja de vida.
+- Repuestos y preventivo por horas de uso.
+- Ocultar botones de edición al rol dirección (hoy la base de datos ya rechaza sus cambios).

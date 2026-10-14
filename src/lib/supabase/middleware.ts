@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { SUPABASE_URL, SUPABASE_KEY } from "./clave";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PUBLICAS = ["/login", "/auth", "/q/"];
+const PUBLICAS = ["/login", "/auth", "/q/", "/invitacion/"];
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -32,7 +32,7 @@ export async function updateSession(request: NextRequest) {
   if (!data.user && !esPublica) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
-    url.search = "";
+    url.search = path === "/" ? "" : `?next=${encodeURIComponent(path + request.nextUrl.search)}`;
     return NextResponse.redirect(url);
   }
   return response;

@@ -7,6 +7,7 @@ import { svgQR, urlQR } from "@/lib/qr";
 import { uno } from "@/lib/eventos";
 import { cambiarEstado, agregarNota } from "../actions";
 import { EnviarAlCambiar } from "@/components/EnviarAlCambiar";
+import { Imprimir } from "@/components/Imprimir";
 
 export const metadata = { title: "Hoja de vida" };
 
@@ -35,8 +36,8 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
           <div className="muted">{e.tipo} · {e.servicio}{e.sede ? ` · ${e.sede}` : ""} · {nombreOrg(orgs, e.org_id)}</div>
         </div>
       </div>
-      {sp.aviso && <div className="notice" style={{ marginBottom: 12 }}>{sp.aviso}</div>}
-      {sp.error && <div className="error" style={{ marginBottom: 12 }}>{sp.error}</div>}
+      {sp.aviso && <div className="notice no-print" style={{ marginBottom: 12 }}>{sp.aviso}</div>}
+      {sp.error && <div className="error no-print" style={{ marginBottom: 12 }}>{sp.error}</div>}
       <div className="ficha">
         <dl className="kv">
           <dt>Estado</dt><dd><Pill texto={ESTADOS[e.estado].label} clase={ESTADOS[e.estado].clase} /></dd>
@@ -54,18 +55,19 @@ export default async function Ficha({ params, searchParams }: { params: Promise<
           <span className="mono muted" style={{ fontSize: 11, maxWidth: 160, overflowWrap: "anywhere", textAlign: "center" }}>{urlQR(e.qr_token)}</span>
         </div>
       </div>
-      <div className="actions" style={{ marginBottom: 20 }}>
+      <div className="actions no-print" style={{ marginBottom: 20 }}>
         <Link className="btn primary" href={`/ordenes/nueva?equipo=${e.id}`}>Abrir orden de trabajo</Link>
         {plan && <Link className="btn" href={`/preventivos/${plan.id}`}>Realizar preventivo</Link>}
         <Link className="btn" href={`/equipos/etiquetas?ids=${e.id}`}>Imprimir etiqueta</Link>
+        <Imprimir texto="Imprimir hoja de vida" primario={false} />
         <form action={cambiarEstado}>
           <input type="hidden" name="id" value={e.id} />
           <EnviarAlCambiar name="estado" valor={e.estado} etiqueta="Cambiar estado" opciones={Object.entries(ESTADOS).map(([k, v]) => [k, v.label])} />
         </form>
       </div>
       <h2>Historial</h2>
-      <p className="sub" style={{ marginTop: -8 }}>{(evs ?? []).length} registros. Los registros no se editan ni se borran; las correcciones se agregan como novedad.</p>
-      <form action={agregarNota} className="actions" style={{ marginBottom: 12 }}>
+      <p className="sub" style={{ marginTop: -8 }}>Impreso el {fecha(new Date().toISOString())} · {(evs ?? []).length} registros. Los registros no se editan ni se borran; las correcciones se agregan como novedad.</p>
+      <form action={agregarNota} className="actions no-print" style={{ marginBottom: 12 }}>
         <input type="hidden" name="id" value={e.id} />
         <input id="nota" name="nota" placeholder="Agregar una novedad (traslado, calibración externa, observación)" style={{ flex: "1 1 260px" }} />
         <button className="btn">Agregar</button>
