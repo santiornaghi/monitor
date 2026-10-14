@@ -11,7 +11,15 @@ export async function ingresar(formData: FormData) {
     email: String(formData.get("email")),
     password: String(formData.get("password")),
   });
-  if (error) redirect("/login?error=" + encodeURIComponent("Email o contraseña incorrectos."));
+  if (error) {
+    const msg =
+      error.code === "email_not_confirmed"
+        ? "Todavía no confirmaste el email. Abrí el enlace que te mandamos o pedí ayuda al administrador."
+        : error.code === "invalid_credentials"
+          ? "Email o contraseña incorrectos."
+          : `No se pudo ingresar: ${error.message}`;
+    redirect("/login?error=" + encodeURIComponent(msg));
+  }
   redirect("/");
 }
 
