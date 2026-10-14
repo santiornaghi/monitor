@@ -23,6 +23,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
           <label className="full">Contraseña<input id="password" name="password" type="password" required minLength={registro ? 8 : undefined} autoComplete={registro ? "new-password" : "current-password"} /></label>
         </div>
         <button className="btn primary" style={{ justifyContent: "center" }}>{registro ? "Crear cuenta" : "Ingresar"}</button>
+        <a className="btn link" href="/presentacion">Conocé qué hace la app</a>
         <a className="btn link" href={registro ? `/login${q ? "?" + q : ""}` : `/login?modo=registro${q ? "&" + q : ""}`}>
           {registro ? "Ya tengo cuenta" : "Crear una cuenta nueva"}
         </a>
