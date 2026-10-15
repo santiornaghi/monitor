@@ -16,6 +16,7 @@
   --verde: #1f8f5c;
   --salvia: #c5d0c3;
   --papel: #faf9f6;
+  --logo-acento: #0b6e79;
   --titulo: "Archivo", "Segoe UI", system-ui, sans-serif;
   --texto: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -383,3 +384,6 @@
   .lp-recorrido { grid-template-columns: 1fr; gap: 48px; }
   .lp-recorrido::before { display: none; }
 }
+
+.lp-pie { --logo-acento: #5fc1c9; }
+.lp-logo svg { color: var(--az-hondo); }
