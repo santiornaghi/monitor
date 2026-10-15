@@ -77,7 +77,7 @@ export default function Turnero() {
           </div>
         </section>
       </main>
-      <Pie />
+      <Pie actual="turnero" />
     </div>
   );
 }

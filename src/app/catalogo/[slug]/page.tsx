@@ -46,7 +46,7 @@ export default async function Ficha({ params }: { params: Promise<{ slug: string
         <section className="lp-hero lp-ficha-hero">
           <div className="lp-ancho">
             <div className="lp-hero-texto">
-              <p className="lp-ruta"><a href="/catalogo">Equipamiento</a> / <a href={`/catalogo?marca=${encodeURIComponent(p.marca)}`}>{p.marca}</a> / {p.categoria}</p>
+              <p className="lp-ruta"><a href="/catalogo">Equipos</a> / <a href={`/catalogo?marca=${encodeURIComponent(p.marca)}`}>{p.marca}</a> / {p.categoria}</p>
               <Chip>{fam?.etiqueta ?? (p.subcategoria || p.categoria)}</Chip>
               <p className="lp-ficha-marca">{p.marca}</p>
               <h1 className="lp-h1">{p.nombre}</h1>
@@ -166,7 +166,7 @@ export default async function Ficha({ params }: { params: Promise<{ slug: string
           </div>
         </section>
       </main>
-      <Pie />
+      <Pie actual="catalogo" />
     </div>
   );
 }

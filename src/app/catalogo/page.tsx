@@ -120,7 +120,7 @@ export default async function Catalogo({ searchParams }: { searchParams: Promise
         </div>
         </div>
       </main>
-      <Pie />
+      <Pie actual="catalogo" />
     </div>
   );
 }

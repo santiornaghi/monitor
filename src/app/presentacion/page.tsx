@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import QRCode from "qrcode";
 import { Cabecera, Pie } from "@/components/sitio/Cabecera";
 import { BarraFija, TextoRevelado } from "@/components/sitio/Revelar";
-import { MARCA, WHATSAPP } from "@/lib/marca";
+import { MARCA, MARCA_COMPLETA, WHATSAPP } from "@/lib/marca";
 import { baseURL } from "@/lib/qr";
 import "../sitio.css";
 import "./mon.css";
 
 export const metadata: Metadata = {
-  title: { absolute: `${MARCA}: gestión de equipos médicos para bioingeniería y servicio técnico` },
+  title: { absolute: `${MARCA_COMPLETA}: gestión de equipos médicos para bioingeniería y servicio técnico` },
   description:
     "Inventario con QR, hoja de vida, preventivos por fecha y por horas de uso, órdenes de trabajo, repuestos y avisos por email. Para clínicas, hospitales y empresas de servicio técnico.",
   openGraph: {
-    title: `${MARCA}: que ningún preventivo se venza sin que nadie se entere`,
+    title: `${MARCA_COMPLETA}: que ningún preventivo se venza sin que nadie se entere`,
     description: "Inventario con QR, hoja de vida, preventivos, órdenes de trabajo y repuestos para equipos médicos de cualquier marca.",
     locale: "es_AR",
     type: "website",
@@ -48,7 +48,7 @@ const FUNCIONES = [
   },
   {
     t: "Tu planilla, importada",
-    d: "Subí el inventario que ya tenés en Excel y Monitor arma las fichas y los QR. Exportás todo cuando quieras: los datos son de la institución.",
+    d: "Subí el inventario que ya tenés en Excel y QR arma las fichas y los QR. Exportás todo cuando quieras: los datos son de la institución.",
   },
   {
     t: "Cada persona con su permiso",
@@ -86,7 +86,7 @@ export default async function Presentacion() {
       <main>
         <section id="hero" className="mon-hero">
           <div className="lp-ancho">
-            <span className="mon-sobre">Software de mantenimiento de equipos médicos</span>
+            <span className="mon-sobre">{MARCA_COMPLETA} · Mantenimiento de equipos médicos</span>
             <h1>Que ningún preventivo se venza sin que nadie se entere.</h1>
             <p className="mon-p">Inventario con etiqueta QR, hoja de vida, preventivos por fecha y por horas de uso, órdenes de trabajo y repuestos. Para bioingeniería y servicio técnico.</p>
             <div className="lp-ctas">
@@ -252,7 +252,7 @@ export default async function Presentacion() {
         <a className="lp-boton lleno" href="/login?modo=registro">Crear cuenta</a>
       </BarraFija>
 
-      <Pie gigante={MARCA} />
+      <Pie actual="monitor" />
     </div>
   );
 }

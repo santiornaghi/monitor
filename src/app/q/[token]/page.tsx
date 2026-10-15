@@ -41,7 +41,7 @@ export default async function QR({ params, searchParams }: { params: Promise<{ t
 
   return (
     <div className="qrp">
-      <header className="qr-top"><Logo size={22} /><span>{e ? "Equipo" : "Monitor"}</span></header>
+      <header className="qr-top"><Logo size={22} /><span>{e ? "Equipo" : "NAYA LAB"}</span></header>
       {!e ? (
         <main className="qr-cuerpo"><h1>Código no válido</h1><p className="qr-sub">Este código no corresponde a un equipo activo.</p></main>
       ) : (

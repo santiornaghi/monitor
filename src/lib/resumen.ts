@@ -80,7 +80,7 @@ export async function enviarResumenes(soloEmail?: string) {
     if (!total) continue;
     const r = await enviarEmail({
       to: [email],
-      subject: vencidos ? `Monitor: ${vencidos} preventivo${vencidos > 1 ? "s" : ""} vencido${vencidos > 1 ? "s" : ""} y ${total - vencidos} aviso${total - vencidos === 1 ? "" : "s"} más` : `Monitor: ${total} aviso${total > 1 ? "s" : ""} para hoy`,
+      subject: vencidos ? `QR: ${vencidos} preventivo${vencidos > 1 ? "s" : ""} vencido${vencidos > 1 ? "s" : ""} y ${total - vencidos} aviso${total - vencidos === 1 ? "" : "s"} más` : `QR: ${total} aviso${total > 1 ? "s" : ""} para hoy`,
       html: plantilla(`Resumen del ${fecha(hoyISO())}`, partes.join(""), { texto: "Abrir el panel", ruta: "/" }),
     });
     if (r.ok) enviados++;

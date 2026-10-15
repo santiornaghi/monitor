@@ -11,7 +11,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
   return (
     <div className="auth">
       <form className="card" action={registro ? registrarse : ingresar}>
-        <div className="actions"><Logo size={28} /><h1>Monitor</h1></div>
+        <div className="actions"><Logo size={28} /><h1>QR <small style={{ fontWeight: 500, opacity: .6, fontSize: "0.6em", letterSpacing: ".08em" }}>NAYA LAB</small></h1></div>
         <p className="muted" style={{ margin: 0 }}>
           {registro ? "Creá tu cuenta para gestionar el parque de equipos." : "Inventario y mantenimiento de equipos médicos."}
         </p>

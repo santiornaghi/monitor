@@ -17,7 +17,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div className={soloLectura ? "app solo-lectura" : "app"}>
       <nav className="side" aria-label="Módulos">
-        <Link href="/" className="brand"><Logo />Monitor</Link>
+        <Link href="/" className="brand"><Logo />QR <small style={{ fontWeight: 500, opacity: .6, fontSize: "0.72em", letterSpacing: ".08em" }}>NAYA LAB</small></Link>
         <Navegacion contadores={{ "/preventivos": Number(vencidos ?? 0), "/ordenes": abiertas ?? 0 }} />
         <div className="foot">
           {proveedorPropio && <Link href="/clientes" className="btn sm">Clientes de {proveedorPropio.nombre}</Link>}

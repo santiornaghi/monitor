@@ -55,8 +55,8 @@ export async function probarAvisos() {
   if (!emailConfigurado()) redirect("/usuarios?error=" + encodeURIComponent("Falta configurar RESEND_API_KEY en Vercel."));
   const r = await enviarEmail({
     to: [user.email!],
-    subject: "Monitor: prueba de avisos",
-    html: plantilla("Los avisos por email funcionan", "<p>Si recibiste este mensaje, Monitor puede enviarte avisos de órdenes nuevas y el resumen diario de vencimientos.</p>"),
+    subject: "QR de NAYA LAB: prueba de avisos",
+    html: plantilla("Los avisos por email funcionan", "<p>Si recibiste este mensaje, QR puede enviarte avisos de órdenes nuevas y el resumen diario de vencimientos.</p>"),
   });
   if (!r.ok) redirect("/usuarios?error=" + encodeURIComponent(`No se pudo enviar: ${r.motivo}`));
   const res = await enviarResumenes(user.email!);

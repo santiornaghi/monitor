@@ -1,10 +1,10 @@
 import { Logo } from "@/components/Logo";
-import { GRUPO, MARCA, TURNERO, WHATSAPP } from "@/lib/marca";
+import { EQUIPOS_LINEA, GRUPO, MARCA, TURNERO, WHATSAPP } from "@/lib/marca";
 
 type Seccion = "inicio" | "catalogo" | "monitor" | "turnero" | "contacto";
 
 const SECCIONES: { href: string; id: Seccion; texto: string }[] = [
-  { href: "/catalogo", id: "catalogo", texto: "Equipamiento" },
+  { href: "/catalogo", id: "catalogo", texto: EQUIPOS_LINEA },
   { href: "/presentacion", id: "monitor", texto: MARCA },
   { href: "/turnero", id: "turnero", texto: TURNERO },
   { href: "/contacto", id: "contacto", texto: "Contacto" },
@@ -15,7 +15,7 @@ export function Cabecera({ actual, acciones }: { actual?: Seccion; acciones?: Re
   return (
     <header className="lp-cab">
       <div className="lp-ancho">
-        <a className="lp-logo" href="/inicio"><Logo size={28} />{GRUPO}</a>
+        <a className="lp-logo" href="/inicio" aria-label={GRUPO}><Logo size={28} /><Marca /></a>
         <nav className="lp-nav" aria-label="Secciones del sitio">
           {SECCIONES.map((s) => (
             <a key={s.id} href={s.href} aria-current={actual === s.id ? "page" : undefined}>{s.texto}</a>
@@ -39,25 +39,54 @@ export function Cabecera({ actual, acciones }: { actual?: Seccion; acciones?: Re
   );
 }
 
+/** Marca escrita: primera palabra fuerte, segunda espaciada. */
+export function Marca() {
+  const [a, ...b] = GRUPO.split(" ");
+  return <span className="lp-marca"><b>{a}</b>{b.length > 0 && <span>{b.join(" ")}</span>}</span>;
+}
+
+const LINEAS: { id: Seccion; n: string; t: string; d: string; href: string }[] = [
+  { id: "catalogo", n: "01", t: EQUIPOS_LINEA, d: "Comprás el equipo con asesoramiento técnico.", href: "/catalogo" },
+  { id: "monitor", n: "02", t: MARCA, d: "Lo mantenés con su etiqueta QR y su hoja de vida.", href: "/presentacion" },
+  { id: "turnero", n: "03", t: TURNERO, d: "Organizás la atención de tus pacientes.", href: "/turnero" },
+];
+
+/** Las tres líneas de NAYA LAB, conectadas. Se muestra en todas las páginas. */
+export function Ecosistema({ actual }: { actual?: Seccion }) {
+  return (
+    <div className="lp-eco">
+      {LINEAS.map((l) => (
+        <a key={l.id} href={l.href} aria-current={actual === l.id ? "page" : undefined}>
+          <span className="n">{l.n}</span>
+          <strong>{l.t}</strong>
+          <span className="d">{l.d}</span>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 /** Se mantiene por compatibilidad: el menú de celular ahora está en la cabecera. */
 export function MenuCelular() {
   return null;
 }
 
-export function Pie({ gigante }: { gigante?: string }) {
+export function Pie({ actual, gigante = GRUPO }: { actual?: Seccion; gigante?: string }) {
   const email = "santiornaghi@gmail.com";
   return (
     <footer className="lp-pie">
       <div className="lp-ancho">
+        <p className="lp-eco-titulo">Una sola empresa para el equipo, su mantenimiento y la atención de pacientes</p>
+        <Ecosistema actual={actual} />
         <div className="lp-pie-cols">
           <div>
-            <div className="marca"><Logo size={26} />{GRUPO}</div>
+            <div className="marca"><Logo size={26} /><Marca /></div>
             <p style={{ margin: 0, maxWidth: "22em" }}>Equipamiento médico, software de mantenimiento y gestión de turnos para instituciones de salud.</p>
           </div>
           <div>
             <h4>Sitio</h4>
             <ul>
-              <li><a href="/catalogo">Equipamiento</a></li>
+              <li><a href="/catalogo">{EQUIPOS_LINEA}</a></li>
               <li><a href="/catalogo?ver=reactivos">Reactivos e insumos</a></li>
               <li><a href="/presentacion">{MARCA}</a></li>
               <li><a href="/turnero">{TURNERO}</a></li>

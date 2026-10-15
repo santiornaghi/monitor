@@ -16,7 +16,7 @@ export async function enviarEmail(m: { to: string[]; subject: string; html: stri
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: process.env.EMAIL_FROM || "Monitor <onboarding@resend.dev>", to, subject: m.subject, html: m.html }),
+      body: JSON.stringify({ from: process.env.EMAIL_FROM || "QR de NAYA LAB <onboarding@resend.dev>", to, subject: m.subject, html: m.html }),
     });
     if (!r.ok) {
       const motivo = await r.text();
@@ -31,13 +31,13 @@ export async function enviarEmail(m: { to: string[]; subject: string; html: stri
 }
 
 /** Plantilla simple, legible en cualquier cliente de correo. `cuerpo` ya viene escapado. */
-const PIE_USUARIO = "Recibís este aviso porque sos usuario de Monitor. Un administrador puede desactivarlo desde Usuarios.";
+const PIE_USUARIO = "Recibís este aviso porque sos usuario de QR de NAYA LAB. Un administrador puede desactivarlo desde Usuarios.";
 
 export function plantilla(titulo: string, cuerpo: string, boton?: { texto: string; ruta: string }, pie = PIE_USUARIO) {
   const url = boton ? `${baseURL()}${boton.ruta}` : "";
   return `<!doctype html><html lang="es"><body style="margin:0;background:#f3f6f7;font-family:Segoe UI,Arial,sans-serif;color:#14242b">
 <div style="max-width:600px;margin:0 auto;padding:24px 16px">
-  <div style="font-weight:700;font-size:18px;color:#0b6e79;margin-bottom:16px">Monitor</div>
+  <div style="font-weight:700;font-size:18px;color:#0b6e79;margin-bottom:16px">QR <span style="font-weight:500;color:#646a66;font-size:13px;letter-spacing:.08em">NAYA LAB</span></div>
   <div style="background:#fff;border:1px solid #d3dde1;border-radius:8px;padding:20px">
     <h1 style="font-size:18px;margin:0 0 12px">${esc(titulo)}</h1>
     ${cuerpo}

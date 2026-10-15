@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import QRCode from "qrcode";
 import { Cabecera, Pie } from "@/components/sitio/Cabecera";
 import { Cabeza, Chip, Icono, Numeros, Preguntas, Puntos } from "@/components/sitio/Bloques";
-import { GRUPO, MARCA, TURNERO, enlaceWhatsApp } from "@/lib/marca";
+import { EQUIPOS_LINEA, GRUPO, MARCA, TURNERO, enlaceWhatsApp } from "@/lib/marca";
 import { EQUIPOS, MARCAS, PRODUCTOS } from "@/lib/catalogo";
 import { baseURL } from "@/lib/qr";
 import "../sitio.css";
@@ -43,7 +43,7 @@ const PREGUNTAS = [
 
 export default async function Inicio() {
   const wa = enlaceWhatsApp("Hola, quiero hacer una consulta.");
-  const qr = await QRCode.toString(`${baseURL()}/presentacion`, { type: "svg", margin: 0, color: { dark: "#1b2f63", light: "#ffffff" } });
+  const qr = await QRCode.toString(`${baseURL()}/presentacion`, { type: "svg", margin: 0, color: { dark: "#151a19", light: "#ffffff" } });
   return (
     <div className="lp">
       <Cabecera actual="inicio" />
@@ -51,12 +51,12 @@ export default async function Inicio() {
         <section className="lp-hero">
           <div className="lp-ancho">
             <div className="lp-hero-texto">
-              <Chip>Equipamiento · Mantenimiento · Turnos</Chip>
-              <h1 className="lp-h1">Equipos, mantenimiento y turnos para tu institución de salud.</h1>
-              <p className="lp-bajada">Te asesoramos en la compra del equipamiento y te damos las herramientas para mantenerlo funcionando y organizar la atención. Un solo interlocutor que conoce los equipos por dentro.</p>
+              <Chip>{EQUIPOS_LINEA} · {MARCA} · {TURNERO}</Chip>
+              <h1 className="lp-h1">Del equipo al paciente, todo en un mismo lugar.</h1>
+              <p className="lp-bajada">Comprás el equipamiento con asesoramiento técnico, lo mantenés con {MARCA} y organizás la atención con {TURNERO}. Un solo interlocutor que conoce los equipos por dentro.</p>
               <div className="lp-ctas">
-                <a className="lp-boton lleno" href="/catalogo">Ver equipamiento</a>
-                <a className="lp-boton" href="/contacto">Contactar especialista</a>
+                <a className="lp-boton lleno" href="#recorrido">Ver cómo funciona</a>
+                <a className="lp-boton" href="/contacto">Hablar con un especialista</a>
               </div>
             </div>
             <div className="lp-hero-foto trio" aria-hidden="true">
@@ -66,15 +66,36 @@ export default async function Inicio() {
             </div>
           </div>
         </section>
-        <nav className="lp-pestanas" aria-label="Líneas de negocio">
+        <section id="recorrido" className="lp-sec">
           <div className="lp-ancho">
-            <a href="#equipamiento">Equipamiento<small>{EQUIPOS.length} equipos de {MARCAS.length} marcas</small></a>
-            <a href="#software">{MARCA}<small>Mantenimiento con etiqueta QR</small></a>
-            <a href="#software">{TURNERO}<small>Turnos y sala de espera</small></a>
+            <Cabeza chip="Cómo se conectan" titulo="Tres líneas que trabajan juntas" intro="Cada una sirve sola, pero juntas cubren la vida completa del equipo en tu institución." />
+            <div className="lp-recorrido">
+              <a href="/catalogo">
+                <span className="n">01</span>
+                <div className="vis"><img src="/img/tecme/brina-portada.webp" alt="" /></div>
+                <h3 className="lp-h3">{EQUIPOS_LINEA}</h3>
+                <p>{EQUIPOS.length} equipos de {MARCAS.length} marcas: ventilación, monitoreo, laboratorio, infusión y emergencias. Te recomendamos lo que vas a poder mantener.</p>
+                <span className="mas">Ver equipos →</span>
+              </a>
+              <a href="/presentacion">
+                <span className="n">02</span>
+                <div className="vis"><div className="etq"><div style={{ width: 96, height: 96 }} dangerouslySetInnerHTML={{ __html: qr }} /><b>Respirador · UTI</b></div></div>
+                <h3 className="lp-h3">{MARCA}</h3>
+                <p>El equipo llega con su etiqueta. Al escanearla se ve el manual, se reporta una falla y queda toda su hoja de vida: preventivos, órdenes y repuestos.</p>
+                <span className="mas">Conocer {MARCA} →</span>
+              </a>
+              <a href="/turnero">
+                <span className="n">03</span>
+                <div className="vis"><img src="/img/turnero/agenda.webp" alt="" style={{ borderRadius: 6, boxShadow: "0 18px 40px -24px rgba(21,26,25,.5)" }} /></div>
+                <h3 className="lp-h3">{TURNERO}</h3>
+                <p>Agenda por profesional, turnos online, recordatorios por WhatsApp, sala de espera e historia clínica para los pacientes que atendés.</p>
+                <span className="mas">Conocer {TURNERO} →</span>
+              </a>
+            </div>
           </div>
-        </nav>
+        </section>
 
-        <section className="lp-sec">
+        <section className="lp-sec celeste">
           <div className="lp-ancho">
             <Cabeza chip="Por qué elegirnos" titulo="Venimos del servicio técnico." intro="Te recomendamos lo que vas a poder mantener, no solo lo que se vende." />
             <div className="lp-tarjetas">
@@ -85,7 +106,7 @@ export default async function Inicio() {
           </div>
         </section>
 
-        <section id="equipamiento" className="lp-sec celeste">
+        <section id="equipamiento" className="lp-sec">
           <div className="lp-ancho">
             <Cabeza chip="Cuidados críticos" titulo="Ventilación, monitoreo y soporte respiratorio" intro="Línea completa TECME para terapia intensiva, de neonatos a adultos." />
             <div className="lp-porta grande">
@@ -99,7 +120,7 @@ export default async function Inicio() {
           </div>
         </section>
 
-        <section className="lp-sec">
+        <section className="lp-sec celeste">
           <div className="lp-ancho">
             <Cabeza chip="Laboratorio y guardia" titulo="Del laboratorio clínico a la emergencia" intro="Analizadores, reactivos, bombas de infusión, desfibriladores y estufas." />
             <div className="lp-porta">
@@ -123,27 +144,6 @@ export default async function Inicio() {
             <ul className="lp-marcas">
               {MARCAS.map((m) => <li key={m}><a href={`/catalogo?marca=${encodeURIComponent(m)}`}>{m}</a></li>)}
             </ul>
-          </div>
-        </section>
-
-        <section id="software" className="lp-sec">
-          <div className="lp-ancho">
-            <Cabeza chip="Software" titulo="Lo que pasa después de la compra también importa" intro="Dos herramientas propias para el día a día de la institución." />
-            <div className="lp-porta" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
-              <a href="/presentacion">
-                <div className="foto" style={{ aspectRatio: "16 / 9" }}>
-                  <div style={{ background: "#fff", padding: 18, borderRadius: 10, boxShadow: "0 18px 40px -22px rgba(27,47,99,.5)", textAlign: "center", transform: "rotate(-2deg)", outline: "2px dashed #b9c8de", outlineOffset: 6 }}>
-                    <div style={{ width: 120, height: 120 }} dangerouslySetInnerHTML={{ __html: qr }} />
-                    <div style={{ font: "600 14px var(--titulo)", color: "var(--az-hondo)", marginTop: 8 }}>Respirador · UTI</div>
-                  </div>
-                </div>
-                <div className="txt"><h3 className="lp-h3">{MARCA}</h3><p>Inventario con etiqueta QR, hoja de vida, preventivos por fecha y por horas, órdenes de trabajo y repuestos. Para equipos de cualquier marca.</p><span className="mas">Conocer {MARCA} →</span></div>
-              </a>
-              <a href="/turnero">
-                <div className="foto" style={{ aspectRatio: "16 / 9", padding: 24 }}><img src="/img/turnero/agenda.webp" alt="Agenda del día de Turnero" loading="lazy" style={{ borderRadius: 6, boxShadow: "0 18px 40px -22px rgba(27,47,99,.5)" }} /></div>
-                <div className="txt"><h3 className="lp-h3">{TURNERO}</h3><p>Agenda por profesional y sede, turnos online, recordatorios por WhatsApp, sala de espera e historia clínica.</p><span className="mas">Conocer {TURNERO} →</span></div>
-              </a>
-            </div>
           </div>
         </section>
 

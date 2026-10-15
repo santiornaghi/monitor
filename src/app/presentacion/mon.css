@@ -4,7 +4,7 @@
    Precios y preguntas sobre fondo oscuro con tarjetas blancas de franja de color. */
 
 .lp.mon {
-  --papel: #f2f1ec;
+  --papel: #faf9f6;
   --papel-2: #e8e7e0;
   --negro: #141817;
   --gris-c: #6d726e;
@@ -13,17 +13,7 @@
   --salvia: #c5d0c3;
   --salvia-hondo: #8fa08c;
   --ambar: #d39b3c;
-  background: var(--papel);
-  color: var(--negro);
 }
-.mon .lp-cab { background: rgba(242,241,236,.92); box-shadow: 0 1px 0 #dcdad2; }
-.mon .lp-nav a, .mon .lp-logo { color: var(--negro); }
-.mon .lp-nav a[aria-current="page"] { border-bottom-color: var(--petroleo); }
-.mon .lp-boton { border-color: var(--negro); color: var(--negro); border-radius: 999px; }
-.mon .lp-boton:hover { background: #fff; }
-.mon .lp-boton.lleno { background: var(--negro); border-color: var(--negro); color: #fff; }
-.mon .lp-boton.lleno:hover { background: var(--petroleo); border-color: var(--petroleo); }
-.mon .lp-menu summary { color: var(--negro); }
 
 .mon-num { display: inline-grid; place-items: center; min-width: 38px; height: 26px; padding: 0 8px; border-radius: 6px; background: var(--papel-2); font: 500 13px var(--mono); color: var(--gris-c); margin-bottom: 18px; }
 .mon-h2 { font: 520 clamp(32px, 4.4vw, 54px)/1.05 var(--titulo); letter-spacing: -0.03em; margin: 0 0 18px; text-wrap: balance; }
@@ -149,10 +139,6 @@
 .mon-barra .txt b { display: block; color: var(--negro); font-size: 15px; }
 .mon-barra .lp-boton { min-height: 42px; padding: 8px 16px; font-size: 14px; border-radius: 12px; }
 
-/* Pie con la marca gigante: tono de la página */
-.mon .lp-pie { background: var(--negro); }
-.mon .lp-pie h4, .mon .lp-pie .legal { color: #8b908c; }
-.mon .lp-pie { color: #c4c7c2; }
 
 @media (max-width: 960px) {
   .mon-sec, .mon-oscuro { padding-block: 80px; }

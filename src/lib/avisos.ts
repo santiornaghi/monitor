@@ -48,7 +48,7 @@ export async function avisarNuevaOT(ordenId: string, opciones: { excluirUsuario?
         `Pedido de servicio técnico ${ot}`,
         `<p style="margin:0 0 12px">${esc(org?.nombre)} solicita servicio técnico para el siguiente equipo:</p>${detalle}`,
         undefined,
-        `Enviado por ${org?.nombre ?? "la institución"} a través de Monitor. Para responder, comunicate directamente con la institución.`,
+        `Enviado por ${org?.nombre ?? "la institución"} a través de QR de NAYA LAB. Para responder, comunicate directamente con la institución.`,
       ),
     });
   }

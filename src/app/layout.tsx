@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Monitor", template: "%s · Monitor" },
+  title: { default: "QR · NAYA LAB", template: "%s · QR" },
   description: "Inventario, mantenimiento y hoja de vida de equipos médicos.",
 };
 
