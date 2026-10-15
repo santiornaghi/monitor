@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import QRCode from "qrcode";
-import { Cabecera, MenuCelular, Pie } from "@/components/sitio/Cabecera";
+import { Cabecera, Pie } from "@/components/sitio/Cabecera";
+import { BarraFija, TextoRevelado } from "@/components/sitio/Revelar";
 import { MARCA, WHATSAPP } from "@/lib/marca";
 import { baseURL } from "@/lib/qr";
 import "../sitio.css";
+import "./mon.css";
 
 export const metadata: Metadata = {
   title: { absolute: `${MARCA}: gestión de equipos médicos para bioingeniería y servicio técnico` },
@@ -55,10 +57,10 @@ const FUNCIONES = [
 ];
 
 const PLANES = [
-  { n: "Inicial", para: "Consultorios y clínicas chicas", p: "Gratis", u: "", items: ["Hasta 50 equipos", "2 usuarios", "1 sede", "Etiquetas QR y reporte de fallas"], cta: "Crear cuenta gratis" },
-  { n: "Institución", para: "Clínicas y sanatorios", p: "USD 59", u: "por mes, en pesos", items: ["Hasta 2.000 equipos", "10 usuarios y reportantes sin límite", "Hasta 3 sedes", "Repuestos, documentos y avisos"], cta: "Probar gratis", dest: true },
-  { n: "Servicio técnico", para: "Empresas que atienden varias instituciones", p: "USD 99", u: "por mes más USD 10 por cliente", items: ["Clientes sin límite", "10 técnicos", "Panel con todos tus clientes", "Pedidos de servicio por email"], cta: "Probar gratis" },
-  { n: "Hospital", para: "Hospitales y grupos de clínicas", p: "A medida", u: "", items: ["Equipos y sedes sin límite", "Carga inicial y etiquetado asistido", "Capacitación del equipo", "Apto para licitación"], cta: "Consultar" },
+  { n: "Inicial", color: "#c5d0c3", tag: "Para empezar", para: "Consultorios y clínicas chicas", p: "Gratis", u: "", items: ["Hasta 50 equipos", "2 usuarios", "1 sede", "Etiquetas QR y reporte de fallas"], cta: "Crear cuenta gratis" },
+  { n: "Institución", color: "#0b6e79", tag: "El más elegido", para: "Clínicas y sanatorios", p: "USD 59", u: "por mes, en pesos", items: ["Hasta 2.000 equipos", "10 usuarios y reportantes sin límite", "Hasta 3 sedes", "Repuestos, documentos y avisos"], cta: "Probar gratis", dest: true },
+  { n: "Servicio técnico", color: "#d39b3c", tag: "Para empresas de service", para: "Empresas que atienden varias instituciones", p: "USD 99", u: "por mes más USD 10 por cliente", items: ["Clientes sin límite", "10 técnicos", "Panel con todos tus clientes", "Pedidos de servicio por email"], cta: "Probar gratis" },
+  { n: "Hospital", color: "#141817", tag: "Para redes y licitaciones", para: "Hospitales y grupos de clínicas", p: "A medida", u: "", items: ["Equipos y sedes sin límite", "Carga inicial y etiquetado asistido", "Capacitación del equipo", "Apto para licitación"], cta: "Consultar" },
 ];
 
 const PREGUNTAS = [
@@ -70,130 +72,158 @@ const PREGUNTAS = [
 ];
 
 export default async function Presentacion() {
-  const qr = await QRCode.toString(`${baseURL()}/presentacion`, { type: "svg", margin: 0, errorCorrectionLevel: "M", color: { dark: "#12232a", light: "#ffffff" } });
+  const qr = await QRCode.toString(`${baseURL()}/presentacion`, { type: "svg", margin: 0, errorCorrectionLevel: "M", color: { dark: "#141817", light: "#ffffff" } });
   const wa = WHATSAPP ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hola, quiero conocer ${MARCA} para gestionar equipos médicos.`)}` : "";
-  const contacto = wa || "/login?modo=registro";
+  const demo = wa || `/contacto?interes=${encodeURIComponent(MARCA)}`;
 
   return (
-    <div className="lp">
+    <div className="lp mon">
       <Cabecera actual="monitor" acciones={<>
         <a className="lp-boton chico" href="/login">Ingresar</a>
         <a className="lp-boton chico lleno" href="/login?modo=registro">Crear cuenta</a>
       </>} />
-      <MenuCelular />
 
       <main>
-        <section className="lp-ancho lp-hero">
-          <div>
-            <h1 className="lp-h1">Que ningún preventivo se venza sin que nadie se entere.</h1>
-            <p className="lp-bajada">
-              {MARCA} ordena el parque de equipos médicos de una institución: inventario con etiqueta QR, hoja de vida,
-              preventivos por fecha y por horas de uso, órdenes de trabajo y repuestos. Hecho para bioingeniería y para
-              empresas de servicio técnico.
-            </p>
+        <section id="hero" className="mon-hero">
+          <div className="lp-ancho">
+            <span className="mon-sobre">Software de mantenimiento de equipos médicos</span>
+            <h1>Que ningún preventivo se venza sin que nadie se entere.</h1>
+            <p className="mon-p">Inventario con etiqueta QR, hoja de vida, preventivos por fecha y por horas de uso, órdenes de trabajo y repuestos. Para bioingeniería y servicio técnico.</p>
             <div className="lp-ctas">
               <a className="lp-boton lleno" href="/login?modo=registro">Crear cuenta gratis</a>
-              <a className="lp-boton" href="#como-funciona">Ver cómo funciona</a>
+              <a className="lp-boton" href={demo}>Pedir una demostración</a>
             </div>
-            <p className="lp-nota">Gratis hasta 50 equipos. Sin tarjeta.</p>
           </div>
-          <div className="lp-etiqueta-zona" aria-label="Ejemplo de etiqueta QR pegada en un equipo">
-            <div className="lp-etiqueta">
+          <div className="mon-escena" aria-label="Ejemplo de etiqueta QR pegada en un equipo">
+            <div className="mon-palabra" aria-hidden="true">{MARCA}</div>
+            <div className="mon-etiqueta">
               <div dangerouslySetInnerHTML={{ __html: qr }} />
               <div className="tipo">Respirador</div>
-              <div className="modelo">Equipo de ejemplo</div>
+              <div className="modelo">Equipo de ejemplo · UTI</div>
               <div className="serie">S/N EJ-0412 · INV-1041</div>
               <div className="pie">Escaneá para ver el manual o reportar una falla</div>
             </div>
           </div>
         </section>
 
-        <section id="como-funciona" className="lp-bloque">
+        <section className="mon-sec">
           <div className="lp-ancho">
-            <h2 className="lp-h2">La etiqueta en el equipo hace el trabajo.</h2>
-            <p className="lp-intro">Cada equipo lleva su código QR. Lo que pasa cuando alguien lo escanea depende de quién es.</p>
-            <ol className="lp-pasos">
-              <li>
-                <h3>Enfermería escanea</h3>
-                <p>Ve el manual de usuario del modelo y puede reportar una falla en dos renglones, sin cuenta y sin llamar a nadie.</p>
-              </li>
-              <li>
-                <h3>Se abre la orden</h3>
-                <p>La orden queda asignada al proveedor del equipo y los técnicos reciben el aviso por email en el momento.</p>
-              </li>
-              <li>
-                <h3>Queda en la hoja de vida</h3>
-                <p>El técnico escanea el mismo QR, ve el historial completo y cierra la orden con el trabajo, los repuestos y el costo.</p>
-              </li>
-            </ol>
+            <TextoRevelado className="mon-revela" texto="Cada equipo con su etiqueta. Cada falla con su orden. Cada preventivo a tiempo. Y la hoja de vida completa, lista para la auditoría." />
           </div>
         </section>
 
-        <section id="funciones" className="lp-bloque">
-          <div className="lp-ancho">
-            <h2 className="lp-h2">Lo que pide un área de bioingeniería, sin planillas sueltas.</h2>
-            <p className="lp-intro">Pensado por gente que hace servicio técnico de respiradores y equipos de laboratorio todos los días.</p>
-            <div className="lp-funciones">
-              {FUNCIONES.map((f) => (
-                <div className="lp-funcion" key={f.t}>
-                  <h3>{f.t}</h3>
-                  <p>{f.d}</p>
-                  {f.ej && <span className="lp-ejemplo">{f.ej}</span>}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="servicio-tecnico" className="lp-banda">
-          <div className="lp-ancho lp-banda-grid">
+        <section id="como-funciona" className="mon-sec" style={{ paddingTop: 0 }}>
+          <div className="lp-ancho mon-dos">
             <div>
-              <h2 className="lp-h2">Si atendés equipos de varias instituciones, una sola cuenta alcanza.</h2>
-              <p className="lp-intro">Las empresas de servicio técnico ven el parque de todos sus clientes juntos, sin mezclar los datos de uno con los de otro.</p>
-              <ul>
-                <li><strong>Un panel con todos tus clientes</strong>Preventivos vencidos, órdenes abiertas y equipos fuera de servicio de cada institución, en una pantalla.</li>
-                <li><strong>Cada cliente ve solo lo suyo</strong>La clínica entra con su propia cuenta y consulta su inventario y su historial cuando quiera.</li>
-                <li><strong>Agenda de la semana armada</strong>El resumen diario te dice qué preventivos tocan y en qué institución, para planificar la ruta.</li>
-              </ul>
+              <span className="mon-num">01</span>
+              <h2 className="mon-h2">La etiqueta en el equipo hace el trabajo.</h2>
+              <p className="mon-p">Cada equipo lleva su QR. Quien lo escanea con la cámara del celular ve lo que le corresponde, sin instalar nada.</p>
+              <ol className="mon-pasos">
+                <li><div><strong>Enfermería escanea</strong><p>Ve el manual de usuario del modelo y reporta una falla en dos renglones, sin cuenta.</p></div><small>Paso 1</small></li>
+                <li><div><strong>Se abre la orden</strong><p>Queda asignada al proveedor del equipo y los técnicos reciben el aviso por email al instante.</p></div><small>Paso 2</small></li>
+                <li><div><strong>Queda en la hoja de vida</strong><p>El técnico escanea el mismo QR, ve el historial y cierra la orden con trabajo, repuestos y costo.</p></div><small>Paso 3</small></li>
+              </ol>
             </div>
-            <div className="lp-clientes" aria-label="Vista de ejemplo del panel de un servicio técnico">
-              <table>
-                <caption style={{ textAlign: "left", color: "#9cc3c6", fontSize: 13, paddingBottom: 10 }}>Vista de ejemplo</caption>
-                <thead><tr><th>Institución</th><th style={{ textAlign: "right" }}>Equipos</th><th style={{ textAlign: "right" }}>Vencidos</th></tr></thead>
-                <tbody>
-                  <tr><td>Clínica Norte</td><td className="n">142</td><td className="n lp-alerta">3</td></tr>
-                  <tr><td>Sanatorio Centro</td><td className="n">88</td><td className="n">0</td></tr>
-                  <tr><td>Instituto de Diálisis Sur</td><td className="n">36</td><td className="n lp-alerta">1</td></tr>
-                  <tr><td>Laboratorio Oeste</td><td className="n">19</td><td className="n">0</td></tr>
-                </tbody>
-              </table>
+            <div className="mon-tel" aria-label="Lo que ve en el celular quien escanea la etiqueta">
+              <div className="mon-tel-pantalla">
+                <div className="mon-tel-barra"><span>9:41</span><span>{MARCA}</span></div>
+                <div className="mon-tel-cuerpo">
+                  <span className="chip">INV-1041</span>
+                  <h3>Respirador</h3>
+                  <p className="sub">Equipo de ejemplo · UTI · Clínica del Centro</p>
+                  <span className="mon-estado">En servicio</span>
+                  <div className="mon-docs">
+                    <div>Manual de usuario <span>PDF ↗</span></div>
+                    <div>Guía rápida de alarmas <span>PDF ↗</span></div>
+                    <div>Próximo preventivo <span>en 34 días</span></div>
+                  </div>
+                  <div className="fondo" aria-hidden="true">{MARCA}</div>
+                </div>
+                <div className="mon-tel-accion">
+                  <div className="mini"><b>¿Algo no anda?</b>Avisá al equipo técnico</div>
+                  <span className="btn">Reportar falla</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="precios" className="lp-bloque">
+        <section id="funciones" className="mon-sec" style={{ background: "#fff" }}>
           <div className="lp-ancho">
-            <h2 className="lp-h2">Precios según el tamaño del parque.</h2>
-            <p className="lp-intro">Precios de lanzamiento. Los planes pagos se facturan en pesos al tipo de cambio del día. Se prueban gratis antes de pagar.</p>
-            <div className="lp-planes">
-              {PLANES.map((p) => (
-                <div className={p.dest ? "lp-plan destacado" : "lp-plan"} key={p.n}>
-                  <h3>{p.n}</h3>
-                  <p className="para">{p.para}</p>
-                  <p className="lp-precio">{p.p}{p.u && <><br /><small>{p.u}</small></>}</p>
-                  <ul>{p.items.map((i) => <li key={i}>{i}</li>)}</ul>
-                  <a className={p.dest ? "lp-boton lleno" : "lp-boton"} href={p.cta === "Crear cuenta gratis" || !wa ? "/login?modo=registro" : wa}>{p.cta}</a>
+            <span className="mon-num">02</span>
+            <h2 className="mon-h2">Lo que pide bioingeniería, sin planillas sueltas.</h2>
+            <p className="mon-p">Pensado por gente que hace servicio técnico de respiradores y equipos de laboratorio todos los días.</p>
+            <div className="mon-ingredientes">
+              {FUNCIONES.map((f, i) => (
+                <div key={f.t}>
+                  <h3>{f.t}</h3>
+                  <div><p>{f.d}</p>{f.ej && <span className="ej">{f.ej}</span>}</div>
+                  <small>{String(i + 1).padStart(2, "0")}</small>
                 </div>
               ))}
             </div>
-            <p className="lp-letra-chica">Carga inicial del inventario y etiquetado en la institución: se cotiza aparte según la cantidad de equipos.</p>
           </div>
         </section>
 
-        <section className="lp-bloque">
+        <section id="servicio-tecnico" className="mon-sec">
           <div className="lp-ancho">
-            <h2 className="lp-h2">Preguntas frecuentes</h2>
-            <div className="lp-faq">
+            <div className="mon-tarjeta">
+              <div>
+                <span className="mon-num" style={{ background: "#fff" }}>03</span>
+                <h2 className="mon-h2">Si atendés varias instituciones, una sola cuenta alcanza.</h2>
+                <p className="mon-p">Las empresas de servicio técnico ven el parque de todos sus clientes juntos, sin mezclar los datos de uno con los de otro.</p>
+                <ul>
+                  <li><b>Un panel con todos tus clientes</b>Vencidos, órdenes abiertas y equipos fuera de servicio de cada institución.</li>
+                  <li><b>Cada cliente ve solo lo suyo</b>La clínica entra con su cuenta y consulta su inventario y su historial.</li>
+                  <li><b>La semana armada</b>El resumen diario dice qué preventivos tocan y dónde, para planificar la ruta.</li>
+                </ul>
+              </div>
+              <div className="mon-tabla" aria-label="Vista de ejemplo del panel de un servicio técnico">
+                <table>
+                  <caption>Vista de ejemplo</caption>
+                  <thead><tr><th>Institución</th><th className="n">Equipos</th><th className="n">Vencidos</th></tr></thead>
+                  <tbody>
+                    <tr><td>Clínica Norte</td><td className="n">142</td><td className="n alerta">3</td></tr>
+                    <tr><td>Sanatorio Centro</td><td className="n">88</td><td className="n">0</td></tr>
+                    <tr><td>Instituto de Diálisis Sur</td><td className="n">36</td><td className="n alerta">1</td></tr>
+                    <tr><td>Laboratorio Oeste</td><td className="n">19</td><td className="n">0</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="precios" className="mon-oscuro">
+          <div className="lp-ancho">
+            <div className="mon-centro">
+              <span className="mon-pastilla">Precios</span>
+              <h2 className="mon-h2">Precios según el tamaño del parque.</h2>
+              <p className="mon-p">Precios de lanzamiento. Los planes pagos se facturan en pesos al tipo de cambio del día y se prueban gratis antes de pagar.</p>
+            </div>
+            <div className="mon-planes">
+              {PLANES.map((p) => (
+                <div className={p.dest ? "mon-plan dest" : "mon-plan"} key={p.n}>
+                  <div className="franja" style={{ background: p.color }} />
+                  <div className="cuerpo">
+                    <h3>{p.n}</h3>
+                    <p className="para">{p.para}</p>
+                    <p className="precio">{p.p}</p>
+                    <p className="u">{p.u}</p>
+                    <span className="tag">{p.tag}</span>
+                    <ul>{p.items.map((i) => <li key={i}>{i}</li>)}</ul>
+                    <a className="lp-boton" href={p.cta === "Crear cuenta gratis" || !wa ? "/login?modo=registro" : wa}>{p.cta}</a>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mon-letra">Carga inicial del inventario y etiquetado en la institución: se cotiza aparte según la cantidad de equipos.</p>
+
+            <div className="mon-faq">
+              <div className="mon-centro" style={{ marginBottom: 36 }}>
+                <span className="mon-pastilla">FAQ</span>
+                <h2 className="mon-h2" style={{ fontSize: "clamp(28px, 3.4vw, 40px)" }}>Preguntas frecuentes</h2>
+              </div>
               {PREGUNTAS.map((p) => (
                 <details key={p.q}><summary>{p.q}</summary><p>{p.a}</p></details>
               ))}
@@ -201,18 +231,28 @@ export default async function Presentacion() {
           </div>
         </section>
 
-        <section className="lp-cierre">
+        <section className="mon-cierre">
           <div className="lp-ancho">
-            <h2 className="lp-h2">Cargá tu primer equipo hoy y pegale su etiqueta mañana.</h2>
-            <div className="lp-ctas" style={{ marginTop: 24 }}>
+            <span className="mon-num">→</span>
+            <h2 className="mon-h2">Cargá tu primer equipo hoy y pegale su etiqueta mañana.</h2>
+            <div className="lp-ctas" style={{ marginTop: 28 }}>
               <a className="lp-boton lleno" href="/login?modo=registro">Crear cuenta gratis</a>
-              {wa && <a className="lp-boton" href={contacto}>Hablar por WhatsApp</a>}
+              {wa && <a className="lp-boton" href={wa}>Hablar por WhatsApp</a>}
             </div>
           </div>
         </section>
       </main>
 
-      <Pie />
+      <BarraFija despuesDe="hero">
+        <span className="mini-qr" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#141817" strokeWidth="1.8"><rect x="4" y="4" width="6" height="6" /><rect x="14" y="4" width="6" height="6" /><rect x="4" y="14" width="6" height="6" /><path d="M14 14h2v2h-2zM18 18h2v2h-2z" /></svg>
+        </span>
+        <span className="txt"><b>{MARCA}</b><span>Gratis hasta 50 equipos, sin tarjeta</span></span>
+        <a className="lp-boton" href={demo}>Demo</a>
+        <a className="lp-boton lleno" href="/login?modo=registro">Crear cuenta</a>
+      </BarraFija>
+
+      <Pie gigante={MARCA} />
     </div>
   );
 }

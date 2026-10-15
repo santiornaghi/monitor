@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cabecera, MenuCelular, Pie } from "@/components/sitio/Cabecera";
+import { Cabecera, Pie } from "@/components/sitio/Cabecera";
 import { AREAS, EQUIPOS, MARCAS, REACTIVOS, areaDe, filtrar } from "@/lib/catalogo";
 import { GRUPO } from "@/lib/marca";
 import "../sitio.css";
@@ -30,16 +30,19 @@ export default async function Catalogo({ searchParams }: { searchParams: Promise
   return (
     <div className="lp">
       <Cabecera actual="catalogo" />
-      <MenuCelular />
-      <main className="lp-ancho">
-        <h1 className="lp-h1" style={{ fontSize: "clamp(32px, 4.4vw, 48px)", margin: "16px 0 8px" }}>
-          {reactivos ? "Reactivos e insumos" : "Equipamiento médico y de laboratorio"}
-        </h1>
-        <p className="lp-bajada" style={{ marginBottom: 0 }}>
-          {reactivos
-            ? "Reactivos, controles y calibradores. Consultá disponibilidad y presentación."
-            : "Elegí el equipo y pedí la cotización. Consultá también por instalación, capacitación y plan de mantenimiento."}
-        </p>
+      <main>
+        <section className="lp-cab-pagina">
+          <div className="lp-ancho">
+            <span className="lp-chip">{reactivos ? "Laboratorio" : "Catálogo"}</span>
+            <h1 className="lp-h1">{reactivos ? "Reactivos e insumos" : "Equipamiento médico y de laboratorio"}</h1>
+            <p className="lp-bajada">
+              {reactivos
+                ? "Reactivos, controles y calibradores. Consultá disponibilidad y presentación."
+                : "Elegí el equipo y pedí la cotización. Consultá también por instalación, capacitación y plan de mantenimiento."}
+            </p>
+          </div>
+        </section>
+        <div className="lp-ancho">
         <div className="lp-cat">
           <aside className="lp-filtros" aria-label="Filtros">
             <div>
@@ -114,6 +117,7 @@ export default async function Catalogo({ searchParams }: { searchParams: Promise
             )}
             {lista.length === 0 && <p>No encontramos productos con ese filtro. <a href="/contacto">Contanos qué buscás</a> y lo conseguimos.</p>}
           </div>
+        </div>
         </div>
       </main>
       <Pie />

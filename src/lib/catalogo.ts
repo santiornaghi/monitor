@@ -1,4 +1,5 @@
 import datos from "@/data/catalogo.json";
+import { MODELOS } from "@/data/tecme";
 
 export type Producto = {
   slug: string;
@@ -25,7 +26,8 @@ export type Producto = {
   fabricante?: string;
 };
 
-export const PRODUCTOS = datos as unknown as Producto[];
+// Los equipos TECME usan las fotos oficiales por modelo
+export const PRODUCTOS = (datos as unknown as Producto[]).map((p) => (MODELOS[p.slug]?.foto ? { ...p, imagen: MODELOS[p.slug].foto! } : p));
 export const EQUIPOS = PRODUCTOS.filter((p) => p.tipo === "equipo");
 export const REACTIVOS = PRODUCTOS.filter((p) => p.tipo === "reactivo");
 

@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { Logo } from "@/components/Logo";
-import { numeroOT } from "@/lib/formato";
+import { ESTADOS, numeroOT } from "@/lib/formato";
+import "./qr.css";
 import { reportar } from "./actions";
 import { TIPOS_DOC, enlaces, type Doc } from "@/lib/documentos";
 
@@ -25,53 +26,61 @@ export default async function QR({ params, searchParams }: { params: Promise<{ t
   ]);
   const e = Array.isArray(data) ? data[0] : null;
   const docs = (await enlaces(supabase, (Array.isArray(docsData) ? docsData : []) as Doc[])).filter((d) => d.href);
+  const estado = e ? ESTADOS[e.estado] : null;
   const documentos = docs.length > 0 && (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-      <span className="eyebrow">Documentación</span>
+    <div className="qr-docs">
+      <h2>Documentación</h2>
       {docs.map((d, i) => (
-        <a key={i} className={i === 0 && d.tipo === "manual_usuario" ? "btn primary" : "btn"} style={{ justifyContent: "center" }} href={d.href!} target="_blank" rel="noopener noreferrer">
-          {d.nombre !== TIPOS_DOC[d.tipo] ? d.nombre : `Ver ${TIPOS_DOC[d.tipo].toLowerCase()}`}
+        <a key={i} href={d.href!} target="_blank" rel="noopener noreferrer">
+          {d.nombre !== TIPOS_DOC[d.tipo] ? d.nombre : TIPOS_DOC[d.tipo]}
+          <span>Abrir ↗</span>
         </a>
       ))}
     </div>
   );
 
   return (
-    <div className="auth">
-      <div className="card">
-        <div className="actions"><Logo size={24} /><span className="eyebrow">{e ? "Equipo" : "Reporte de falla"}</span></div>
-        {!e ? (
-          <p>Este código no corresponde a un equipo activo.</p>
-        ) : sp.ok ? (
-          <>
-            <h1 style={{ fontSize: 20 }}>Falla reportada</h1>
-            <div className="notice">Se abrió la orden {numeroOT(Number(sp.ok))}. El equipo de mantenimiento ya la ve en su lista.</div>
-            <p className="muted" style={{ margin: 0 }}>{e.tipo} · {e.marca} {e.modelo} · {e.servicio}</p>
-            {documentos}
-          </>
-        ) : (
-          <form action={reportar} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            <input type="hidden" name="token" value={token} />
-            <div>
-              <h1 style={{ fontSize: 20 }}>{e.tipo}</h1>
-              <div className="muted">{e.marca} {e.modelo} · {e.servicio} · {e.institucion}</div>
-            </div>
-            {documentos}
-            {sp.error && <div className="error">{sp.error}</div>}
-            <span className="eyebrow" style={{ marginTop: 4 }}>Reportar una falla</span>
-            <label className="muted" style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 12.5 }}>
-              Qué pasa con el equipo
-              <textarea id="descripcion" name="descripcion" rows={4} required minLength={5} maxLength={1000} placeholder="Ej.: suena una alarma de batería aunque está enchufado" />
-            </label>
-            <label className="muted" style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 12.5 }}>
-              Tu nombre y servicio (opcional)
-              <input id="reporta" name="reporta" maxLength={120} placeholder="Enf. Lucía Ferreyra, UTI" />
-            </label>
-            <button className="btn primary" style={{ justifyContent: "center" }}>Enviar reporte</button>
-            <p className="sub" style={{ margin: 0 }}>Si el equipo representa un riesgo para el paciente, dejá de usarlo y avisá también por los canales habituales.</p>
-          </form>
-        )}
-      </div>
+    <div className="qrp">
+      <header className="qr-top"><Logo size={22} /><span>{e ? "Equipo" : "Monitor"}</span></header>
+      {!e ? (
+        <main className="qr-cuerpo"><h1>Código no válido</h1><p className="qr-sub">Este código no corresponde a un equipo activo.</p></main>
+      ) : (
+        <main className="qr-cuerpo">
+          <div className="qr-marca" aria-hidden="true">{e.marca}</div>
+          <p className="qr-servicio">{e.servicio} · {e.institucion}</p>
+          <h1>{e.tipo}</h1>
+          <p className="qr-sub">{e.marca} {e.modelo}</p>
+          {estado && <span className={`qr-estado ${e.estado}`}>{estado.label}</span>}
+
+          {sp.ok ? (
+            <div className="qr-ok"><strong>Falla reportada.</strong> Se abrió la orden {numeroOT(Number(sp.ok))}. El equipo de mantenimiento ya la ve en su lista.</div>
+          ) : null}
+
+          {documentos}
+
+          {!sp.ok && (
+            <form id="reportar" action={reportar} className="qr-form">
+              <input type="hidden" name="token" value={token} />
+              <h2>Reportar una falla</h2>
+              {sp.error && <div className="qr-error">{sp.error}</div>}
+              <label>Qué pasa con el equipo
+                <textarea id="descripcion" name="descripcion" rows={4} required minLength={5} maxLength={1000} placeholder="Ej.: suena una alarma de batería aunque está enchufado" />
+              </label>
+              <label>Tu nombre y servicio (opcional)
+                <input id="reporta" name="reporta" maxLength={120} placeholder="Enf. Lucía Ferreyra, UTI" />
+              </label>
+              <button className="qr-boton">Enviar reporte</button>
+              <p className="qr-aviso">Si el equipo representa un riesgo para el paciente, dejá de usarlo y avisá también por los canales habituales.</p>
+            </form>
+          )}
+        </main>
+      )}
+      {e && !sp.ok && (
+        <div className="qr-barra">
+          <div><b>¿Algo no anda?</b>Avisá al equipo técnico</div>
+          <a href="#reportar">Reportar falla</a>
+        </div>
+      )}
     </div>
   );
 }

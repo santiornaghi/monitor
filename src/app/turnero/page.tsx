@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Cabecera, MenuCelular, Pie } from "@/components/sitio/Cabecera";
+import { Cabecera, Pie } from "@/components/sitio/Cabecera";
 import { GRUPO, TURNERO } from "@/lib/marca";
+import { Cabeza, Chip } from "@/components/sitio/Bloques";
 import "../sitio.css";
 
 export const metadata: Metadata = {
@@ -26,37 +27,44 @@ export default function Turnero() {
   return (
     <div className="lp">
       <Cabecera actual="turnero" />
-      <MenuCelular />
       <main>
-        <section className="lp-ancho lp-hero" style={{ gridTemplateColumns: "minmax(0, 0.9fr) minmax(0, 1.1fr)" }}>
-          <div>
-            <h1 className="lp-h1" style={{ fontSize: "clamp(36px, 5vw, 58px)" }}>Menos ausentes, la sala de espera ordenada.</h1>
-            <p className="lp-bajada">
-              {TURNERO} organiza los turnos de consultorios y clínicas: agenda por profesional, turnos online, recordatorios por WhatsApp,
-              sala de espera e historia clínica, en una sola herramienta.
-            </p>
-            <div className="lp-ctas">
-              {DEMO && <a className="lp-boton lleno" href={`${DEMO}/p/demo`}>Probar el portal de turnos</a>}
-              <a className={DEMO ? "lp-boton" : "lp-boton lleno"} href={`/contacto?interes=${encodeURIComponent(TURNERO)}`}>Quiero usarlo en mi institución</a>
+        <section className="lp-hero">
+          <div className="lp-ancho" style={{ gridTemplateColumns: "minmax(0, .9fr) minmax(0, 1.1fr)" }}>
+            <div className="lp-hero-texto">
+              <Chip>Gestión de turnos</Chip>
+              <h1 className="lp-h1">Menos ausentes, la sala de espera ordenada.</h1>
+              <p className="lp-bajada">
+                {TURNERO} organiza los turnos de consultorios y clínicas: agenda por profesional, turnos online, recordatorios por WhatsApp,
+                sala de espera e historia clínica, en una sola herramienta.
+              </p>
+              <div className="lp-ctas">
+                {DEMO && <a className="lp-boton lleno" href={`${DEMO}/p/demo`}>Probar el portal de turnos</a>}
+                <a className={DEMO ? "lp-boton" : "lp-boton lleno"} href={`/contacto?interes=${encodeURIComponent(TURNERO)}`}>Quiero usarlo en mi institución</a>
+              </div>
+              {DEMO && <p className="lp-nota">La demo puede tardar hasta un minuto en abrir la primera vez.</p>}
+            </div>
+            <div className="lp-hero-foto" style={{ alignSelf: "center", paddingBlock: 48 }}>
+              <img className="lp-captura" src="/img/turnero/agenda.webp" alt="Agenda del día con los turnos de tres profesionales" style={{ maxHeight: "none" }} />
             </div>
           </div>
-          <img src="/img/turnero/agenda.webp" alt="Agenda del día con los turnos de tres profesionales" style={{ width: "100%", borderRadius: 10, border: "1px solid var(--lp-linea)", boxShadow: "0 18px 40px -24px rgba(7,63,70,.45)" }} />
         </section>
 
-        <section className="lp-bloque">
+        <section className="lp-sec">
           <div className="lp-ancho">
-            <h2 className="lp-h2">Todo el recorrido del paciente, del turno a la historia clínica.</h2>
-            <div className="lp-funciones" style={{ marginTop: 32 }}>
-              {FUNCIONES.map((f) => <div className="lp-funcion" key={f.t}><h3>{f.t}</h3><p>{f.d}</p></div>)}
+            <Cabeza chip="Funciones" titulo="Todo el recorrido del paciente, del turno a la historia clínica" />
+            <div className="lp-modulos" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))" }}>
+              {FUNCIONES.map((f) => <div key={f.t}><h3>{f.t}</h3><p>{f.d}</p></div>)}
             </div>
           </div>
         </section>
 
-        <section className="lp-banda">
-          <div className="lp-ancho lp-banda-grid" style={{ alignItems: "center" }}>
+        <section className="lp-sec hondo">
+          <div className="lp-ancho lp-dos" style={{ alignItems: "center" }}>
             <div>
+              <Chip claro>Portal de pacientes</Chip>
               <h2 className="lp-h2">El paciente saca el turno solo, a cualquier hora.</h2>
-              <p className="lp-intro">Con el portal de la institución, el paciente reserva desde el celular y recibe un código para consultar o cancelar. Un día antes le llega el recordatorio por WhatsApp.</p>
+              <p className="lp-intro" style={{ marginBottom: 28 }}>Con el portal de la institución, el paciente reserva desde el celular y recibe un código para consultar o cancelar. Un día antes le llega el recordatorio por WhatsApp.</p>
+              {DEMO && <a className="lp-boton blanco" href={`${DEMO}/p/demo`}>Probar el portal</a>}
             </div>
             <img src="/img/turnero/portal.webp" alt="Confirmación de un turno en el portal de pacientes" style={{ width: "100%", maxWidth: 420, borderRadius: 10, justifySelf: "center" }} />
           </div>
@@ -65,10 +73,7 @@ export default function Turnero() {
         <section className="lp-cierre">
           <div className="lp-ancho">
             <h2 className="lp-h2">Estamos sumando las primeras instituciones.</h2>
-            <p className="lp-intro">Contanos cuántos profesionales y sedes tenés y te mostramos {TURNERO} con tu agenda.</p>
-            <div className="lp-ctas">
-              <a className="lp-boton lleno" href={`/contacto?interes=${encodeURIComponent(TURNERO)}`}>Pedir una demostración</a>
-            </div>
+            <a className="lp-boton blanco" href={`/contacto?interes=${encodeURIComponent(TURNERO)}`}>Pedir una demostración</a>
           </div>
         </section>
       </main>

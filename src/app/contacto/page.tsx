@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Cabecera, MenuCelular, Pie } from "@/components/sitio/Cabecera";
+import { Cabecera, Pie } from "@/components/sitio/Cabecera";
 import { GRUPO, MARCA, TURNERO, enlaceWhatsApp } from "@/lib/marca";
 import { enviarConsulta } from "./actions";
+import { Icono } from "@/components/sitio/Bloques";
 import "../sitio.css";
 
 export const metadata: Metadata = { title: { absolute: `Contacto y cotizaciones | ${GRUPO}` } };
@@ -13,10 +14,21 @@ export default async function Contacto({ searchParams }: { searchParams: Promise
   return (
     <div className="lp">
       <Cabecera actual="contacto" />
-      <MenuCelular />
-      <main className="lp-ancho" style={{ paddingBlock: "24px 80px" }}>
-        <h1 className="lp-h1" style={{ fontSize: "clamp(32px, 4.4vw, 48px)", margin: "16px 0 10px" }}>Contanos qué necesitás.</h1>
-        <p className="lp-bajada">Te respondemos con una propuesta concreta para lo que necesitás.</p>
+      <main>
+        <section className="lp-cab-pagina">
+          <div className="lp-ancho">
+            <span className="lp-chip">Contacto</span>
+            <h1 className="lp-h1">Contanos qué necesitás.</h1>
+            <p className="lp-bajada">Te respondemos con una propuesta concreta: equipo, instalación, capacitación y mantenimiento.</p>
+          </div>
+        </section>
+        <div className="lp-ancho lp-contacto">
+          <ul className="lp-canales">
+            {wa && <li><Icono nombre="chat" solo /><a href={wa}>WhatsApp<span>Respuesta en el día</span></a></li>}
+            <li><Icono nombre="documento" solo /><a href="mailto:santiornaghi@gmail.com">Email<span>santiornaghi@gmail.com</span></a></li>
+            <li><Icono nombre="camion" solo /><span style={{ fontWeight: 600, color: "var(--az-hondo)" }}>Todo el país<span>Base en Río Cuarto, Córdoba</span></span></li>
+          </ul>
+          <div>
         {sp.ok ? (
           <div className="lp-ok"><strong>Recibimos tu consulta.</strong> Te respondemos a la brevedad por el medio que nos dejaste.</div>
         ) : (
@@ -45,6 +57,8 @@ export default async function Contacto({ searchParams }: { searchParams: Promise
             </div>
           </form>
         )}
+          </div>
+        </div>
       </main>
       <Pie />
     </div>
