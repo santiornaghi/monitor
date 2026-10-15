@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 // Dirección de la demo pública, cuando esté publicada (ver turnero/deploy/RENDER.md)
-const DEMO = process.env.NEXT_PUBLIC_TURNERO_DEMO ?? "";
+const DEMO = process.env.NEXT_PUBLIC_TURNERO_DEMO ?? "https://turnero-wpbw.onrender.com";
 
 const FUNCIONES = [
   { t: "Agenda por profesional y por sede", d: "Cada profesional con sus días, horarios y duración de turno. La recepción ve todas las agendas juntas y nunca se pueden dar dos turnos en el mismo horario, aunque dos personas lo intenten a la vez." },
