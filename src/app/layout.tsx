@@ -1,9 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { baseURL } from "@/lib/qr";
 
 export const metadata: Metadata = {
   title: { default: "QR · NAYA LAB", template: "%s · QR" },
-  description: "Inventario, mantenimiento y hoja de vida de equipos médicos.",
+  description: "Equipamiento médico, mantenimiento con etiqueta QR y gestión de turnos para instituciones de salud.",
+  metadataBase: new URL(baseURL()),
+  applicationName: "NAYA LAB",
+  openGraph: {
+    siteName: "NAYA LAB",
+    locale: "es_AR",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "NAYA LAB: Equipos, QR y Turnero" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#0b6e79" };

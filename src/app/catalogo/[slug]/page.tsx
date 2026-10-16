@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: { absolute: `${p.marca} ${p.nombre} | ${GRUPO}` },
     description: p.descripcion || `${p.nombre} de ${p.marca}, ${p.subcategoria || p.categoria}. Pedí tu cotización.`,
-    openGraph: p.imagen ? { images: [p.imagen] } : undefined,
+    openGraph: { siteName: "NAYA LAB", locale: "es_AR", images: [p.imagen || "/og.png"] },
   };
 }
 

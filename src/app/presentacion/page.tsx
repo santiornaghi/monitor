@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     description: "Inventario con QR, hoja de vida, preventivos, órdenes de trabajo y repuestos para equipos médicos de cualquier marca.",
     locale: "es_AR",
     type: "website",
+    siteName: "NAYA LAB",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
 };
 

@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { SUPABASE_URL, SUPABASE_KEY } from "./clave";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PUBLICAS = ["/login", "/auth", "/q/", "/invitacion/", "/api/cron/", "/presentacion", "/inicio", "/catalogo", "/turnero", "/contacto", "/img/"];
+const PUBLICAS = ["/login", "/auth", "/q/", "/invitacion/", "/api/cron/", "/presentacion", "/inicio", "/catalogo", "/turnero", "/contacto", "/img/", "/robots.txt", "/sitemap.xml"];
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
