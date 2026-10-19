@@ -48,3 +48,14 @@ export async function salir() {
   await supabase.auth.signOut();
   redirect("/login");
 }
+
+/** Pide el enlace para elegir una contraseña nueva. Siempre responde lo mismo, exista o no la cuenta. */
+export async function recuperar(formData: FormData) {
+  const supabase = await createClient();
+  const origin = (await headers()).get("origin") ?? baseURL();
+  const email = String(formData.get("email") ?? "").trim();
+  if (email) {
+    await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${origin}/auth/confirm?next=${encodeURIComponent("/cuenta/clave")}` });
+  }
+  redirect("/login?aviso=" + encodeURIComponent("Si el email tiene una cuenta, te llega un enlace para elegir una contraseña nueva. Revisá también la carpeta de spam."));
+}

@@ -1,4 +1,4 @@
-import { ingresar, registrarse } from "./actions";
+import { ingresar, recuperar, registrarse } from "./actions";
 import { Logo } from "@/components/Logo";
 
 export const metadata = { title: "Ingresar" };
@@ -6,8 +6,24 @@ export const metadata = { title: "Ingresar" };
 export default async function Login({ searchParams }: { searchParams: Promise<{ error?: string; aviso?: string; modo?: string; next?: string }> }) {
   const sp = await searchParams;
   const registro = sp.modo === "registro";
+  const recupera = sp.modo === "recuperar";
   const next = sp.next?.startsWith("/") && !sp.next.startsWith("//") ? sp.next : "";
   const q = next ? `next=${encodeURIComponent(next)}` : "";
+  if (recupera) {
+    return (
+      <div className="auth">
+        <form className="card" action={recuperar}>
+          <div className="actions"><Logo size={28} /><h1>Recuperar contraseña</h1></div>
+          <p className="muted" style={{ margin: 0 }}>Escribí el email de tu cuenta y te mandamos un enlace para elegir una contraseña nueva.</p>
+          <div className="form">
+            <label className="full">Email<input id="email" name="email" type="email" required autoComplete="email" /></label>
+          </div>
+          <button className="btn primary" style={{ justifyContent: "center" }}>Enviar enlace</button>
+          <a className="btn link" href="/login">Volver a ingresar</a>
+        </form>
+      </div>
+    );
+  }
   return (
     <div className="auth">
       <form className="card" action={registro ? registrarse : ingresar}>
@@ -23,6 +39,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
           <label className="full">Contraseña<input id="password" name="password" type="password" required minLength={registro ? 8 : undefined} autoComplete={registro ? "new-password" : "current-password"} /></label>
         </div>
         <button className="btn primary" style={{ justifyContent: "center" }}>{registro ? "Crear cuenta" : "Ingresar"}</button>
+        {!registro && <a className="btn link" href="/login?modo=recuperar">¿Olvidaste tu contraseña?</a>}
         <a className="btn link" href="/presentacion">Conocé qué hace la app</a>
         <a className="btn link" href={registro ? `/login${q ? "?" + q : ""}` : `/login?modo=registro${q ? "&" + q : ""}`}>
           {registro ? "Ya tengo cuenta" : "Crear una cuenta nueva"}

@@ -23,6 +23,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           {proveedorPropio && <Link href="/clientes" className="btn sm">Clientes de {proveedorPropio.nombre}</Link>}
           {esAdmin && <Link href="/usuarios" className="btn sm">Usuarios</Link>}
           <span>{nombreUsuario}</span>
+          <Link href="/cuenta/clave" className="btn sm">Cambiar contraseña</Link>
           <form action={salir}><button className="btn sm">Salir</button></form>
         </div>
       </nav>
